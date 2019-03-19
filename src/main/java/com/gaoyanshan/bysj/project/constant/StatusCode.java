@@ -18,6 +18,18 @@ public class StatusCode {
 
     public static final int INVOKE_THIRDPARTY_ERROR = 204;
 
-    public static final  int EXCEPTION = 1001;
+
+
+    public static final int UN_LOGIN = 1000;
+
+    public static final int UNAUTH = 1001; //未登录或者token过期
+
+    public static final int ACCOUNT_ERROR = 1002;//账号不存在
+
+    public static final int PASSWORD_ERROR = 1003;//密码错误
+
+    public static final  int EXCEPTION = 1004;
+
+
 
 }

@@ -1,6 +1,7 @@
 package com.gaoyanshan.bysj.project.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +14,13 @@ import java.util.List;
 
 @Entity
 @Table(name = "user")
-public class User {
-
+public class User implements Serializable{
+    private static final long serialVersionUID = -1946184199704372786L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
-    private String mail;
+    private String email;
     @Column
     private String password;
     @Column
@@ -38,12 +39,12 @@ public class User {
         this.id = id;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -76,5 +77,22 @@ public class User {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public String   getAuthCacheKey(){
+
+        return this.email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", mail='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", valid=" + valid +
+                ", roles=" + roles +
+                '}';
     }
 }

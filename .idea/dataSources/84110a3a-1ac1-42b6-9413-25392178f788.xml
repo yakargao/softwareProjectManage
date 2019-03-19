@@ -42,77 +42,91 @@
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <key id="14" parent="8" name="PRIMARY">
+    <index id="14" parent="8" name="FKrvhjnns4bvlh4m1n97vb7vbar">
+      <ColNames>role_id</ColNames>
+    </index>
+    <key id="15" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="15" parent="9" name="id">
+    <foreign-key id="16" parent="8" name="FKrvhjnns4bvlh4m1n97vb7vbar">
+      <ColNames>role_id</ColNames>
+      <RefSchemaName>software_pms</RefSchemaName>
+      <RefTableName>role</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="17" parent="9" name="id">
       <Position>1</Position>
       <Comment>id</Comment>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="16" parent="9" name="role_name_en">
+    <column id="18" parent="9" name="role_name_en">
       <Position>2</Position>
       <Comment>角色名称（英文）</Comment>
       <DataType>varchar(40)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="17" parent="9" name="role_name_zh">
+    <column id="19" parent="9" name="role_name_zh">
       <Position>3</Position>
       <Comment>角色名称（中文）</Comment>
       <DataType>varchar(40)|0</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <DefaultExpression>&apos;普通用户&apos;</DefaultExpression>
     </column>
-    <column id="18" parent="9" name="user_id">
+    <column id="20" parent="9" name="user_id">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <key id="19" parent="9" name="PRIMARY">
+    <index id="21" parent="9" name="FK61g3ambult7v7nh59xirgd9nf">
+      <ColNames>user_id</ColNames>
+    </index>
+    <key id="22" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="20" parent="10" name="id">
+    <foreign-key id="23" parent="9" name="FK61g3ambult7v7nh59xirgd9nf">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>software_pms</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="24" parent="10" name="id">
       <Position>1</Position>
       <Comment>id</Comment>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="21" parent="10" name="mail">
+    <column id="25" parent="10" name="email">
       <Position>2</Position>
-      <Comment>邮箱</Comment>
       <DataType>varchar(40)|0</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="22" parent="10" name="password">
+    <column id="26" parent="10" name="password">
       <Position>3</Position>
       <Comment>密码</Comment>
       <DataType>varchar(40)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="23" parent="10" name="name">
+    <column id="27" parent="10" name="name">
       <Position>4</Position>
       <Comment>姓名</Comment>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="24" parent="10" name="vaild">
+    <column id="28" parent="10" name="valid">
       <Position>5</Position>
       <Comment>有效性</Comment>
       <DataType>tinyint(4)|0</DataType>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <key id="25" parent="10" name="PRIMARY">
+    <key id="29" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

@@ -4,6 +4,8 @@ import com.gaoyanshan.bysj.project.entity.Permission;
 import com.gaoyanshan.bysj.project.entity.Role;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.repository.UserRepository;
+import org.apache.shiro.crypto.hash.SimpleHash;
+import org.apache.shiro.util.ByteSource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -29,7 +31,7 @@ public class ApplicationTest {
     public void testJpa(){
 
         User user = new User();
-        user.setMail("1112d352@qq.com");
+        user.setEmail("1112dsssa352@qq.com");
         user.setPassword("1234");
         user.setName("gaoyanshan");
         user.setValid(1);
@@ -44,13 +46,10 @@ public class ApplicationTest {
         role.getPermissions().add(permission);
         user.getRoles().add(role);
 
-        userRepository.save(user);
 
     }
     @Test
     public void testFind(){
-        log.debug("------->",userRepository.findAll().size());
 
-        System.out.println("------->"+userRepository.findAll().size());
     }
 }
