@@ -1,6 +1,8 @@
 package com.gaoyanshan.bysj.project.controller;
 
+import com.gaoyanshan.bysj.project.constant.Constant;
 import com.gaoyanshan.bysj.project.constant.StatusCode;
+import com.gaoyanshan.bysj.project.dto.UserDTO;
 import com.gaoyanshan.bysj.project.entity.Role;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.response.Response;
@@ -8,14 +10,19 @@ import com.gaoyanshan.bysj.project.service.RoleService;
 import com.gaoyanshan.bysj.project.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
 import org.hibernate.CallbackException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -46,9 +53,48 @@ public class UserController {
 
     @RequiresAuthentication
     @GetMapping("/info")
-    public Response getUserInfo(){
+    public Response getUserInfo() throws Exception {
         Subject subject = SecurityUtils.getSubject();
-        return Response.success(subject.getPrincipal());
+        User user = null;
+        try {
+            user = (User) subject.getPrincipal();
+        }catch (Exception e){
+            throw new Exception("user类型转化异常");
+        }
+        //返回体
+        Map<String,Object> resMap = new HashMap<>();
+        resMap.put("email",user.getEmail());
+        resMap.put("name",user.getName());
+        List<String> roles = new ArrayList<>();
+        for (Role role : user.getRoles()){
+            if (role.getDeleted() == Constant.DB_UNDELETED){
+                roles.add(role.getRoleNameEn());
+            }
+        }
+        resMap.put("roles",roles);
+        return Response.success(resMap);
+    }
+
+    @RequiresRoles(value = {"admin"})
+    @DeleteMapping("/{id}")
+    public Response deleteUser(@PathVariable("id") int id){
+        return Response.success(userService.deleteUser(id));
+    }
+
+    @RequiresAuthentication
+    @PutMapping("/{id}")
+    public Response update(@RequestBody UserDTO userDTO){
+        if (userService.updateUser(userDTO) == true ){
+            Subject subject = SecurityUtils.getSubject();
+            User user = (User)subject.getPrincipal();
+            //当前用户更新了资料，执行登出
+            if (user.getEmail().equals(userDTO.getEmail())){
+                subject.logout();
+            }
+            return Response.success("true");
+        }else {
+            throw new EmptyResultDataAccessException(userDTO.getId());
+        }
     }
 
 }

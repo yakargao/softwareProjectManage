@@ -28,7 +28,9 @@ public class StatusCode {
 
     public static final int PASSWORD_ERROR = 1003;//密码错误
 
-    public static final  int EXCEPTION = 1004;
+    public static final int EMPTY_RESULT = 1004;//资源不存在
+
+    public static final  int EXCEPTION = 1005;
 
 
 

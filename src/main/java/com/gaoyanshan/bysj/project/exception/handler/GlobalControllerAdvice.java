@@ -7,6 +7,7 @@ import com.sun.org.apache.regexp.internal.RE;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authz.UnauthenticatedException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import sun.awt.SunHints;
@@ -60,6 +61,10 @@ public class GlobalControllerAdvice {
         return Response.error(StatusCode.UNAUTH,ue.getMessage());
     }
 
+    @ExceptionHandler(value = EmptyResultDataAccessException.class)
+    public Response handleEmptyResultDataAccessException(EmptyResultDataAccessException e){
+        return Response.error(StatusCode.EMPTY_RESULT,"资源不存在");
+    }
 
     @ExceptionHandler(value = RuntimeException.class)
     public Response handlerSystemException(RuntimeException e){

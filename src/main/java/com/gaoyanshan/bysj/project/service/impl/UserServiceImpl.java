@@ -1,6 +1,8 @@
 package com.gaoyanshan.bysj.project.service.impl;
 
+import com.gaoyanshan.bysj.project.constant.RolesEnToZh;
 import com.gaoyanshan.bysj.project.constant.StatusCode;
+import com.gaoyanshan.bysj.project.dto.UserDTO;
 import com.gaoyanshan.bysj.project.entity.Role;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.exception.SystemException;
@@ -11,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
 import java.util.Map;
@@ -30,6 +33,11 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * 新增用户
+     * @param map
+     * @return
+     */
     @Override
     public User addUser(Map<String, String> map) {
         String email = map.get("email");
@@ -62,4 +70,35 @@ public class UserServiceImpl implements UserService {
 
         return newUser;
     }
+
+    /**
+     * 删除用户
+     * @param id
+     */
+    @Transactional
+    @Override
+    public boolean deleteUser(int id) {
+        userRepository.deleteById(id);
+       return true;
+    }
+
+    /**
+     * 更新用户
+     * @param userDTO
+     */
+    @Transactional
+    @Override
+    public boolean updateUser(UserDTO userDTO) {
+        User user = new User();
+        user.setId(userDTO.getId());
+        user.setPassword(Md5Util.passwordToHash(userDTO.getEmail(),userDTO.getPassword()));
+        user.setName(user.getName());
+        for (String roleName : userDTO.getRoles()){
+            Role role = new Role(roleName, RolesEnToZh.ROLES.get(roleName));
+            user.getRoles().add(role);
+        }
+        userRepository.save(user);
+        return true;
+    }
+
 }

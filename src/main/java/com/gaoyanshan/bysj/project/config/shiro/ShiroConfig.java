@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.apache.shiro.mgt.SecurityManager;
+
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -113,6 +115,8 @@ public class ShiroConfig {
         securityManager.setSessionManager(sessionManager());
         // 自定义缓存实现 使用redis
         securityManager.setCacheManager(cacheManager());
+        //设置记住我
+        //securityManager.setRememberMeManager(rememberMeManager());
         return securityManager;
     }
 
@@ -135,7 +139,6 @@ public class ShiroConfig {
         RedisManager redisManager = new RedisManager();
         redisManager.setHost(host);
         redisManager.setPort(port);
-        //redisManager.setExpire(1800);// 配置缓存过期时间
         redisManager.setTimeout(timeout);
         redisManager.setPassword(password);
         return redisManager;
@@ -160,7 +163,7 @@ public class ShiroConfig {
     public RedisSessionDAO redisSessionDAO() {
         RedisSessionDAO redisSessionDAO = new RedisSessionDAO();
         redisSessionDAO.setRedisManager(redisManager());
-        redisSessionDAO.setExpire(300); //设置登录时间为30分钟
+        redisSessionDAO.setExpire(3000); //设置登录时间为30分钟
         return redisSessionDAO;
     }
 

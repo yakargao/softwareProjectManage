@@ -1,12 +1,16 @@
 package com.gaoyanshan.bysj.project.controller;
 
 import com.gaoyanshan.bysj.project.constant.StatusCode;
+import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.response.Response;
+import org.apache.catalina.security.SecurityUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.subject.Subject;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -20,7 +24,11 @@ import java.util.Map;
 public class SystemController {
 
 
-
+    /**
+     * 登录接口，无需权限
+     * @param map
+     * @return
+     */
     @PostMapping("/login")
     public Response login(@RequestBody Map<String,String> map){
         String userEmail = map.get("email");
@@ -30,7 +38,21 @@ public class SystemController {
         if (!subject.isAuthenticated()){
             subject.login(token);
         }
-        return Response.success(subject.getSession().getId());
+        Map<String,Object> resMap = new HashMap<>();
+        resMap.put("token",subject.getSession().getId());
+        return Response.success(resMap);
+    }
+
+    /**
+     * 登出接口，需要验证是否登录
+     * @return
+     */
+    @RequiresAuthentication
+    @GetMapping("/logout")
+    public Response logout(){
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        return Response.success("ok");
     }
 
     @GetMapping("/unauth")

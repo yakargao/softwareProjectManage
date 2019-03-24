@@ -3,6 +3,8 @@ package com.gaoyanshan.bysj.project;
 import com.gaoyanshan.bysj.project.entity.Permission;
 import com.gaoyanshan.bysj.project.entity.Role;
 import com.gaoyanshan.bysj.project.entity.User;
+import com.gaoyanshan.bysj.project.entity.UserProject;
+import com.gaoyanshan.bysj.project.repository.UserProjectRepository;
 import com.gaoyanshan.bysj.project.repository.UserRepository;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
@@ -26,26 +28,16 @@ public class ApplicationTest {
     }
 
     @Autowired
-    private UserRepository userRepository;
+    private UserProjectRepository userProjectRepository;
     @Test
     public void testJpa(){
 
         User user = new User();
-        user.setEmail("1112dsssa352@qq.com");
-        user.setPassword("1234");
-        user.setName("gaoyanshan");
-        user.setValid(1);
-        Role role = new Role();
-        role.setRoleNameEn("admin");
-        role.setRoleNameZh("管理员");
-        role.setUser(user);
-        Permission permission = new Permission();
-        permission.setPermission("/*");
-        permission.setRole(role);
-
-        role.getPermissions().add(permission);
-        user.getRoles().add(role);
-
+        user.setEmail("10553099@qq.com");
+        UserProject userProject = new UserProject();
+        userProject.setUser(user);
+        userProject.setId(31);
+        System.out.println(userProjectRepository.findAllByUser(31));
 
     }
     @Test

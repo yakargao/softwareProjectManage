@@ -1,5 +1,7 @@
 package com.gaoyanshan.bysj.project.config.shiro;
 
+import org.apache.shiro.session.Session;
+import org.apache.shiro.session.mgt.SessionContext;
 import org.apache.shiro.web.servlet.ShiroHttpServletRequest;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.apache.shiro.web.util.WebUtils;
@@ -41,5 +43,8 @@ public class SpmsSessionManager extends DefaultWebSessionManager {
         //否则按默认规则从cookie取sessionId
         return super.getSessionId(request, response);
     }
+
+
+
 
 }

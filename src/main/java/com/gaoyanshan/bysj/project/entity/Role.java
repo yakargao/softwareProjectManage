@@ -1,6 +1,7 @@
 package com.gaoyanshan.bysj.project.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +14,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "role")
-public class Role {
+public class Role implements Serializable{
 
+    private static final long serialVersionUID = -5780572095080920331L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -25,20 +27,21 @@ public class Role {
     @Column
     private String roleNameZh;
 
+    @Column
+    private int deleted;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private User user;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "role")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "role",fetch = FetchType.EAGER)
     private List<Permission> permissions = new ArrayList<>();
 
     public Role() {
     }
 
-    public Role(String roleNameEn, String roleNameZh, User user, List<Permission> permissions) {
+    public Role(String roleNameEn, String roleNameZh) {
         this.roleNameEn = roleNameEn;
         this.roleNameZh = roleNameZh;
-        this.user = user;
-        this.permissions = permissions;
     }
 
     public int getId() {
@@ -63,6 +66,14 @@ public class Role {
 
     public void setRoleNameZh(String roleNameZh) {
         this.roleNameZh = roleNameZh;
+    }
+
+    public int getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(int deleted) {
+        this.deleted = deleted;
     }
 
     public User getUser() {

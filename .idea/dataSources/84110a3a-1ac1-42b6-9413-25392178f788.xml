@@ -14,13 +14,19 @@
     <table id="8" parent="2" name="permission">
       <Comment>the permmission table for spms</Comment>
     </table>
-    <table id="9" parent="2" name="role">
+    <table id="9" parent="2" name="project">
+      <Comment>项目表</Comment>
+    </table>
+    <table id="10" parent="2" name="role">
       <Comment>role table for smps</Comment>
     </table>
-    <table id="10" parent="2" name="user">
+    <table id="11" parent="2" name="user">
       <Comment>user table for spms</Comment>
     </table>
-    <column id="11" parent="8" name="id">
+    <table id="12" parent="2" name="user_project">
+      <Comment>用户项目表</Comment>
+    </table>
+    <column id="13" parent="8" name="id">
       <Position>1</Position>
       <Comment>id
 </Comment>
@@ -28,105 +34,192 @@
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="12" parent="8" name="role_id">
+    <column id="14" parent="8" name="role_id">
       <Position>2</Position>
       <Comment>角色ID
 </Comment>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="13" parent="8" name="permission">
+    <column id="15" parent="8" name="permission">
       <Position>3</Position>
       <Comment>角色的权限</Comment>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <index id="14" parent="8" name="FKrvhjnns4bvlh4m1n97vb7vbar">
+    <index id="16" parent="8" name="FKrvhjnns4bvlh4m1n97vb7vbar">
       <ColNames>role_id</ColNames>
     </index>
-    <key id="15" parent="8" name="PRIMARY">
+    <key id="17" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="16" parent="8" name="FKrvhjnns4bvlh4m1n97vb7vbar">
+    <foreign-key id="18" parent="8" name="FKrvhjnns4bvlh4m1n97vb7vbar">
       <ColNames>role_id</ColNames>
       <RefSchemaName>software_pms</RefSchemaName>
       <RefTableName>role</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="17" parent="9" name="id">
+    <column id="19" parent="9" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="20" parent="9" name="title">
+      <Position>2</Position>
+      <Comment>项目名称</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="21" parent="9" name="detail">
+      <Position>3</Position>
+      <Comment>项目描述</Comment>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="22" parent="9" name="create_time">
+      <Position>4</Position>
+      <Comment>项目创建时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="9" name="create_user_email">
+      <Position>5</Position>
+      <Comment>创建者邮箱</Comment>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="24" parent="9" name="create_user_name">
+      <Position>6</Position>
+      <Comment>创建人姓名</Comment>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="25" parent="9" name="deleted">
+      <Position>7</Position>
+      <Comment>是否删除</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="26" parent="9" name="project_id_uindex">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="27" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="28" parent="9" name="project_id_uindex">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>project_id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="29" parent="10" name="id">
       <Position>1</Position>
       <Comment>id</Comment>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="18" parent="9" name="role_name_en">
+    <column id="30" parent="10" name="role_name_en">
       <Position>2</Position>
       <Comment>角色名称（英文）</Comment>
       <DataType>varchar(40)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="19" parent="9" name="role_name_zh">
+    <column id="31" parent="10" name="role_name_zh">
       <Position>3</Position>
       <Comment>角色名称（中文）</Comment>
       <DataType>varchar(40)|0</DataType>
       <DefaultExpression>&apos;普通用户&apos;</DefaultExpression>
     </column>
-    <column id="20" parent="9" name="user_id">
+    <column id="32" parent="10" name="user_id">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <index id="21" parent="9" name="FK61g3ambult7v7nh59xirgd9nf">
+    <column id="33" parent="10" name="deleted">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="34" parent="10" name="FK61g3ambult7v7nh59xirgd9nf">
       <ColNames>user_id</ColNames>
     </index>
-    <key id="22" parent="9" name="PRIMARY">
+    <key id="35" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="23" parent="9" name="FK61g3ambult7v7nh59xirgd9nf">
+    <foreign-key id="36" parent="10" name="FK61g3ambult7v7nh59xirgd9nf">
       <ColNames>user_id</ColNames>
       <RefSchemaName>software_pms</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="24" parent="10" name="id">
+    <column id="37" parent="11" name="id">
       <Position>1</Position>
       <Comment>id</Comment>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="25" parent="10" name="email">
+    <column id="38" parent="11" name="email">
       <Position>2</Position>
       <DataType>varchar(40)|0</DataType>
     </column>
-    <column id="26" parent="10" name="password">
+    <column id="39" parent="11" name="password">
       <Position>3</Position>
       <Comment>密码</Comment>
       <DataType>varchar(40)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="27" parent="10" name="name">
+    <column id="40" parent="11" name="name">
       <Position>4</Position>
       <Comment>姓名</Comment>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="28" parent="10" name="valid">
+    <column id="41" parent="11" name="valid">
       <Position>5</Position>
       <Comment>有效性</Comment>
       <DataType>tinyint(4)|0</DataType>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <key id="29" parent="10" name="PRIMARY">
+    <key id="42" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="43" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="44" parent="12" name="project_id">
+      <Position>2</Position>
+      <Comment>项目ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="45" parent="12" name="user_id">
+      <Position>3</Position>
+      <Comment>用户ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="46" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

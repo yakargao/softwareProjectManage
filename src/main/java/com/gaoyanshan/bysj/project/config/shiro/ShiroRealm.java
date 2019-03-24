@@ -1,5 +1,7 @@
 package com.gaoyanshan.bysj.project.config.shiro;
 
+import com.gaoyanshan.bysj.project.constant.Constant;
+import com.gaoyanshan.bysj.project.dto.UserDTO;
 import com.gaoyanshan.bysj.project.entity.Permission;
 import com.gaoyanshan.bysj.project.entity.Role;
 import com.gaoyanshan.bysj.project.entity.User;
@@ -35,11 +37,13 @@ public class ShiroRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         User user = (User) principalCollection.getPrimaryPrincipal();
+        System.out.println(user);
         for (Role role : user.getRoles()) {
-            System.out.println(role.getRoleNameEn());
-            authorizationInfo.addRole(role.getRoleNameEn());
-            for (Permission p : role.getPermissions()) {
-                authorizationInfo.addStringPermission(p.getPermission());
+            if (role.getDeleted() == Constant.DB_UNDELETED){
+                authorizationInfo.addRole(role.getRoleNameEn());
+                for (Permission p : role.getPermissions()) {
+                    authorizationInfo.addStringPermission(p.getPermission());
+                }
             }
         }
         return authorizationInfo;
@@ -62,10 +66,8 @@ public class ShiroRealm extends AuthorizingRealm {
         //密码错误
 
         //返回
-        Map<String,String> map = new HashMap<>();
-        map.put("email",user.getEmail());
-        map.put("userName",user.getName());
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(map,
+
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user,
                 user.getPassword(),
                 ByteSource.Util.bytes(user.getEmail()),
                 getName());

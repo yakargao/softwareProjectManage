@@ -15,6 +15,7 @@ import java.util.List;
 @Entity
 @Table(name = "user")
 public class User implements Serializable{
+
     private static final long serialVersionUID = -1946184199704372786L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,8 +29,11 @@ public class User implements Serializable{
     @Column
     private int valid;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user",fetch = FetchType.EAGER)
     private List<Role> roles = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user",fetch = FetchType.LAZY)
+    private List<UserProject> userProjects = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -82,6 +86,14 @@ public class User implements Serializable{
     public String   getAuthCacheKey(){
 
         return this.email;
+    }
+
+    public List<UserProject> getUserProjects() {
+        return userProjects;
+    }
+
+    public void setUserProjects(List<UserProject> userProjects) {
+        this.userProjects = userProjects;
     }
 
     @Override

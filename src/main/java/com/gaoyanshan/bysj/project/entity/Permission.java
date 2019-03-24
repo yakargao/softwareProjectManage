@@ -1,6 +1,7 @@
 package com.gaoyanshan.bysj.project.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * <pre>类名: Permission</pre>
@@ -11,8 +12,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "permission")
-public class Permission {
+public class Permission implements Serializable{
 
+    private static final long serialVersionUID = -3291062098128547460L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
