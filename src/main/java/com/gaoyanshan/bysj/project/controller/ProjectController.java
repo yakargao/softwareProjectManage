@@ -25,12 +25,21 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
+    /**
+     * 通过id获得相关项目的接口
+     * @param id
+     * @return
+     */
     @GetMapping("")
     public Response getProject(@RequestParam("id") int id){
         System.out.println(id);
         return Response.success(projectService.getProjec(id));
     }
 
+    /**
+     * 获得当前用户相关的项目
+     * @return
+     */
     @GetMapping("/projects")
     public Response getProjects(){
         Subject subject = SecurityUtils.getSubject();
@@ -43,6 +52,11 @@ public class ProjectController {
         return Response.success(projectService.getProjectsByUserId(user.getId()));
     }
 
+    /**
+     * 新增项目
+     * @param map
+     * @return
+     */
     @PostMapping()
     public Response addProject(@RequestBody Map<String,Object> map){
         Subject subject = SecurityUtils.getSubject();
@@ -56,6 +70,11 @@ public class ProjectController {
         return Response.success("true");
     }
 
+    /**
+     * 删除项目
+     * @param id
+     * @return
+     */
     @DeleteMapping("/{id}")
     public Response deleteProject(@PathVariable("id") int id){
         System.out.println(id);
@@ -63,6 +82,12 @@ public class ProjectController {
         return Response.success("true");
     }
 
+    /**
+     * 更新项目内容
+     * @param id
+     * @param map
+     * @return
+     */
     @PutMapping("/{id}")
     public Response updateProject(@PathVariable("id") int id,@RequestBody Map<String,Object> map){
         System.out.println(id);
@@ -70,6 +95,7 @@ public class ProjectController {
         projectService.updateProject(id,map);
         return Response.success("true");
     }
+
 
 
 }

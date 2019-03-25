@@ -20,10 +20,10 @@ public class UserProject implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne (cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne (cascade = CascadeType.REFRESH,fetch = FetchType.EAGER)
     private User user;
 
-    @ManyToOne (cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne (cascade = CascadeType.REFRESH,fetch = FetchType.EAGER)
     private Project project;
 
 

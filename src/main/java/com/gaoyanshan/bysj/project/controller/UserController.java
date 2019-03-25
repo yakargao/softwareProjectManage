@@ -42,6 +42,11 @@ public class UserController {
     @Autowired
     private RoleService roleService;
 
+    /**
+     * 添加用户
+     * @param map
+     * @return
+     */
     @PostMapping("/add")
     public Response addUser(@RequestBody Map<String,String> map){
         User user = userService.addUser(map);
@@ -51,6 +56,11 @@ public class UserController {
         return Response.success("注册成功");
     }
 
+    /**
+     * 当前用户信息
+     * @return
+     * @throws Exception
+     */
     @RequiresAuthentication
     @GetMapping("/info")
     public Response getUserInfo() throws Exception {
@@ -75,11 +85,23 @@ public class UserController {
         return Response.success(resMap);
     }
 
+    /**
+     * 删除用户
+     * @param id
+     * @return
+     */
     @RequiresRoles(value = {"admin"})
     @DeleteMapping("/{id}")
     public Response deleteUser(@PathVariable("id") int id){
         return Response.success(userService.deleteUser(id));
     }
+
+
+    /**
+     * 更新用户信息
+     * @param userDTO
+     * @return
+     */
 
     @RequiresAuthentication
     @PutMapping("/{id}")
@@ -97,4 +119,13 @@ public class UserController {
         }
     }
 
+    /**
+     * 获得项目关联用户
+     * @param projectId
+     * @return
+     */
+    @GetMapping("/linkUsers")
+    public Response getUsersByProject(@RequestParam("projectId")int projectId){
+        return Response.success(userService.getUsersByProject(projectId));
+    }
 }

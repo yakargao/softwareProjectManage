@@ -3,9 +3,12 @@ package com.gaoyanshan.bysj.project.service.impl;
 import com.gaoyanshan.bysj.project.constant.RolesEnToZh;
 import com.gaoyanshan.bysj.project.constant.StatusCode;
 import com.gaoyanshan.bysj.project.dto.UserDTO;
+import com.gaoyanshan.bysj.project.dto.UserInfo;
 import com.gaoyanshan.bysj.project.entity.Role;
 import com.gaoyanshan.bysj.project.entity.User;
+import com.gaoyanshan.bysj.project.entity.UserProject;
 import com.gaoyanshan.bysj.project.exception.SystemException;
+import com.gaoyanshan.bysj.project.repository.UserProjectRepository;
 import com.gaoyanshan.bysj.project.repository.UserRepository;
 import com.gaoyanshan.bysj.project.service.UserService;
 import com.gaoyanshan.bysj.project.util.Md5Util;
@@ -15,7 +18,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.sound.sampled.Line;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,6 +38,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserProjectRepository userProjectRepository;
 
     /**
      * 新增用户
@@ -79,7 +88,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean deleteUser(int id) {
         userRepository.deleteById(id);
-       return true;
+        return true;
     }
 
     /**
@@ -99,6 +108,23 @@ public class UserServiceImpl implements UserService {
         }
         userRepository.save(user);
         return true;
+    }
+
+    /**
+     * 通过项目获取项目下相关的用户
+     * @param projectId
+     * @return
+     */
+    @Override
+    public List<UserInfo> getUsersByProject(int projectId) {
+        List<UserProject> userProjects = userProjectRepository.findAllByProject(projectId);
+        List<UserInfo> users = new ArrayList<>();
+        for (UserProject userProject : userProjects){
+            UserInfo userInfo = new UserInfo(userProject.getUser().getEmail(),
+                    userProject.getUser().getName());
+            users.add(userInfo);
+        }
+        return users;
     }
 
 }

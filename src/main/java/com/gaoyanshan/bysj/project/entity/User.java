@@ -35,6 +35,9 @@ public class User implements Serializable{
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "user",fetch = FetchType.LAZY)
     private List<UserProject> userProjects = new ArrayList<>();
 
+
+
+
     public int getId() {
         return id;
     }
@@ -96,15 +99,12 @@ public class User implements Serializable{
         this.userProjects = userProjects;
     }
 
+
     @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", mail='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", valid=" + valid +
-                ", roles=" + roles +
-                '}';
+    public boolean equals(Object o) {
+        if (o instanceof User){
+            return this.email == ((User) o).getEmail();
+        }
+        return false;
     }
 }

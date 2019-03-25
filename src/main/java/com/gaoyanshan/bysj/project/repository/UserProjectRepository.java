@@ -21,4 +21,7 @@ public interface UserProjectRepository extends JpaRepository<UserProject,Integer
 
     @Query("select u from UserProject u where u.user.id=:id")
     List<UserProject> findAllByUser(@Param("id") Integer id);
+
+    @Query("SELECT u from UserProject u where u.project.id=:id")
+    List<UserProject> findAllByProject(@Param("id")Integer id);
 }

@@ -34,11 +34,21 @@ public class ProjectServiceImpl implements ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
 
+    /**
+     * 通过id获得项目内容
+     * @param id
+     * @return
+     */
     @Override
     public Project getProjec(int id) {
         return projectRepository.findOneById(id);
     }
 
+    /**
+     * 获得用户相关联的项目
+     * @param id
+     * @return
+     */
     @Override
     public List<Project> getProjectsByUserId(int id) {
         List<UserProject> userProjects = userProjectRepository.findAllByUser(id);

@@ -2,8 +2,10 @@ package com.gaoyanshan.bysj.project.service;
 
 
 import com.gaoyanshan.bysj.project.dto.UserDTO;
+import com.gaoyanshan.bysj.project.dto.UserInfo;
 import com.gaoyanshan.bysj.project.entity.User;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,4 +18,5 @@ public interface UserService {
     User addUser(Map<String,String> map);
     boolean deleteUser(int id);
     boolean updateUser(UserDTO user);
+    List<UserInfo> getUsersByProject(int projectId);
 }

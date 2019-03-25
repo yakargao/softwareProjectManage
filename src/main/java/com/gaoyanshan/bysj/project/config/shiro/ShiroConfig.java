@@ -116,7 +116,6 @@ public class ShiroConfig {
         // 自定义缓存实现 使用redis
         securityManager.setCacheManager(cacheManager());
         //设置记住我
-        //securityManager.setRememberMeManager(rememberMeManager());
         return securityManager;
     }
 
