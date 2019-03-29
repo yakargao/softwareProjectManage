@@ -141,15 +141,12 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    public List<Task> getTasksByCondition(String start, String endTime, int pid) {
+    public List<Task> getTasksByCondition(Date start, Date endTime, int pid,int type) {
         Sort sort = new Sort(Sort.Direction.DESC,"saleCount");
         Specification<Task> specification = new Specification<Task>() {
             @Override
             public Predicate toPredicate(Root<Task> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 Predicate p = null;
-                if (cid != 0){
-                    p = criteriaBuilder.equal(root.get("cid"),cid);
-                }
                 return p;
             }
         };

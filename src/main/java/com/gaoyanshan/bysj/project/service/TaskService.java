@@ -91,6 +91,13 @@ public interface TaskService {
      */
     void updateStatus(int taskId,int status);
 
-
-    List<Task> getTasksByCondition(String start,String endTime,int pid);
+    /**
+     * 条件查询任务
+     * @param start
+     * @param endTime
+     * @param pid
+     * @param type
+     * @return
+     */
+    List<Task> getTasksByCondition(Date start,Date endTime,int pid,int type);
 }
