@@ -13,5 +13,4 @@ import java.util.List;
 public interface TaskTypeRepository  extends JpaRepository<TaskType,Integer> {
     TaskType findById(int id);
 
-    List<Task> findAll(Sort sort, Specification<Task> specification);
 }
