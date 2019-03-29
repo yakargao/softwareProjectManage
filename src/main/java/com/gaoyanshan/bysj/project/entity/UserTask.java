@@ -1,8 +1,11 @@
 package com.gaoyanshan.bysj.project.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,6 +25,10 @@ public class UserTask implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date createTime;
+
     @ManyToOne (cascade = CascadeType.REFRESH,fetch = FetchType.EAGER)
     private User user;
 
@@ -38,6 +45,14 @@ public class UserTask implements Serializable{
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public User getUser() {

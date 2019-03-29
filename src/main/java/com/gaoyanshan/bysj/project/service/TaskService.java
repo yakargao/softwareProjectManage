@@ -5,6 +5,8 @@ import com.gaoyanshan.bysj.project.entity.Task;
 import com.gaoyanshan.bysj.project.entity.User;
 import org.springframework.stereotype.Service;
 
+import javax.xml.crypto.Data;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -31,13 +33,13 @@ public interface TaskService {
      * 更新任务
      * @param taskDTO
      */
-    void updatedTask(TaskDTO taskDTO);
+    void updatedTask(TaskDTO taskDTO,int taskID);
 
     /**
      * 获取任务
      * @param taskId
      */
-    void getTask(int taskId);
+    Task getTask(int taskId);
 
 
     /**
@@ -47,6 +49,12 @@ public interface TaskService {
      */
     List<Task> getTasksByProjectId(int projectId);
 
+    /**
+     * 根据用户id获取当前任务
+     * @param userID
+     * @return
+     */
+    List<Task> getTaskByUserId(int userID);
 
     /**
      * 获取对应类型的所有任务
@@ -75,4 +83,14 @@ public interface TaskService {
      * @return
      */
     User getCreateUser(int taskId);
+
+    /**
+     * 更新任务状态
+     * @param taskId
+     * @param status
+     */
+    void updateStatus(int taskId,int status);
+
+
+    List<Task> getTasksByCondition(String start,String endTime,int pid);
 }

@@ -1,5 +1,6 @@
 package com.gaoyanshan.bysj.project.controller;
 
+import com.gaoyanshan.bysj.project.constant.Constant;
 import com.gaoyanshan.bysj.project.dto.TaskDTO;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.exception.SystemException;
@@ -10,6 +11,8 @@ import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * <pre>类名: TaskController</pre>
@@ -55,6 +58,55 @@ public class TaskController {
     @DeleteMapping("delete/{id}")
     public Response deleteTask(@PathVariable("id")int taskid){
         taskService.deleteTask(taskid);
+        return Response.success("true");
+    }
+
+    /**
+     * 更新任务
+     * @param taskDTO
+     * @param taskId
+     * @return
+     */
+    @RequiresAuthentication
+    @PutMapping("/update/{id}")
+    public Response updateTask(@RequestBody TaskDTO taskDTO ,@PathVariable("id")int taskId){
+        taskService.updatedTask(taskDTO,taskId);
+        return Response.success("true");
+    }
+
+
+    /**
+     * 获取某个任务详情
+     * @param taskId
+     * @return
+     */
+    @RequiresAuthentication
+    @GetMapping("/get")
+    public Response getTask(@RequestParam("taskId")int taskId){
+        return Response.success(taskService.getTask(taskId));
+    }
+
+    @RequiresAuthentication
+    @GetMapping("/tasksByPid")
+    public Response getTasksByProject(@RequestParam("pid")int projectId){
+        return Response.success(taskService.getTasksByProjectId(projectId));
+    }
+
+    /**
+     * 根据用户获取任务信息
+     * @return
+     */
+    @RequiresAuthentication
+    @GetMapping("/tasksByUser")
+    public Response getTaskByUser(@RequestParam("userId")int userId){
+        return Response.success(taskService.getTaskByUserId(userId));
+    }
+
+    @PutMapping("/status/{id}")
+    public Response setTaskStatus(@RequestBody Map<String,Boolean> map,@PathVariable("id")int taskId){
+        boolean completed = map.get("completed");
+        int status = completed == true ? Constant.TASK_IS_DONE : Constant.TASK_IS_NOT_DONE;
+        taskService.updateStatus(taskId,status);
         return Response.success("true");
     }
 

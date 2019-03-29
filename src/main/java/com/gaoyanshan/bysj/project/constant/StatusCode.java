@@ -20,7 +20,7 @@ public class StatusCode {
 
 
 
-    public static final int UN_LOGIN = 1000;
+    public static final int UN_TOUCH = 1000; //无权限操作
 
     public static final int UNAUTH = 1001; //未登录或者token过期
 

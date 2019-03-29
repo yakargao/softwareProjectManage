@@ -2,18 +2,25 @@ package com.gaoyanshan.bysj.project.service.impl;
 
 import com.gaoyanshan.bysj.project.constant.Constant;
 import com.gaoyanshan.bysj.project.dto.TaskDTO;
-import com.gaoyanshan.bysj.project.entity.Project;
-import com.gaoyanshan.bysj.project.entity.Task;
-import com.gaoyanshan.bysj.project.entity.User;
-import com.gaoyanshan.bysj.project.entity.UserTask;
+import com.gaoyanshan.bysj.project.entity.*;
 import com.gaoyanshan.bysj.project.repository.ProjectRepository;
 import com.gaoyanshan.bysj.project.repository.TaskRepository;
+import com.gaoyanshan.bysj.project.repository.TaskTypeRepository;
 import com.gaoyanshan.bysj.project.repository.UserTaskRepositiry;
 import com.gaoyanshan.bysj.project.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +35,7 @@ import java.util.Map;
 @Service
 public class TaskServiceImpl implements TaskService{
 
+
     @Autowired
     private ProjectRepository projectRepository;
 
@@ -36,6 +44,9 @@ public class TaskServiceImpl implements TaskService{
 
     @Autowired
     private UserTaskRepositiry userTaskRepositiry;
+
+    @Autowired
+    private TaskTypeRepository taskTypeRepository;
 
     @Transactional
     @Override
@@ -50,11 +61,13 @@ public class TaskServiceImpl implements TaskService{
         task.setDoneTime(new Date());
         task.setIsDone(Constant.TASK_IS_NOT_DONE);
         task.setTaskLevel(taskDTO.getTaskLevel());
-        task.setTaskType(taskDTO.getTaskType());
+        TaskType taskType = taskTypeRepository.findById(taskDTO.getTaskType());
+        task.setTaskType(taskType);
         Task saveTask = taskRepository.save(task);
         UserTask userTask = new UserTask();
         userTask.setUser(user);
         userTask.setTask(saveTask);
+        userTask.setCreateTime(new Date());
         userTaskRepositiry.save(userTask);
     }
 
@@ -63,19 +76,42 @@ public class TaskServiceImpl implements TaskService{
         taskRepository.deleteById(taskId);
     }
 
+    @Transactional
     @Override
-    public void updatedTask(TaskDTO taskDTO) {
-
+    public void updatedTask(TaskDTO taskDTO,int taskId) {
+        Task task = taskRepository.findOneById(taskId);
+        task.setTitle(taskDTO.getTitle());
+        task.setContent(taskDTO.getContent());
+        Project project = projectRepository.findOneById(taskDTO.getProjectId());
+        task.setProject(project);
+        task.setExpectedTime(taskDTO.getExpectedTime());
+        task.setDoneTime(new Date());
+        task.setTaskLevel(taskDTO.getTaskLevel());
+        task.setTaskType(taskTypeRepository.findById(taskDTO.getTaskType()));
+        taskRepository.save(task);
     }
 
     @Override
-    public void getTask(int taskId) {
-
+    public Task getTask(int taskId) {
+        return taskRepository.findOneById(taskId);
     }
 
     @Override
     public List<Task> getTasksByProjectId(int projectId) {
-        return null;
+        return taskRepository.findAllByProjectId(projectId);
+    }
+
+    @Override
+    public List<Task> getTaskByUserId(int userID) {
+        List<UserTask> userTasks = userTaskRepositiry.getAllByUserId(userID);
+        List<Task> tasks = new ArrayList<>();
+        for (UserTask ut : userTasks){
+            if (ut.getTask().getDeleted() != Constant.DB_DELETED){
+                tasks.add(ut.getTask());
+            }
+
+        }
+        return tasks;
     }
 
     @Override
@@ -96,5 +132,28 @@ public class TaskServiceImpl implements TaskService{
     @Override
     public User getCreateUser(int taskId) {
         return null;
+    }
+
+    @Transactional
+    @Override
+    public void updateStatus(int taskId, int status) {
+        taskRepository.updateStatus(taskId,status);
+    }
+
+    @Override
+    public List<Task> getTasksByCondition(String start, String endTime, int pid) {
+        Sort sort = new Sort(Sort.Direction.DESC,"saleCount");
+        Specification<Task> specification = new Specification<Task>() {
+            @Override
+            public Predicate toPredicate(Root<Task> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                Predicate p = null;
+                if (cid != 0){
+                    p = criteriaBuilder.equal(root.get("cid"),cid);
+                }
+                return p;
+            }
+        };
+
+        return taskTypeRepository.findAll(sort,specification);
     }
 }

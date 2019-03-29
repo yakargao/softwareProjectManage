@@ -75,6 +75,7 @@ public class UserController {
         Map<String,Object> resMap = new HashMap<>();
         resMap.put("email",user.getEmail());
         resMap.put("name",user.getName());
+        resMap.put("id",user.getId());
         List<String> roles = new ArrayList<>();
         for (Role role : user.getRoles()){
             if (role.getDeleted() == Constant.DB_UNDELETED){
@@ -127,5 +128,11 @@ public class UserController {
     @GetMapping("/linkUsers")
     public Response getUsersByProject(@RequestParam("projectId")int projectId){
         return Response.success(userService.getUsersByProject(projectId));
+    }
+
+    @RequiresAuthentication
+    @GetMapping("/users")
+    public Response getAllUsers(){
+        return Response.success(userService.getAllUsers());
     }
 }

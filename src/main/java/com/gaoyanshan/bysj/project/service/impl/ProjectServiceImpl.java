@@ -1,6 +1,7 @@
 package com.gaoyanshan.bysj.project.service.impl;
 
 import com.gaoyanshan.bysj.project.constant.Constant;
+import com.gaoyanshan.bysj.project.dto.MyPage;
 import com.gaoyanshan.bysj.project.dto.ProjectDTO;
 import com.gaoyanshan.bysj.project.entity.Project;
 import com.gaoyanshan.bysj.project.entity.User;
@@ -11,7 +12,11 @@ import com.gaoyanshan.bysj.project.repository.UserProjectRepository;
 import com.gaoyanshan.bysj.project.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,21 +39,12 @@ public class ProjectServiceImpl implements ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
 
-    /**
-     * 通过id获得项目内容
-     * @param id
-     * @return
-     */
+
     @Override
     public Project getProjec(int id) {
         return projectRepository.findOneById(id);
     }
 
-    /**
-     * 获得用户相关联的项目
-     * @param id
-     * @return
-     */
     @Override
     public List<Project> getProjectsByUserId(int id) {
         List<UserProject> userProjects = userProjectRepository.findAllByUser(id);
@@ -61,13 +57,16 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
 
+    @Transactional
     @Override
-    public void addProject(Map<String,Object> map,User user) {
+    public Integer addProject(Map<String,Object> map,User user) {
         String title = null;
         String detail = null;
+        List<Integer> userIds = new ArrayList<>();
         try{
             title = (String) map.get("title");
             detail = (String) map.get("detail");
+            userIds = (ArrayList<Integer>)map.get("users");
         }catch (Exception e){
             throw new SystemException("前端类型有误:"+e.getMessage());
         }
@@ -77,7 +76,11 @@ public class ProjectServiceImpl implements ProjectService {
         project.setCreateUserEmail(user.getEmail());
         project.setCreateUserName(user.getName());
         project.setCreateTime(new Date());
-        projectRepository.save(project);
+        Project newProject = projectRepository.save(project);
+        for(int uid : userIds){
+            userProjectRepository.saveOneRecord(uid,newProject.getId());
+        }
+        return newProject.getId();
     }
 
     @Override
@@ -100,4 +103,12 @@ public class ProjectServiceImpl implements ProjectService {
     public void deletedProject(int id) {
         projectRepository.deleteById(id);
     }
+
+    @Override
+    public MyPage<Project> getAllProject(Integer page, Integer size) {
+        //根据sale_count排行
+        Pageable pageable = PageRequest.of(page-1,10,Sort.Direction.DESC,"createTime");
+        return MyPage.transformPage(projectRepository.findAll(pageable));
+    }
+
 }

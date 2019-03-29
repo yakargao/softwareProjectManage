@@ -1,6 +1,7 @@
 package com.gaoyanshan.bysj.project.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -31,6 +32,7 @@ public class Task implements Serializable {
     @Column
     private String content;
 
+    @JsonIgnore
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH,CascadeType.PERSIST} ,fetch = FetchType.EAGER)
     private Project project;
 
@@ -55,11 +57,15 @@ public class Task implements Serializable {
     @Column
     private int taskLevel;
 
-    @Column
-    private int taskType;
+    @JsonIgnore
+    @ManyToOne (cascade = CascadeType.REFRESH,fetch = FetchType.EAGER)
+    private TaskType taskType;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "task",fetch = FetchType.LAZY)
     private List<UserTask> userTasks = new ArrayList<>();
+
+
 
 
     public int getId() {
@@ -142,11 +148,11 @@ public class Task implements Serializable {
         this.taskLevel = taskLevel;
     }
 
-    public int getTaskType() {
+    public TaskType getTaskType() {
         return taskType;
     }
 
-    public void setTaskType(int taskType) {
+    public void setTaskType(TaskType taskType) {
         this.taskType = taskType;
     }
 
@@ -156,5 +162,23 @@ public class Task implements Serializable {
 
     public void setUserTasks(List<UserTask> userTasks) {
         this.userTasks = userTasks;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", project=" + project +
+                ", createTime=" + createTime +
+                ", expectedTime=" + expectedTime +
+                ", doneTime=" + doneTime +
+                ", deleted=" + deleted +
+                ", isDone=" + isDone +
+                ", taskLevel=" + taskLevel +
+                ", taskType=" + taskType +
+                ", userTasks=" + userTasks +
+                '}';
     }
 }

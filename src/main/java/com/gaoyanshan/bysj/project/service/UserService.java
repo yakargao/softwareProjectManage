@@ -15,8 +15,39 @@ import java.util.Map;
  * <pre>作者: gaoyanshan</pre>
  */
 public interface UserService {
+    /**
+     * 添加用户
+     * @param map
+     * @return
+     */
     User addUser(Map<String,String> map);
+
+    /**
+     * 删除用户
+     * @param id
+     * @return
+     */
     boolean deleteUser(int id);
+
+    /**
+     * 更新用户信息
+     * @param user
+     * @return
+     */
     boolean updateUser(UserDTO user);
+
+    /**
+     * 获得项目成员
+     * @param projectId
+     * @return
+     */
     List<UserInfo> getUsersByProject(int projectId);
+
+
+    /**
+     * 获取所有用户
+     * @return
+     */
+    List<UserInfo> getAllUsers();
+
 }

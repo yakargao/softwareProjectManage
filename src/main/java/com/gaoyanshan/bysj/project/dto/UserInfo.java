@@ -9,14 +9,23 @@ import java.io.Serializable;
  * <pre>作者: gaoyanshan</pre>
  */
 public class UserInfo implements Serializable {
-
-    private static final long serialVersionUID = -5777583272821948835L;
+    private static final long serialVersionUID = -2362777264182649641L;
+    private int id;
     private String email;
     private String name;
 
-    public UserInfo(String email, String name) {
+    public UserInfo(int id,String email, String name) {
+        this.id = id;
         this.email = email;
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {

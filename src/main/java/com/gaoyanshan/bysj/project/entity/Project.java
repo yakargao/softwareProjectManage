@@ -1,6 +1,7 @@
 package com.gaoyanshan.bysj.project.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -41,6 +42,7 @@ public class Project implements Serializable{
     @Column
     private String createUserName;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "project",fetch = FetchType.LAZY)
     private List<UserProject> userProjects = new ArrayList<>();
 
@@ -102,4 +104,13 @@ public class Project implements Serializable{
     public void setDeleted(int deleted) {
         this.deleted = deleted;
     }
+
+    public List<UserProject> getUserProjects() {
+        return userProjects;
+    }
+
+    public void setUserProjects(List<UserProject> userProjects) {
+        this.userProjects = userProjects;
+    }
+
 }

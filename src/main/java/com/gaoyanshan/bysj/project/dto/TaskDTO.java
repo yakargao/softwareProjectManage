@@ -16,7 +16,6 @@ public class TaskDTO implements Serializable{
 
     private static final long serialVersionUID = -8065495955326228491L;
 
-    @JsonProperty(value = "title")
     private String title;
 
     private int projectId;

@@ -3,6 +3,7 @@ package com.gaoyanshan.bysj.project.repository;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.entity.UserProject;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -24,4 +25,8 @@ public interface UserProjectRepository extends JpaRepository<UserProject,Integer
 
     @Query("SELECT u from UserProject u where u.project.id=:id")
     List<UserProject> findAllByProject(@Param("id")Integer id);
+
+    @Modifying
+    @Query(value = "insert into user_project(user_id,project_id) values(?1,?2)",nativeQuery = true)
+    void saveOneRecord(int userId, int projectId);
 }

@@ -5,6 +5,7 @@ import com.gaoyanshan.bysj.project.exception.SystemException;
 import com.gaoyanshan.bysj.project.response.Response;
 import com.gaoyanshan.bysj.project.service.ProjectService;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,9 +31,8 @@ public class ProjectController {
      * @param id
      * @return
      */
-    @GetMapping("")
+    @GetMapping("/item")
     public Response getProject(@RequestParam("id") int id){
-        System.out.println(id);
         return Response.success(projectService.getProjec(id));
     }
 
@@ -57,7 +57,7 @@ public class ProjectController {
      * @param map
      * @return
      */
-    @PostMapping()
+    @PostMapping("/add")
     public Response addProject(@RequestBody Map<String,Object> map){
         Subject subject = SecurityUtils.getSubject();
         User user = null;
@@ -66,8 +66,8 @@ public class ProjectController {
         }catch (ClassCastException e){
             throw new SystemException("类型转化出错："+e.getMessage());
         }
-        projectService.addProject(map,user);
-        return Response.success("true");
+
+        return Response.success(projectService.addProject(map,user));
     }
 
     /**
@@ -96,6 +96,12 @@ public class ProjectController {
         return Response.success("true");
     }
 
+    @RequiresAuthentication
+    @GetMapping("/all")
+    public Response getAllProjects(@RequestParam(name = "page",defaultValue = "1")int page,
+                                   @RequestParam(name = "size",defaultValue = "10")int size){
+        return Response.success(projectService.getAllProject(page,size));
+    }
 
 
 }

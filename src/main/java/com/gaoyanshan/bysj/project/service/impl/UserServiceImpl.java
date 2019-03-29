@@ -42,11 +42,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserProjectRepository userProjectRepository;
 
-    /**
-     * 新增用户
-     * @param map
-     * @return
-     */
+
     @Override
     public User addUser(Map<String, String> map) {
         String email = map.get("email");
@@ -80,10 +76,7 @@ public class UserServiceImpl implements UserService {
         return newUser;
     }
 
-    /**
-     * 删除用户
-     * @param id
-     */
+
     @Transactional
     @Override
     public boolean deleteUser(int id) {
@@ -91,10 +84,6 @@ public class UserServiceImpl implements UserService {
         return true;
     }
 
-    /**
-     * 更新用户
-     * @param userDTO
-     */
     @Transactional
     @Override
     public boolean updateUser(UserDTO userDTO) {
@@ -110,21 +99,31 @@ public class UserServiceImpl implements UserService {
         return true;
     }
 
-    /**
-     * 通过项目获取项目下相关的用户
-     * @param projectId
-     * @return
-     */
+
     @Override
     public List<UserInfo> getUsersByProject(int projectId) {
         List<UserProject> userProjects = userProjectRepository.findAllByProject(projectId);
         List<UserInfo> users = new ArrayList<>();
         for (UserProject userProject : userProjects){
-            UserInfo userInfo = new UserInfo(userProject.getUser().getEmail(),
+            UserInfo userInfo = new UserInfo(userProject.getUser().getId(),
+                    userProject.getUser().getEmail(),
                     userProject.getUser().getName());
             users.add(userInfo);
         }
         return users;
+    }
+
+    @Override
+    public List<UserInfo> getAllUsers() {
+        List<UserInfo> userInfos = new ArrayList<>();
+        List<User> users = userRepository.findAll();
+        for(User u : users){
+            UserInfo userInfo = new UserInfo(u.getId(),
+                    u.getEmail(),
+                    u.getName());
+            userInfos.add(userInfo);
+        }
+        return userInfos;
     }
 
 }
