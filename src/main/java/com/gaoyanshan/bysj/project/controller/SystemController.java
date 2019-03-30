@@ -1,14 +1,17 @@
 package com.gaoyanshan.bysj.project.controller;
 
 import com.gaoyanshan.bysj.project.constant.StatusCode;
-import com.gaoyanshan.bysj.project.entity.User;
+import com.gaoyanshan.bysj.project.dynamic.aspect.Dynamic;
+import com.gaoyanshan.bysj.project.dynamic.enumeration.DynamicEventEnum;
 import com.gaoyanshan.bysj.project.response.Response;
-import org.apache.catalina.security.SecurityUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.subject.Subject;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,6 +52,7 @@ public class SystemController {
      */
     @RequiresAuthentication
     @GetMapping("/logout")
+    @Dynamic(event = DynamicEventEnum.LOGOUT)
     public Response logout(){
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
