@@ -20,6 +20,7 @@ import java.util.Map;
  * <pre>作者: gaoyanshan</pre>
  */
 
+@CrossOrigin(origins = "http://0.0.0.0:8888")
 @RestController
 public class SystemController {
 

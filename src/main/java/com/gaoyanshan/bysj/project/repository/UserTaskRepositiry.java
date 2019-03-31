@@ -22,6 +22,8 @@ public interface UserTaskRepositiry extends JpaRepository<UserTask,Integer>{
     @Query("select ut from UserTask ut where ut.user.id = :id")
     List<UserTask> getAllByUserId(@Param("id") int id);
 
-
+    @Modifying
+    @Query(value = "insert into user_task(user_id,task_id) values(?1,?2)",nativeQuery = true)
+    void saveOneRecord(int userId, int taskID);
 }
 

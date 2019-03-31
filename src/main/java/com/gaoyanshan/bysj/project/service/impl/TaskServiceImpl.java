@@ -1,7 +1,9 @@
 package com.gaoyanshan.bysj.project.service.impl;
 
 import com.gaoyanshan.bysj.project.constant.Constant;
+import com.gaoyanshan.bysj.project.dto.TaskCondition;
 import com.gaoyanshan.bysj.project.dto.TaskDTO;
+import com.gaoyanshan.bysj.project.dto.TodoList;
 import com.gaoyanshan.bysj.project.entity.*;
 import com.gaoyanshan.bysj.project.repository.ProjectRepository;
 import com.gaoyanshan.bysj.project.repository.TaskRepository;
@@ -61,6 +63,8 @@ public class TaskServiceImpl implements TaskService{
         task.setDoneTime(new Date());
         task.setIsDone(Constant.TASK_IS_NOT_DONE);
         task.setTaskLevel(taskDTO.getTaskLevel());
+        if (taskDTO.getUsers().size() > 0)
+            task.setStartTime(new Date());
         TaskType taskType = taskTypeRepository.findById(taskDTO.getTaskType());
         task.setTaskType(taskType);
         Task saveTask = taskRepository.save(task);
@@ -69,6 +73,9 @@ public class TaskServiceImpl implements TaskService{
         userTask.setTask(saveTask);
         userTask.setCreateTime(new Date());
         userTaskRepositiry.save(userTask);
+        for (Integer uId : taskDTO.getUsers()){
+            userTaskRepositiry.saveOneRecord(uId,saveTask.getId());
+        }
     }
 
     @Override
@@ -141,7 +148,40 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    public List<Task> getTasksByCondition(Date startTime, Date endTime, int pid,int type) {
-     return null;
+    public TodoList getTasksByCondition(TaskCondition taskCondition) {
+        List<Task> resultList = null;
+        Specification querySpecifi = new Specification<Task>() {
+            @Override
+            public Predicate toPredicate(Root<Task> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+
+                List<Predicate> predicates = new ArrayList<>();
+                if(taskCondition.getStartTime() != null){
+                    predicates.add(criteriaBuilder.greaterThan(root.get("startTime"), taskCondition.getStartTime()));
+                }
+                if(taskCondition.getEndTime() != null){
+                    predicates.add(criteriaBuilder.lessThan(root.get("startTime"), taskCondition.getEndTime()));
+                }
+                if(taskCondition.getType() != 0){
+                    predicates.add(criteriaBuilder.equal(root.get("taskType").get("id"), taskCondition.getType()));
+                }
+                predicates.add(criteriaBuilder.equal(root.get("project").get("id"),taskCondition.getpId()));
+                return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
+            }
+        };
+        resultList =  taskRepository.findAll(querySpecifi);
+
+        TodoList todoList = new TodoList();
+
+        for (Task task : resultList){
+            if (task.getDeleted() == Constant.DB_DELETED)
+                continue;
+            if (task.getStartTime() == null)
+                todoList.getTodos().add(task);
+            else if (task.getIsDone() == Constant.TASK_IS_DONE)
+                todoList.getDones().add(task);
+            else
+                todoList.getDoings().add(task);
+        }
+        return todoList;
     }
 }

@@ -2,6 +2,9 @@ package com.gaoyanshan.bysj.project.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.gaoyanshan.bysj.project.dto.TaskUserInfo;
+import com.gaoyanshan.bysj.project.dto.UserInfo;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -49,6 +52,10 @@ public class Task implements Serializable {
     private Date doneTime;
 
     @Column
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date startTime;
+
+    @Column
     private int deleted;
 
     @Column
@@ -62,11 +69,31 @@ public class Task implements Serializable {
     private TaskType taskType;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "task",fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "task",fetch = FetchType.EAGER)
     private List<UserTask> userTasks = new ArrayList<>();
 
+    @JsonInclude
+    @Transient
+    private int type;
 
+    @JsonInclude
+    @Transient
+    private List<TaskUserInfo> userInfos = new ArrayList<>();
 
+    public List<TaskUserInfo> getUserInfos() {
+        for (UserTask ut : userTasks){
+            TaskUserInfo userInfo = new TaskUserInfo(ut.getUser().getId(),
+                    ut.getUser().getEmail(),
+                    ut.getUser().getName(),
+                    ut.getConnectType());
+            userInfos.add(userInfo);
+        }
+        return userInfos;
+    }
+
+    public int getType() {
+        return taskType.getId();
+    }
 
     public int getId() {
         return id;
@@ -164,21 +191,13 @@ public class Task implements Serializable {
         this.userTasks = userTasks;
     }
 
-    @Override
-    public String toString() {
-        return "Task{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", project=" + project +
-                ", createTime=" + createTime +
-                ", expectedTime=" + expectedTime +
-                ", doneTime=" + doneTime +
-                ", deleted=" + deleted +
-                ", isDone=" + isDone +
-                ", taskLevel=" + taskLevel +
-                ", taskType=" + taskType +
-                ", userTasks=" + userTasks +
-                '}';
+    public Date getStartTime() {
+        return startTime;
     }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+
 }

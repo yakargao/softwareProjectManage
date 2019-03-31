@@ -1,6 +1,8 @@
 package com.gaoyanshan.bysj.project.service;
 
+import com.gaoyanshan.bysj.project.dto.TaskCondition;
 import com.gaoyanshan.bysj.project.dto.TaskDTO;
+import com.gaoyanshan.bysj.project.dto.TodoList;
 import com.gaoyanshan.bysj.project.entity.Task;
 import com.gaoyanshan.bysj.project.entity.User;
 import org.springframework.stereotype.Service;
@@ -92,12 +94,9 @@ public interface TaskService {
     void updateStatus(int taskId,int status);
 
     /**
-     * 条件查询任务
-     * @param start
-     * @param endTime
-     * @param pid
-     * @param type
+     * 多条件查询
+     * @param taskCondition
      * @return
      */
-    List<Task> getTasksByCondition(Date start,Date endTime,int pid,int type);
+    TodoList getTasksByCondition(TaskCondition taskCondition);
 }

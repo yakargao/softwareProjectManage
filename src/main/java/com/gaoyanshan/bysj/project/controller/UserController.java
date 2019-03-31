@@ -31,7 +31,7 @@ import java.util.Map;
  * <pre>日期: 19-3-16 下午11:12</pre>
  * <pre>作者: gaoyanshan</pre>
  */
-
+@CrossOrigin(origins = "http://0.0.0.0:8888")
 @RestController
 @RequestMapping("/user")
 public class UserController {

@@ -3,6 +3,7 @@ package com.gaoyanshan.bysj.project.controller;
 import com.gaoyanshan.bysj.project.response.Response;
 import com.gaoyanshan.bysj.project.service.TaskTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * <pre>日期: 19-3-29 下午6:20</pre>
  * <pre>作者: gaoyanshan</pre>
  */
-
+@CrossOrigin(origins = "http://0.0.0.0:8888")
 @RestController
 @RequestMapping("/taskType")
 public class TaskTypeController {

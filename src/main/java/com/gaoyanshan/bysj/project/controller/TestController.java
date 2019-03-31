@@ -8,10 +8,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +19,7 @@ import java.util.List;
  * <pre>日期: 19-3-13 下午11:45</pre>
  * <pre>作者: gaoyanshan</pre>
  */
-
+@CrossOrigin(origins = "http://0.0.0.0:8888")
 @RestController
 public class TestController {
 

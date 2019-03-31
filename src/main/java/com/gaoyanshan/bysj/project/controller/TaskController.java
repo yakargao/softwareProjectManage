@@ -1,6 +1,7 @@
 package com.gaoyanshan.bysj.project.controller;
 
 import com.gaoyanshan.bysj.project.constant.Constant;
+import com.gaoyanshan.bysj.project.dto.TaskCondition;
 import com.gaoyanshan.bysj.project.dto.TaskDTO;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.exception.SystemException;
@@ -20,7 +21,7 @@ import java.util.Map;
  * <pre>日期: 19-3-25 下午9:37</pre>
  * <pre>作者: gaoyanshan</pre>
  */
-
+@CrossOrigin(origins = "http://0.0.0.0:8888")
 @RestController
 @RequestMapping("/task")
 public class TaskController {
@@ -111,4 +112,9 @@ public class TaskController {
     }
 
 
+    @PostMapping("/condition")
+    public Response getTasksByCondition(@RequestBody TaskCondition taskCondition){
+        System.out.println(taskCondition);
+        return Response.success(taskService.getTasksByCondition(taskCondition));
+    }
 }

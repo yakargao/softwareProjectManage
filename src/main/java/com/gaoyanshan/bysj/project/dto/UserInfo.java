@@ -14,7 +14,10 @@ public class UserInfo implements Serializable {
     private String email;
     private String name;
 
-    public UserInfo(int id,String email, String name) {
+    public UserInfo() {
+    }
+
+    public UserInfo(int id, String email, String name) {
         this.id = id;
         this.email = email;
         this.name = name;

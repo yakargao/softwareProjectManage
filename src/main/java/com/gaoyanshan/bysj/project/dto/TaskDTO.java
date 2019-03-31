@@ -2,9 +2,12 @@ package com.gaoyanshan.bysj.project.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jdk.internal.dynalink.linker.LinkerServices;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * <pre>类名: TaskDTO</pre>
@@ -28,6 +31,9 @@ public class TaskDTO implements Serializable{
     private int taskLevel;
 
     private int taskType;
+
+    @JsonProperty("users")
+    private List<Integer> users = new ArrayList<>();
 
     public String getTitle() {
         return title;
@@ -75,6 +81,14 @@ public class TaskDTO implements Serializable{
 
     public void setTaskType(int taskType) {
         this.taskType = taskType;
+    }
+
+    public List<Integer> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<Integer> users) {
+        this.users = users;
     }
 
     @Override
