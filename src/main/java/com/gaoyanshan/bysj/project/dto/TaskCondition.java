@@ -28,6 +28,16 @@ public class TaskCondition {
     @JsonProperty("type")
     private int type;
 
+    @JsonProperty("taskLevel")
+    private int taskLevel;
+
+    public int getTaskLevel() {
+        return taskLevel;
+    }
+
+    public void setTaskLevel(int taskLevel) {
+        this.taskLevel = taskLevel;
+    }
 
     public Date getStartTime() {
         return startTime;

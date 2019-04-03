@@ -8,7 +8,7 @@ import java.util.Date;
  * <pre>类名: DynamicContent</pre>
  * <pre>描述: 个人动态内容</pre>
  * <pre>日期: 19-3-29 下午8:18</pre>
- * <pre>作者: ljianf</pre>
+ * <pre>作者: gaoyanshan</pre>
  */
 @Table(name = "operation_log")
 @Entity

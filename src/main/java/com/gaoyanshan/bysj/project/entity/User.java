@@ -35,7 +35,8 @@ public class User implements Serializable{
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "user",fetch = FetchType.LAZY)
     private List<UserProject> userProjects = new ArrayList<>();
 
-
+    @Column
+    private String avatar;
 
 
     public int getId() {
@@ -99,6 +100,13 @@ public class User implements Serializable{
         this.userProjects = userProjects;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -5,6 +5,7 @@ import com.gaoyanshan.bysj.project.dto.UserDTO;
 import com.gaoyanshan.bysj.project.dto.UserInfo;
 import com.gaoyanshan.bysj.project.entity.User;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -49,5 +50,8 @@ public interface UserService {
      * @return
      */
     List<UserInfo> getAllUsers();
+
+
+    HashMap<String,Object> getUserInfo(User user);
 
 }

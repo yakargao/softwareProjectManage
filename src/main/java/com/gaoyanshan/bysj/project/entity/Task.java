@@ -199,5 +199,10 @@ public class Task implements Serializable {
         this.startTime = startTime;
     }
 
-
+    @Override
+    public String toString() {
+        return "Task{" +
+                "isDone=" + isDone +
+                '}';
+    }
 }

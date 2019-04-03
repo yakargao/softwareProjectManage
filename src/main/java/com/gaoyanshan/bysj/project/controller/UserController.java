@@ -62,7 +62,7 @@ public class UserController {
      * @throws Exception
      */
     @RequiresAuthentication
-    @GetMapping("/info")
+    @GetMapping("/information")
     public Response getUserInfo() throws Exception {
         Subject subject = SecurityUtils.getSubject();
         User user = null;
@@ -72,18 +72,7 @@ public class UserController {
             throw new Exception("user类型转化异常");
         }
         //返回体
-        Map<String,Object> resMap = new HashMap<>();
-        resMap.put("email",user.getEmail());
-        resMap.put("name",user.getName());
-        resMap.put("id",user.getId());
-        List<String> roles = new ArrayList<>();
-        for (Role role : user.getRoles()){
-            if (role.getDeleted() == Constant.DB_UNDELETED){
-                roles.add(role.getRoleNameEn());
-            }
-        }
-        resMap.put("roles",roles);
-        return Response.success(resMap);
+      return Response.success(userService.getUserInfo(user));
     }
 
     /**

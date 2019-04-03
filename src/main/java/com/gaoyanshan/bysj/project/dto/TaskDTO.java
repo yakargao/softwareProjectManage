@@ -102,4 +102,5 @@ public class TaskDTO implements Serializable{
                 ", taskType=" + taskType +
                 '}';
     }
+
 }

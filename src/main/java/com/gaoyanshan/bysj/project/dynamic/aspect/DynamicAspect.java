@@ -22,7 +22,7 @@ import java.util.concurrent.Executors;
  * <pre>类名: DynamicAspect</pre>
  * <pre>描述: 操作记录拦截切面</pre>
  * <pre>日期: 2019/3/29 20:04</pre>
- * <pre>作者: ljianf</pre>
+ * <pre>作者: gaoyanshan</pre>
  */
 @Aspect
 @Component
@@ -41,7 +41,7 @@ public class DynamicAspect {
 
     /**
      * @Description: 拦截个人动态
-     * @author ljianf
+     * @author gaoyanshan
      * @date   2019/3/30 23:13
      * @param  pjp 切入点
      */
@@ -76,7 +76,7 @@ public class DynamicAspect {
 
     /**
      * @Description: 异步保存动态
-     * @author ljianf
+     * @author gaoyanshan
      * @date   2019/3/30 22:37
      * @param  dynamicContent
      */

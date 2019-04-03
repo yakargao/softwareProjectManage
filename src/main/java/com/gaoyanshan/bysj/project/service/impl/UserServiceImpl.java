@@ -4,6 +4,8 @@ import com.gaoyanshan.bysj.project.constant.RolesEnToZh;
 import com.gaoyanshan.bysj.project.constant.StatusCode;
 import com.gaoyanshan.bysj.project.dto.UserDTO;
 import com.gaoyanshan.bysj.project.dto.UserInfo;
+import com.gaoyanshan.bysj.project.dynamic.aspect.Dynamic;
+import com.gaoyanshan.bysj.project.dynamic.enumeration.DynamicEventEnum;
 import com.gaoyanshan.bysj.project.entity.Role;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.entity.UserProject;
@@ -21,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.sound.sampled.Line;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -99,7 +102,6 @@ public class UserServiceImpl implements UserService {
         return true;
     }
 
-
     @Override
     public List<UserInfo> getUsersByProject(int projectId) {
         List<UserProject> userProjects = userProjectRepository.findAllByProject(projectId);
@@ -124,6 +126,20 @@ public class UserServiceImpl implements UserService {
             userInfos.add(userInfo);
         }
         return userInfos;
+    }
+
+    @Override
+    public HashMap<String, Object> getUserInfo(User user) {
+        HashMap<String,Object> res = new HashMap<>();
+        res.put("id",user.getId());
+        res.put("name",user.getName());
+        res.put("avatar",user.getAvatar());
+        List<String> roles = new ArrayList<>();
+        for (Role r : user.getRoles()){
+            roles.add(r.getRoleNameEn());
+        }
+        res.put("roles",roles);
+        return res;
     }
 
 }

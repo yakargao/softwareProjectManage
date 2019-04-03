@@ -22,10 +22,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <pre>类名: TaskServiceImpl</pre>
@@ -111,12 +108,11 @@ public class TaskServiceImpl implements TaskService{
     @Override
     public List<Task> getTaskByUserId(int userID) {
         List<UserTask> userTasks = userTaskRepositiry.getAllByUserId(userID);
-        List<Task> tasks = new ArrayList<>();
+        List<Task> tasks = new LinkedList<>();
         for (UserTask ut : userTasks){
-            if (ut.getTask().getDeleted() != Constant.DB_DELETED){
+            if (ut.getTask().getDeleted() != Constant.DB_DELETED && ut.getConnectType()==1){
                 tasks.add(ut.getTask());
             }
-
         }
         return tasks;
     }
@@ -163,6 +159,9 @@ public class TaskServiceImpl implements TaskService{
                 }
                 if(taskCondition.getType() != 0){
                     predicates.add(criteriaBuilder.equal(root.get("taskType").get("id"), taskCondition.getType()));
+                }
+                if (taskCondition.getTaskLevel() != 0){
+                    predicates.add(criteriaBuilder.equal(root.get("taskLevel"),taskCondition.getTaskLevel()));
                 }
                 predicates.add(criteriaBuilder.equal(root.get("project").get("id"),taskCondition.getpId()));
                 return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));

@@ -1,5 +1,6 @@
 package com.gaoyanshan.bysj.project.repository;
 
+import com.gaoyanshan.bysj.project.entity.Task;
 import com.gaoyanshan.bysj.project.entity.UserTask;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -25,5 +26,9 @@ public interface UserTaskRepositiry extends JpaRepository<UserTask,Integer>{
     @Modifying
     @Query(value = "insert into user_task(user_id,task_id) values(?1,?2)",nativeQuery = true)
     void saveOneRecord(int userId, int taskID);
+
+    List<UserTask> findAllByTaskEquals(@Param("task")Task task);
+
+    UserTask findByTaskEqualsAndConnectTypeEquals(@Param("task")Task task,@Param("connectType")int connectType);
 }
 

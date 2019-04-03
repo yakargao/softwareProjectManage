@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,4 +33,20 @@ public interface TaskRepository extends JpaRepository<Task,Integer>,JpaSpecifica
     @Modifying
     @Query("update Task t set t.isDone= :status where t.id=:id")
     void updateStatus(@Param("id") int taskId, @Param("status") int status);
+
+    List<Task> findAllByExpectedTimeBetween(@Param("startTime")Date startTime,@Param("endTime")Date endTime);
+
+    int countAllByDoneTimeBetweenAndProjectEquals(@Param("startTime")Date startTime,@Param("endTime")Date endTime,@Param("project")Project project);
+
+    int countAllByCreateTimeBetween(@Param("startTime")Date startTime,@Param("endTime")Date endTime);
+
+
+    List<Task> findAllByDoneTimeBetweenAndIsDoneEqualsAndProjectEquals(@Param("startTime")Date startTime,
+                                                                       @Param("endTime")Date endTime,
+                                                                       @Param("isDone")int isDone,
+                                                                       @Param("project")Project project);
+
+    List<Task> findAllByCreateTimeBetweenAndProjectEquals(@Param("startTime")Date startTime,
+                                                          @Param("endTime")Date endTime,
+                                                          @Param("project")Project project);
 }

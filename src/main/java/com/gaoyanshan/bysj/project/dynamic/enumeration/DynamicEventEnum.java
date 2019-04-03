@@ -4,12 +4,13 @@ package com.gaoyanshan.bysj.project.dynamic.enumeration;
  * <pre>类名: DynamicEventEnum</pre>
  * <pre>描述: 事件枚举</pre>
  * <pre>日期: 2019/3/30 21:51</pre>
- * <pre>作者: ljianf</pre>
+ * <pre>作者: gaoyanshan</pre>
  */
 public enum  DynamicEventEnum {
     NULL("00",""),
     UPDATE_USER("02","更新用户信息"),
-    LOGOUT("03","执行用户登出");
+    LOGOUT("03","执行用户登出"),
+    LOGIN("04","登录了系统");
 
     private String code;
 

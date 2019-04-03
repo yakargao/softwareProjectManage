@@ -162,7 +162,7 @@ public class ShiroConfig {
     public RedisSessionDAO redisSessionDAO() {
         RedisSessionDAO redisSessionDAO = new RedisSessionDAO();
         redisSessionDAO.setRedisManager(redisManager());
-        redisSessionDAO.setExpire(300000); //设置登录时间为30分钟
+        redisSessionDAO.setExpire(1800000); //设置登录时间为30分钟
         return redisSessionDAO;
     }
 
