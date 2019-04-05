@@ -52,6 +52,14 @@ public interface UserService {
     List<UserInfo> getAllUsers();
 
 
+    /**
+     * 获取用户信息
+     * @param user
+     * @return
+     */
     HashMap<String,Object> getUserInfo(User user);
+
+
+    Integer uploadAvatar(Map<String,Object> map);
 
 }

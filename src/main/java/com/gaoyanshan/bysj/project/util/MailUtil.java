@@ -32,7 +32,7 @@ public class MailUtil {
     @Value("${spring.mail.test.username}")
     private String testMail;
 
-    public void sendSimpleEmail(String[] recipients,String subject,String content){
+    public void sendSimpleEmail(String subject,String content,String... recipients){
         try {
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setFrom(sender);
@@ -48,4 +48,11 @@ public class MailUtil {
         }
     }
 
+    public String getTestMail() {
+        return testMail;
+    }
+
+    public void setTestMail(String testMail) {
+        this.testMail = testMail;
+    }
 }

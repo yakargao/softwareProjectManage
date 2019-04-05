@@ -142,4 +142,14 @@ public class UserServiceImpl implements UserService {
         return res;
     }
 
+    @Override
+    public Integer uploadAvatar(Map<String, Object> map) {
+        int id = (int) map.get("id");
+        String avatar = (String) map.get("avatar");
+        User user = userRepository.findOneById(id);
+        user.setAvatar(avatar);
+        userRepository.save(user);
+        return user.getId();
+    }
+
 }

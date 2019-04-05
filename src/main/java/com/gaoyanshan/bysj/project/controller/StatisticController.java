@@ -6,6 +6,7 @@ import com.gaoyanshan.bysj.project.response.Response;
 import com.gaoyanshan.bysj.project.service.StatisticService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.UnauthenticatedException;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -26,6 +27,7 @@ public class StatisticController {
     @Autowired
     private StatisticService statisticService;
 
+    @RequiresAuthentication
     @GetMapping("/personal")
     public Response getPersonalStatistic(@RequestParam("pId")int pid){
         Subject subject = SecurityUtils.getSubject();

@@ -10,7 +10,11 @@ public enum  DynamicEventEnum {
     NULL("00",""),
     UPDATE_USER("02","更新用户信息"),
     LOGOUT("03","执行用户登出"),
-    LOGIN("04","登录了系统");
+    LOGIN("04","登录了系统"),
+    CREATE_TASK("011","创建了任务"),
+    UPDATE_TASK("012","更新了任务"),
+    QUERY_TASK("013","查询了任务");
+
 
     private String code;
 

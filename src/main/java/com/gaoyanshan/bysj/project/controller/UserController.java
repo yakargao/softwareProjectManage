@@ -124,4 +124,18 @@ public class UserController {
     public Response getAllUsers(){
         return Response.success(userService.getAllUsers());
     }
+
+    @RequiresAuthentication
+    @GetMapping("/logout")
+    public Response logout(){
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        return Response.success("ok");
+    }
+
+    @PostMapping("/update/avatar")
+    public Response updateAvatar(@RequestBody Map<String,Object> map){
+        System.out.println(map);
+        return Response.success(userService.uploadAvatar(map));
+    }
 }
