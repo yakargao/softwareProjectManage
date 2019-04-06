@@ -1819,3 +1819,982 @@ Caused by: java.lang.IllegalStateException: Encountered invalid @Scheduled metho
 2019-04-03 22:12:43.959  INFO 1670 --- [Thread-15] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
 2019-04-03 22:12:43.962  INFO 1670 --- [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2019-04-03 22:12:44.006  INFO 1670 --- [Thread-15] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-06 11:38:22.573  INFO 11716 --- [main] com.gaoyanshan.bysj.project.Application  : Starting Application on DESKTOP-EONIAND with PID 11716 (C:\Users\Ciacho\Desktop\softwareProjectManage\target\classes started by Ciacho in C:\Users\Ciacho\Desktop\softwareProjectManage)
+2019-04-06 11:38:22.573  INFO 11716 --- [main] com.gaoyanshan.bysj.project.Application  : No active profile set, falling back to default profiles: default
+2019-04-06 11:38:22.667  INFO 11716 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5a63f509: startup date [Sat Apr 06 11:38:22 CST 2019]; root of context hierarchy
+2019-04-06 11:38:23.417  INFO 11716 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-06 11:38:23.593  INFO 11716 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-06 11:38:23.640  INFO 11716 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gaoyanshan.bysj.project.dynamic.repository.DynamicRepository.
+2019-04-06 11:38:23.640  INFO 11716 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gaoyanshan.bysj.project.repository.APIRepository.
+2019-04-06 11:38:23.640  INFO 11716 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gaoyanshan.bysj.project.repository.DocumentRepository.
+2019-04-06 11:38:23.640  INFO 11716 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gaoyanshan.bysj.project.repository.FileResourceRepository.
+2019-04-06 11:38:23.640  INFO 11716 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gaoyanshan.bysj.project.repository.PermissionRepository.
+2019-04-06 11:38:23.640  INFO 11716 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gaoyanshan.bysj.project.repository.ProjectRepository.
+2019-04-06 11:38:23.640  INFO 11716 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gaoyanshan.bysj.project.repository.RoleRepository.
+2019-04-06 11:38:23.640  INFO 11716 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gaoyanshan.bysj.project.repository.StatisticRepository.
+2019-04-06 11:38:23.656  INFO 11716 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gaoyanshan.bysj.project.repository.TaskRepository.
+2019-04-06 11:38:23.656  INFO 11716 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gaoyanshan.bysj.project.repository.TaskTypeRepository.
+2019-04-06 11:38:23.656  INFO 11716 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gaoyanshan.bysj.project.repository.UserProjectRepository.
+2019-04-06 11:38:23.656  INFO 11716 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gaoyanshan.bysj.project.repository.UserRepository.
+2019-04-06 11:38:23.656  INFO 11716 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gaoyanshan.bysj.project.repository.UserTaskRepositiry.
+2019-04-06 11:38:24.093  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5673c307] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.234  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.gaoyanshan.bysj.project.config.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$a013c55d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.515  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'hashedCredentialsMatcher' of type [org.apache.shiro.authc.credential.HashedCredentialsMatcher] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.546  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean '(inner bean)#6441c486' of type [org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.562  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean '(inner bean)#6441c486' of type [java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.562  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean '(inner bean)#33cbfa57' of type [org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.578  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean '(inner bean)#6f3f0fae' of type [org.springframework.data.repository.core.support.RepositoryFragmentsFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.578  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean '(inner bean)#6f3f0fae' of type [org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.593  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean '(inner bean)#36dfbdaf' of type [org.springframework.data.repository.query.ExtensionAwareEvaluationContextProvider] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.593  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.609  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.context.properties.ConversionServiceDeducer$Factory' of type [org.springframework.boot.context.properties.ConversionServiceDeducer$Factory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.656  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.718  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.750  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.781  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.jpa-org.springframework.boot.autoconfigure.orm.jpa.JpaProperties' of type [org.springframework.boot.autoconfigure.orm.jpa.JpaProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.781  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration' of type [org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration$$EnhancerBySpringCGLIB$$eae7be11] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.796  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.transaction-org.springframework.boot.autoconfigure.transaction.TransactionProperties' of type [org.springframework.boot.autoconfigure.transaction.TransactionProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.796  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'platformTransactionManagerCustomizers' of type [org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizers] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.812  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration' of type [org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration$$EnhancerBySpringCGLIB$$b6caeaeb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.812  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'hikariPoolDataSourceMetadataProvider' of type [org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration$$Lambda$302/1883788127] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.828  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' of type [org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration$$EnhancerBySpringCGLIB$$754a8576] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:24.890  INFO 11716 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-06 11:38:25.531  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jpaVendorAdapter' of type [org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:25.531  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'entityManagerFactoryBuilder' of type [org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:25.610  INFO 11716 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-04-06 11:38:25.625  INFO 11716 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-06 11:38:25.735  INFO 11716 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.2.17.Final}
+2019-04-06 11:38:25.735  INFO 11716 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-06 11:38:25.781  INFO 11716 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-04-06 11:38:25.969  INFO 11716 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-06 11:38:30.547  INFO 11716 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-06 11:38:30.547  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'entityManagerFactory' of type [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:30.547  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'entityManagerFactory' of type [com.sun.proxy.$Proxy100] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:30.563  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean '(inner bean)#256aa5f2' of type [com.sun.proxy.$Proxy102] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:30.579  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jpaMappingContext' of type [org.springframework.data.jpa.repository.config.JpaMetamodelMappingContextFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:30.579  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jpaMappingContext' of type [org.springframework.data.jpa.mapping.JpaMetamodelMappingContext] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:30.794  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userRepository' of type [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:30.796  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userRepository' of type [com.sun.proxy.$Proxy105] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:30.808  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'shiroRealm' of type [com.gaoyanshan.bysj.project.config.shiro.ShiroRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:30.817  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisSessionDAO' of type [org.crazycake.shiro.RedisSessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:30.828  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sessionManager' of type [com.gaoyanshan.bysj.project.config.shiro.SpmsSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:30.834  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'cacheManager' of type [org.crazycake.shiro.RedisCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:30.842  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:30.857  INFO 11716 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-06 11:38:31.209  INFO 11716 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8089 (http)
+2019-04-06 11:38:31.236  INFO 11716 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-06 11:38:31.236  INFO 11716 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2019-04-06 11:38:31.240  INFO 11716 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_131\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;.]
+2019-04-06 11:38:31.337  INFO 11716 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-06 11:38:31.337  INFO 11716 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 8670 ms
+2019-04-06 11:38:31.415  INFO 11716 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2019-04-06 11:38:31.430  INFO 11716 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-04-06 11:38:31.430  INFO 11716 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-04-06 11:38:31.430  INFO 11716 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-04-06 11:38:31.430  INFO 11716 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-04-06 11:38:31.430  INFO 11716 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'shiroFilter' to: [/*]
+2019-04-06 11:38:31.586  INFO 11716 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-06 11:38:32.319  INFO 11716 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-06 11:38:32.600  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5a63f509: startup date [Sat Apr 06 11:38:22 CST 2019]; root of context hierarchy
+2019-04-06 11:38:32.663  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/add],methods=[POST]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.APIController.addOne(com.gaoyanshan.bysj.project.dto.APIDTO)
+2019-04-06 11:38:32.663  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/get],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.APIController.getApiById(int)
+2019-04-06 11:38:32.663  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/condition],methods=[POST]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.APIController.getApisByCondition(com.gaoyanshan.bysj.project.dto.ApiCondition)
+2019-04-06 11:38:32.663  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/doc/add],methods=[POST]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.DocumentController.addDocument(com.gaoyanshan.bysj.project.dto.DocumentDTO)
+2019-04-06 11:38:32.663  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/doc/delete/{id}],methods=[DELETE]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.DocumentController.deleteDocument(int)
+2019-04-06 11:38:32.663  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/doc/types],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.DocumentController.getAllType()
+2019-04-06 11:38:32.663  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/doc/one],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.DocumentController.getDocumentInfo(int)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/doc/many],methods=[POST]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.DocumentController.getDocsByCondition(com.gaoyanshan.bysj.project.dto.DocumentCondition)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/file/add],methods=[POST]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.FileResourceController.addFiles(com.gaoyanshan.bysj.project.dto.FileDTO)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/file/allType],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.FileResourceController.getAllTypes()
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/file/condition],methods=[POST]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.FileResourceController.getFilesByConditon(com.gaoyanshan.bysj.project.dto.FileCondition)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/project/{id}],methods=[PUT]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.ProjectController.updateProject(int,java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/project/projects],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.ProjectController.getProjects()
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/project/add],methods=[POST]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.ProjectController.addProject(java.util.Map<java.lang.String, java.lang.Object>)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/project/item],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.ProjectController.getProject(int)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/project/all],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.ProjectController.getAllProjects(int,int)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/project/{id}],methods=[DELETE]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.ProjectController.deleteProject(int)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/statistic/personal],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.StatisticController.getPersonalStatistic(int)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/unauth],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.SystemController.unauth()
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadToken],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.SystemController.getSimpleToken()
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[POST]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.SystemController.login(java.util.Map<java.lang.String, java.lang.String>)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/logout],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.SystemController.logout()
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/task/get],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.TaskController.getTask(int)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/task/status/{id}],methods=[PUT]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.TaskController.setTaskStatus(java.util.Map<java.lang.String, java.lang.Boolean>,int)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/task/add],methods=[POST]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.TaskController.addTask(com.gaoyanshan.bysj.project.dto.TaskDTO)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/task/delete/{id}],methods=[DELETE]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.TaskController.deleteTask(int)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/task/update/{id}],methods=[PUT]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.TaskController.updateTask(com.gaoyanshan.bysj.project.dto.TaskDTO,int)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/task/tasksByUser],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.TaskController.getTaskByUser(int)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/task/condition],methods=[POST]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.TaskController.getTasksByCondition(com.gaoyanshan.bysj.project.dto.TaskCondition)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/task/tasksByPid],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.TaskController.getTasksByProject(int)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/taskType/all],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.TaskTypeController.getAllType()
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/index],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.TestController.index()
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.TestController.test()
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/{id}],methods=[PUT]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.UserController.update(com.gaoyanshan.bysj.project.dto.UserDTO)
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/information],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.UserController.getUserInfo() throws java.lang.Exception
+2019-04-06 11:38:32.679  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/add],methods=[POST]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.UserController.addUser(java.util.Map<java.lang.String, java.lang.String>)
+2019-04-06 11:38:32.694  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/linkUsers],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.UserController.getUsersByProject(int)
+2019-04-06 11:38:32.694  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/users],methods=[GET]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.UserController.getAllUsers()
+2019-04-06 11:38:32.694  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/{id}],methods=[DELETE]}" onto public com.gaoyanshan.bysj.project.response.Response com.gaoyanshan.bysj.project.controller.UserController.deleteUser(int)
+2019-04-06 11:38:32.694  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-04-06 11:38:32.694  INFO 11716 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-04-06 11:38:32.725  INFO 11716 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-06 11:38:32.725  INFO 11716 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-06 11:38:32.741  INFO 11716 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in globalControllerAdvice
+2019-04-06 11:38:33.601  INFO 11716 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-04-06 11:38:33.601  INFO 11716 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-04-06 11:38:33.616  INFO 11716 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2019-04-06 11:38:33.647  INFO 11716 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8089 (http) with context path ''
+2019-04-06 11:38:33.647  INFO 11716 --- [main] com.gaoyanshan.bysj.project.Application  : Started Application in 11.636 seconds (JVM running for 12.783)
+2019-04-06 11:38:34.819  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1doneTaskMap:{}
+2019-04-06 11:38:35.726  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：1doneTaskMap:{}
+2019-04-06 11:38:36.476  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：1doneTaskMap:{}
+2019-04-06 11:38:36.662  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：1createTaskMap:{31=1}
+2019-04-06 11:38:36.786  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：1uploadFileMap:{31=2}
+2019-04-06 11:38:36.926  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：1createDocMap:{31=11}
+2019-04-06 11:38:37.083  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：1createApiMap:{31=11}
+2019-04-06 11:38:37.176  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：1createTaskMap:{31=1}
+2019-04-06 11:38:37.223  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1createTaskMap:{31=1}
+2019-04-06 11:38:37.380  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建任务1个
+2019-04-06 11:38:37.380  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31完成任务0个
+2019-04-06 11:38:37.380  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建文档11个
+2019-04-06 11:38:37.380  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31上传文件2个
+2019-04-06 11:38:37.380  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建接口11个
+2019-04-06 11:38:37.395  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：1doneTaskMap:{}
+2019-04-06 11:38:37.426  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：2doneTaskMap:{}
+2019-04-06 11:38:37.473  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：2createTaskMap:{}
+2019-04-06 11:38:37.520  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1uploadFileMap:{31=2}
+2019-04-06 11:38:37.520  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：2uploadFileMap:{}
+2019-04-06 11:38:37.567  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：2createDocMap:{}
+2019-04-06 11:38:37.567  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：1uploadFileMap:{31=2}
+2019-04-06 11:38:37.614  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：2createApiMap:{}
+2019-04-06 11:38:37.661  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1createDocMap:{31=11}
+2019-04-06 11:38:37.661  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：3doneTaskMap:{}
+2019-04-06 11:38:37.723  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：3createTaskMap:{}
+2019-04-06 11:38:37.770  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：3uploadFileMap:{}
+2019-04-06 11:38:37.801  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1createApiMap:{31=11}
+2019-04-06 11:38:37.801  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：3createDocMap:{}
+2019-04-06 11:38:37.848  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：3createApiMap:{}
+2019-04-06 11:38:37.880  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：4doneTaskMap:{}
+2019-04-06 11:38:37.926  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：4createTaskMap:{}
+2019-04-06 11:38:37.942  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建任务1个
+2019-04-06 11:38:37.942  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31完成任务0个
+2019-04-06 11:38:37.942  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建文档11个
+2019-04-06 11:38:37.942  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31上传文件2个
+2019-04-06 11:38:37.942  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建接口11个
+2019-04-06 11:38:37.973  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：4uploadFileMap:{}
+2019-04-06 11:38:37.989  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2doneTaskMap:{}
+2019-04-06 11:38:38.020  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：4createDocMap:{}
+2019-04-06 11:38:38.020  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2createTaskMap:{}
+2019-04-06 11:38:38.067  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：4createApiMap:{}
+2019-04-06 11:38:38.098  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2uploadFileMap:{}
+2019-04-06 11:38:38.145  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：5doneTaskMap:{}
+2019-04-06 11:38:38.145  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：1createTaskMap:{31=1}
+2019-04-06 11:38:38.176  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2createDocMap:{}
+2019-04-06 11:38:38.176  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：5createTaskMap:{}
+2019-04-06 11:38:38.223  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2createApiMap:{}
+2019-04-06 11:38:38.255  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：5uploadFileMap:{}
+2019-04-06 11:38:38.301  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：1uploadFileMap:{31=2}
+2019-04-06 11:38:38.301  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3doneTaskMap:{}
+2019-04-06 11:38:38.333  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：5createDocMap:{}
+2019-04-06 11:38:38.380  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：5createApiMap:{}
+2019-04-06 11:38:38.380  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3createTaskMap:{}
+2019-04-06 11:38:38.411  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：1doneTaskMap:{}
+2019-04-06 11:38:38.426  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：6doneTaskMap:{}
+2019-04-06 11:38:38.426  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3uploadFileMap:{}
+2019-04-06 11:38:38.442  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：1createDocMap:{31=11}
+2019-04-06 11:38:38.458  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：6createTaskMap:{}
+2019-04-06 11:38:38.473  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3createDocMap:{}
+2019-04-06 11:38:38.505  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：6uploadFileMap:{}
+2019-04-06 11:38:38.505  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3createApiMap:{}
+2019-04-06 11:38:38.520  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：1createDocMap:{31=11}
+2019-04-06 11:38:38.536  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：6createDocMap:{}
+2019-04-06 11:38:38.551  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4doneTaskMap:{}
+2019-04-06 11:38:38.567  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：6createApiMap:{}
+2019-04-06 11:38:38.583  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：1createApiMap:{31=11}
+2019-04-06 11:38:38.583  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4createTaskMap:{}
+2019-04-06 11:38:38.614  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：7doneTaskMap:{}
+2019-04-06 11:38:38.614  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4uploadFileMap:{}
+2019-04-06 11:38:38.645  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：7createTaskMap:{}
+2019-04-06 11:38:38.661  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4createDocMap:{}
+2019-04-06 11:38:38.676  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：7uploadFileMap:{}
+2019-04-06 11:38:38.708  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4createApiMap:{}
+2019-04-06 11:38:38.723  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：7createDocMap:{}
+2019-04-06 11:38:38.723  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建任务1个
+2019-04-06 11:38:38.723  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31完成任务0个
+2019-04-06 11:38:38.723  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建文档11个
+2019-04-06 11:38:38.723  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31上传文件2个
+2019-04-06 11:38:38.723  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建接口11个
+2019-04-06 11:38:38.755  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：7createApiMap:{}
+2019-04-06 11:38:38.770  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5doneTaskMap:{}
+2019-04-06 11:38:38.770  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：2doneTaskMap:{}
+2019-04-06 11:38:38.801  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：10doneTaskMap:{}
+2019-04-06 11:38:38.817  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5createTaskMap:{}
+2019-04-06 11:38:38.817  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：2createTaskMap:{}
+2019-04-06 11:38:38.848  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：10createTaskMap:{}
+2019-04-06 11:38:38.848  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5uploadFileMap:{}
+2019-04-06 11:38:38.864  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：2uploadFileMap:{}
+2019-04-06 11:38:38.880  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：10uploadFileMap:{}
+2019-04-06 11:38:38.880  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：1createApiMap:{31=11}
+2019-04-06 11:38:38.895  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5createDocMap:{}
+2019-04-06 11:38:38.895  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：2createDocMap:{}
+2019-04-06 11:38:38.911  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：10createDocMap:{}
+2019-04-06 11:38:38.926  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5createApiMap:{}
+2019-04-06 11:38:38.942  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：2createApiMap:{}
+2019-04-06 11:38:38.958  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：10createApiMap:{}
+2019-04-06 11:38:38.958  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6doneTaskMap:{}
+2019-04-06 11:38:38.973  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：3doneTaskMap:{}
+2019-04-06 11:38:38.989  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：11doneTaskMap:{}
+2019-04-06 11:38:39.005  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6createTaskMap:{}
+2019-04-06 11:38:39.020  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：3createTaskMap:{}
+2019-04-06 11:38:39.020  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建任务1个
+2019-04-06 11:38:39.020  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：11createTaskMap:{}
+2019-04-06 11:38:39.020  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31完成任务0个
+2019-04-06 11:38:39.020  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建文档11个
+2019-04-06 11:38:39.020  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31上传文件2个
+2019-04-06 11:38:39.020  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建接口11个
+2019-04-06 11:38:39.051  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6uploadFileMap:{}
+2019-04-06 11:38:39.098  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：11uploadFileMap:{}
+2019-04-06 11:38:39.098  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：3uploadFileMap:{}
+2019-04-06 11:38:39.098  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6createDocMap:{}
+2019-04-06 11:38:39.130  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：11createDocMap:{}
+2019-04-06 11:38:39.130  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6createApiMap:{}
+2019-04-06 11:38:39.130  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：3createDocMap:{}
+2019-04-06 11:38:39.130  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：1createTaskMap:{31=1}
+2019-04-06 11:38:39.161  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：11createApiMap:{}
+2019-04-06 11:38:39.176  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：7doneTaskMap:{}
+2019-04-06 11:38:39.176  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：3createApiMap:{}
+2019-04-06 11:38:39.208  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：12doneTaskMap:{}
+2019-04-06 11:38:39.208  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：7createTaskMap:{}
+2019-04-06 11:38:39.223  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：4doneTaskMap:{}
+2019-04-06 11:38:39.239  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：12createTaskMap:{}
+2019-04-06 11:38:39.270  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：1uploadFileMap:{31=2}
+2019-04-06 11:38:39.270  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：7uploadFileMap:{}
+2019-04-06 11:38:39.270  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：4createTaskMap:{}
+2019-04-06 11:38:39.270  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：12uploadFileMap:{}
+2019-04-06 11:38:39.301  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：7createDocMap:{}
+2019-04-06 11:38:39.317  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：12createDocMap:{}
+2019-04-06 11:38:39.317  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：4uploadFileMap:{}
+2019-04-06 11:38:39.333  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：2doneTaskMap:{}
+2019-04-06 11:38:39.348  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：7createApiMap:{}
+2019-04-06 11:38:39.364  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：12createApiMap:{}
+2019-04-06 11:38:39.364  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：2createTaskMap:{}
+2019-04-06 11:38:39.364  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：4createDocMap:{}
+2019-04-06 11:38:39.380  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：10doneTaskMap:{}
+2019-04-06 11:38:39.395  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：13doneTaskMap:{}
+2019-04-06 11:38:39.395  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：2uploadFileMap:{}
+2019-04-06 11:38:39.411  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：4createApiMap:{}
+2019-04-06 11:38:39.411  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：1createDocMap:{31=11}
+2019-04-06 11:38:39.411  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：10createTaskMap:{}
+2019-04-06 11:38:39.458  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：13createTaskMap:{}
+2019-04-06 11:38:39.458  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：2createDocMap:{}
+2019-04-06 11:38:39.458  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：10uploadFileMap:{}
+2019-04-06 11:38:39.489  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：5doneTaskMap:{}
+2019-04-06 11:38:39.505  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：2createApiMap:{}
+2019-04-06 11:38:39.505  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：10createDocMap:{}
+2019-04-06 11:38:39.520  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：5createTaskMap:{}
+2019-04-06 11:38:39.536  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：3doneTaskMap:{}
+2019-04-06 11:38:39.552  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：10createApiMap:{}
+2019-04-06 11:38:39.567  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：1createApiMap:{31=11}
+2019-04-06 11:38:39.567  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：5uploadFileMap:{}
+2019-04-06 11:38:39.567  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：3createTaskMap:{}
+2019-04-06 11:38:39.583  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：11doneTaskMap:{}
+2019-04-06 11:38:39.614  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：3uploadFileMap:{}
+2019-04-06 11:38:39.614  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：5createDocMap:{}
+2019-04-06 11:38:39.614  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：11createTaskMap:{}
+2019-04-06 11:38:39.645  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：3createDocMap:{}
+2019-04-06 11:38:39.645  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：5createApiMap:{}
+2019-04-06 11:38:39.661  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：11uploadFileMap:{}
+2019-04-06 11:38:39.677  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：3createApiMap:{}
+2019-04-06 11:38:39.692  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：6doneTaskMap:{}
+2019-04-06 11:38:39.692  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：11createDocMap:{}
+2019-04-06 11:38:39.708  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：4doneTaskMap:{}
+2019-04-06 11:38:39.708  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建任务1个
+2019-04-06 11:38:39.708  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31完成任务0个
+2019-04-06 11:38:39.708  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建文档11个
+2019-04-06 11:38:39.708  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31上传文件2个
+2019-04-06 11:38:39.708  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建接口11个
+2019-04-06 11:38:39.723  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：11createApiMap:{}
+2019-04-06 11:38:39.723  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：6createTaskMap:{}
+2019-04-06 11:38:39.739  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：13uploadFileMap:{}
+2019-04-06 11:38:39.739  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：4createTaskMap:{}
+2019-04-06 11:38:39.755  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：2doneTaskMap:{}
+2019-04-06 11:38:39.770  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：12doneTaskMap:{}
+2019-04-06 11:38:39.770  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：13createDocMap:{}
+2019-04-06 11:38:39.770  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：6uploadFileMap:{}
+2019-04-06 11:38:39.786  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：4uploadFileMap:{}
+2019-04-06 11:38:39.802  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：2createTaskMap:{}
+2019-04-06 11:38:39.802  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：12createTaskMap:{}
+2019-04-06 11:38:39.817  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：13createApiMap:{}
+2019-04-06 11:38:39.817  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：6createDocMap:{}
+2019-04-06 11:38:39.817  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：4createDocMap:{}
+2019-04-06 11:38:39.849  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：2uploadFileMap:{}
+2019-04-06 11:38:39.849  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：12uploadFileMap:{}
+2019-04-06 11:38:39.849  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：14doneTaskMap:{}
+2019-04-06 11:38:39.864  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：6createApiMap:{}
+2019-04-06 11:38:39.880  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：4createApiMap:{}
+2019-04-06 11:38:39.895  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：12createDocMap:{}
+2019-04-06 11:38:39.895  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：2createDocMap:{}
+2019-04-06 11:38:39.895  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：14createTaskMap:{}
+2019-04-06 11:38:39.911  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：7doneTaskMap:{}
+2019-04-06 11:38:39.911  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：5doneTaskMap:{}
+2019-04-06 11:38:39.927  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：12createApiMap:{}
+2019-04-06 11:38:39.942  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：2createApiMap:{}
+2019-04-06 11:38:39.942  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：14uploadFileMap:{}
+2019-04-06 11:38:39.942  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：5createTaskMap:{}
+2019-04-06 11:38:39.973  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：7createTaskMap:{}
+2019-04-06 11:38:39.973  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：13doneTaskMap:{}
+2019-04-06 11:38:40.020  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：5uploadFileMap:{}
+2019-04-06 11:38:40.020  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：14createDocMap:{}
+2019-04-06 11:38:40.036  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：13createTaskMap:{}
+2019-04-06 11:38:40.036  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：3doneTaskMap:{}
+2019-04-06 11:38:40.036  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：7uploadFileMap:{}
+2019-04-06 11:38:40.067  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：5createDocMap:{}
+2019-04-06 11:38:40.067  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：14createApiMap:{}
+2019-04-06 11:38:40.067  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：13uploadFileMap:{}
+2019-04-06 11:38:40.067  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：3createTaskMap:{}
+2019-04-06 11:38:40.083  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：7createDocMap:{}
+2019-04-06 11:38:40.099  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：5createApiMap:{}
+2019-04-06 11:38:40.114  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：15doneTaskMap:{}
+2019-04-06 11:38:40.114  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：13createDocMap:{}
+2019-04-06 11:38:40.114  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：3uploadFileMap:{}
+2019-04-06 11:38:40.114  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：7createApiMap:{}
+2019-04-06 11:38:40.130  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：6doneTaskMap:{}
+2019-04-06 11:38:40.145  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：15createTaskMap:{}
+2019-04-06 11:38:40.145  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：13createApiMap:{}
+2019-04-06 11:38:40.161  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：3createDocMap:{}
+2019-04-06 11:38:40.161  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：10doneTaskMap:{}
+2019-04-06 11:38:40.177  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：6createTaskMap:{}
+2019-04-06 11:38:40.192  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：15uploadFileMap:{}
+2019-04-06 11:38:40.192  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：14doneTaskMap:{}
+2019-04-06 11:38:40.208  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：3createApiMap:{}
+2019-04-06 11:38:40.208  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：10createTaskMap:{}
+2019-04-06 11:38:40.208  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：6uploadFileMap:{}
+2019-04-06 11:38:40.223  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：15createDocMap:{}
+2019-04-06 11:38:40.223  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：14createTaskMap:{}
+2019-04-06 11:38:40.239  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：4doneTaskMap:{}
+2019-04-06 11:38:40.255  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：6createDocMap:{}
+2019-04-06 11:38:40.255  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：15createApiMap:{}
+2019-04-06 11:38:40.255  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：10uploadFileMap:{}
+2019-04-06 11:38:40.270  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：14uploadFileMap:{}
+2019-04-06 11:38:40.286  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：4createTaskMap:{}
+2019-04-06 11:38:40.286  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：6createApiMap:{}
+2019-04-06 11:38:40.302  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：16doneTaskMap:{}
+2019-04-06 11:38:40.302  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：10createDocMap:{}
+2019-04-06 11:38:40.302  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：14createDocMap:{}
+2019-04-06 11:38:40.317  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：4uploadFileMap:{}
+2019-04-06 11:38:40.333  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：7doneTaskMap:{}
+2019-04-06 11:38:40.333  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：16createTaskMap:{}
+2019-04-06 11:38:40.349  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：10createApiMap:{}
+2019-04-06 11:38:40.349  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：14createApiMap:{}
+2019-04-06 11:38:40.364  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：7createTaskMap:{}
+2019-04-06 11:38:40.364  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：4createDocMap:{}
+2019-04-06 11:38:40.364  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：16uploadFileMap:{}
+2019-04-06 11:38:40.395  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：15doneTaskMap:{}
+2019-04-06 11:38:40.395  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：11doneTaskMap:{}
+2019-04-06 11:38:40.395  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：7uploadFileMap:{}
+2019-04-06 11:38:40.411  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：4createApiMap:{}
+2019-04-06 11:38:40.427  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：15createTaskMap:{}
+2019-04-06 11:38:40.427  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：7createDocMap:{}
+2019-04-06 11:38:40.427  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：11createTaskMap:{}
+2019-04-06 11:38:40.442  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：5doneTaskMap:{}
+2019-04-06 11:38:40.458  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：7createApiMap:{}
+2019-04-06 11:38:40.458  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：15uploadFileMap:{}
+2019-04-06 11:38:40.473  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：11uploadFileMap:{}
+2019-04-06 11:38:40.489  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：5createTaskMap:{}
+2019-04-06 11:38:40.505  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：10doneTaskMap:{}
+2019-04-06 11:38:40.505  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：15createDocMap:{}
+2019-04-06 11:38:40.505  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：11createDocMap:{}
+2019-04-06 11:38:40.520  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：5uploadFileMap:{}
+2019-04-06 11:38:40.536  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：10createTaskMap:{}
+2019-04-06 11:38:40.536  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：15createApiMap:{}
+2019-04-06 11:38:40.552  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：11createApiMap:{}
+2019-04-06 11:38:40.567  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：5createDocMap:{}
+2019-04-06 11:38:40.567  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：10uploadFileMap:{}
+2019-04-06 11:38:40.567  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：16doneTaskMap:{}
+2019-04-06 11:38:40.599  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：12doneTaskMap:{}
+2019-04-06 11:38:40.599  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：5createApiMap:{}
+2019-04-06 11:38:40.599  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：10createDocMap:{}
+2019-04-06 11:38:40.614  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：16createTaskMap:{}
+2019-04-06 11:38:40.630  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：10createApiMap:{}
+2019-04-06 11:38:40.630  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：12createTaskMap:{}
+2019-04-06 11:38:40.645  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：6doneTaskMap:{}
+2019-04-06 11:38:40.645  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：16createDocMap:{}
+2019-04-06 11:38:40.645  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：16uploadFileMap:{}
+2019-04-06 11:38:40.677  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：11doneTaskMap:{}
+2019-04-06 11:38:40.677  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：16createApiMap:{}
+2019-04-06 11:38:40.677  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：6createTaskMap:{}
+2019-04-06 11:38:40.677  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：12uploadFileMap:{}
+2019-04-06 11:38:40.692  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：16createDocMap:{}
+2019-04-06 11:38:40.708  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：11createTaskMap:{}
+2019-04-06 11:38:40.708  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：17doneTaskMap:{}
+2019-04-06 11:38:40.708  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：6uploadFileMap:{}
+2019-04-06 11:38:40.724  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：12createDocMap:{}
+2019-04-06 11:38:40.724  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：16createApiMap:{}
+2019-04-06 11:38:40.739  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：11uploadFileMap:{}
+2019-04-06 11:38:40.739  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：17createTaskMap:{}
+2019-04-06 11:38:40.755  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：6createDocMap:{}
+2019-04-06 11:38:40.770  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：17doneTaskMap:{}
+2019-04-06 11:38:40.770  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：12createApiMap:{}
+2019-04-06 11:38:40.770  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：11createDocMap:{}
+2019-04-06 11:38:40.770  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：17uploadFileMap:{}
+2019-04-06 11:38:40.786  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：6createApiMap:{}
+2019-04-06 11:38:40.802  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：17createTaskMap:{}
+2019-04-06 11:38:40.802  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：11createApiMap:{}
+2019-04-06 11:38:40.817  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：17createDocMap:{}
+2019-04-06 11:38:40.817  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：13doneTaskMap:{}
+2019-04-06 11:38:40.833  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：7doneTaskMap:{}
+2019-04-06 11:38:40.833  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：17uploadFileMap:{}
+2019-04-06 11:38:40.849  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：12doneTaskMap:{}
+2019-04-06 11:38:40.864  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：13createTaskMap:{}
+2019-04-06 11:38:40.864  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：7createTaskMap:{}
+2019-04-06 11:38:40.880  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：17createDocMap:{}
+2019-04-06 11:38:40.880  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：12createTaskMap:{}
+2019-04-06 11:38:40.895  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：13uploadFileMap:{}
+2019-04-06 11:38:40.911  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：17createApiMap:{}
+2019-04-06 11:38:40.911  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：12uploadFileMap:{}
+2019-04-06 11:38:40.911  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：7uploadFileMap:{}
+2019-04-06 11:38:40.942  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：13createDocMap:{}
+2019-04-06 11:38:40.942  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：12createDocMap:{}
+2019-04-06 11:38:40.958  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：18doneTaskMap:{}
+2019-04-06 11:38:40.958  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：7createDocMap:{}
+2019-04-06 11:38:40.974  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：13createApiMap:{}
+2019-04-06 11:38:40.974  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：12createApiMap:{}
+2019-04-06 11:38:41.005  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：18createTaskMap:{}
+2019-04-06 11:38:41.005  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：7createApiMap:{}
+2019-04-06 11:38:41.005  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：13doneTaskMap:{}
+2019-04-06 11:38:41.020  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：14doneTaskMap:{}
+2019-04-06 11:38:41.036  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：18uploadFileMap:{}
+2019-04-06 11:38:41.036  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：10doneTaskMap:{}
+2019-04-06 11:38:41.052  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：13createTaskMap:{}
+2019-04-06 11:38:41.067  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：14createTaskMap:{}
+2019-04-06 11:38:41.083  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：18createDocMap:{}
+2019-04-06 11:38:41.083  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：13uploadFileMap:{}
+2019-04-06 11:38:41.083  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：10createTaskMap:{}
+2019-04-06 11:38:41.083  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：17createApiMap:{}
+2019-04-06 11:38:41.099  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：14uploadFileMap:{}
+2019-04-06 11:38:41.114  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：13createDocMap:{}
+2019-04-06 11:38:41.114  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：18doneTaskMap:{}
+2019-04-06 11:38:41.114  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：18createApiMap:{}
+2019-04-06 11:38:41.130  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：10uploadFileMap:{}
+2019-04-06 11:38:41.145  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：14createDocMap:{}
+2019-04-06 11:38:41.145  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：13createApiMap:{}
+2019-04-06 11:38:41.161  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：18createTaskMap:{}
+2019-04-06 11:38:41.161  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：10createDocMap:{}
+2019-04-06 11:38:41.177  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：14doneTaskMap:{}
+2019-04-06 11:38:41.192  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：14createApiMap:{}
+2019-04-06 11:38:41.192  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：18uploadFileMap:{}
+2019-04-06 11:38:41.208  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：10createApiMap:{}
+2019-04-06 11:38:41.224  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：14createTaskMap:{}
+2019-04-06 11:38:41.239  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：15doneTaskMap:{}
+2019-04-06 11:38:41.239  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：18createDocMap:{}
+2019-04-06 11:38:41.255  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：11doneTaskMap:{}
+2019-04-06 11:38:41.286  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：14uploadFileMap:{}
+2019-04-06 11:38:41.286  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：18createApiMap:{}
+2019-04-06 11:38:41.286  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：11createTaskMap:{}
+2019-04-06 11:38:41.302  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：15createTaskMap:{}
+2019-04-06 11:38:41.317  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：14createDocMap:{}
+2019-04-06 11:38:41.333  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：11uploadFileMap:{}
+2019-04-06 11:38:41.349  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：15uploadFileMap:{}
+2019-04-06 11:38:41.364  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：14createApiMap:{}
+2019-04-06 11:38:41.380  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：11createDocMap:{}
+2019-04-06 11:38:41.395  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：15createDocMap:{}
+2019-04-06 11:38:41.395  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：15doneTaskMap:{}
+2019-04-06 11:38:41.427  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：15createTaskMap:{}
+2019-04-06 11:38:41.427  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：11createApiMap:{}
+2019-04-06 11:38:41.427  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：15createApiMap:{}
+2019-04-06 11:38:41.427  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1doneTaskMap:{}
+2019-04-06 11:38:41.458  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：15uploadFileMap:{}
+2019-04-06 11:38:41.489  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：12doneTaskMap:{}
+2019-04-06 11:38:41.489  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：16doneTaskMap:{}
+2019-04-06 11:38:41.489  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：15createDocMap:{}
+2019-04-06 11:38:41.521  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：15createApiMap:{}
+2019-04-06 11:38:41.536  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：12createTaskMap:{}
+2019-04-06 11:38:41.552  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：16createTaskMap:{}
+2019-04-06 11:38:41.583  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：16doneTaskMap:{}
+2019-04-06 11:38:41.599  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：12uploadFileMap:{}
+2019-04-06 11:38:41.599  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：16uploadFileMap:{}
+2019-04-06 11:38:41.630  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：16createTaskMap:{}
+2019-04-06 11:38:41.630  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：12createDocMap:{}
+2019-04-06 11:38:41.630  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：16createDocMap:{}
+2019-04-06 11:38:41.661  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：16uploadFileMap:{}
+2019-04-06 11:38:41.677  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：12createApiMap:{}
+2019-04-06 11:38:41.692  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：16createDocMap:{}
+2019-04-06 11:38:41.692  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：16createApiMap:{}
+2019-04-06 11:38:41.724  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：13doneTaskMap:{}
+2019-04-06 11:38:41.724  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：16createApiMap:{}
+2019-04-06 11:38:41.739  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：17doneTaskMap:{}
+2019-04-06 11:38:41.755  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：13createTaskMap:{}
+2019-04-06 11:38:41.755  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：17doneTaskMap:{}
+2019-04-06 11:38:41.786  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：17createTaskMap:{}
+2019-04-06 11:38:41.802  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：17createTaskMap:{}
+2019-04-06 11:38:41.802  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：13uploadFileMap:{}
+2019-04-06 11:38:41.849  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：17uploadFileMap:{}
+2019-04-06 11:38:41.849  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：13createDocMap:{}
+2019-04-06 11:38:41.864  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：17uploadFileMap:{}
+2019-04-06 11:38:41.896  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：17createDocMap:{}
+2019-04-06 11:38:41.911  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：13createApiMap:{}
+2019-04-06 11:38:41.927  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：17createDocMap:{}
+2019-04-06 11:38:41.927  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：17createApiMap:{}
+2019-04-06 11:38:41.958  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：14doneTaskMap:{}
+2019-04-06 11:38:41.958  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：17createApiMap:{}
+2019-04-06 11:38:41.974  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：18doneTaskMap:{}
+2019-04-06 11:38:42.005  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：18createTaskMap:{}
+2019-04-06 11:38:42.005  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：14createTaskMap:{}
+2019-04-06 11:38:42.021  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：18doneTaskMap:{}
+2019-04-06 11:38:42.036  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：18uploadFileMap:{}
+2019-04-06 11:38:42.052  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：14uploadFileMap:{}
+2019-04-06 11:38:42.067  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：18createTaskMap:{}
+2019-04-06 11:38:42.083  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：18createDocMap:{}
+2019-04-06 11:38:42.099  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：14createDocMap:{}
+2019-04-06 11:38:42.114  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：18uploadFileMap:{}
+2019-04-06 11:38:42.114  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：18createApiMap:{}
+2019-04-06 11:38:42.161  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：14createApiMap:{}
+2019-04-06 11:38:42.177  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：18createDocMap:{}
+2019-04-06 11:38:42.208  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1createTaskMap:{31=1}
+2019-04-06 11:38:42.224  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：15doneTaskMap:{}
+2019-04-06 11:38:42.224  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：18createApiMap:{}
+2019-04-06 11:38:42.271  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：15createTaskMap:{}
+2019-04-06 11:38:42.302  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：15uploadFileMap:{}
+2019-04-06 11:38:42.349  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1uploadFileMap:{31=2}
+2019-04-06 11:38:42.364  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：15createDocMap:{}
+2019-04-06 11:38:42.474  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：15createApiMap:{}
+2019-04-06 11:38:42.552  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：16doneTaskMap:{}
+2019-04-06 11:38:42.568  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1createDocMap:{31=11}
+2019-04-06 11:38:42.599  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：16createTaskMap:{}
+2019-04-06 11:38:42.661  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：16uploadFileMap:{}
+2019-04-06 11:38:42.708  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：16createDocMap:{}
+2019-04-06 11:38:42.755  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1createApiMap:{31=11}
+2019-04-06 11:38:42.755  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：16createApiMap:{}
+2019-04-06 11:38:42.802  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：17doneTaskMap:{}
+2019-04-06 11:38:42.849  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：17createTaskMap:{}
+2019-04-06 11:38:42.896  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：17uploadFileMap:{}
+2019-04-06 11:38:42.911  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建任务1个
+2019-04-06 11:38:42.911  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31完成任务0个
+2019-04-06 11:38:42.911  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建文档11个
+2019-04-06 11:38:42.911  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31上传文件2个
+2019-04-06 11:38:42.911  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建接口11个
+2019-04-06 11:38:42.927  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：17createDocMap:{}
+2019-04-06 11:38:42.958  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2doneTaskMap:{}
+2019-04-06 11:38:42.974  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：17createApiMap:{}
+2019-04-06 11:38:42.989  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：1doneTaskMap:{}
+2019-04-06 11:38:42.989  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2createTaskMap:{}
+2019-04-06 11:38:43.021  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：18doneTaskMap:{}
+2019-04-06 11:38:43.036  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2uploadFileMap:{}
+2019-04-06 11:38:43.052  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：18createTaskMap:{}
+2019-04-06 11:38:43.068  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2createDocMap:{}
+2019-04-06 11:38:43.099  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：18uploadFileMap:{}
+2019-04-06 11:38:43.130  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2createApiMap:{}
+2019-04-06 11:38:43.177  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：18createDocMap:{}
+2019-04-06 11:38:43.192  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3doneTaskMap:{}
+2019-04-06 11:38:43.224  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：18createApiMap:{}
+2019-04-06 11:38:43.239  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3createTaskMap:{}
+2019-04-06 11:38:43.286  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3uploadFileMap:{}
+2019-04-06 11:38:43.318  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3createDocMap:{}
+2019-04-06 11:38:43.364  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3createApiMap:{}
+2019-04-06 11:38:43.380  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：1doneTaskMap:{}
+2019-04-06 11:38:43.396  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4doneTaskMap:{}
+2019-04-06 11:38:43.443  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4createTaskMap:{}
+2019-04-06 11:38:43.474  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4uploadFileMap:{}
+2019-04-06 11:38:43.521  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4createDocMap:{}
+2019-04-06 11:38:43.552  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4createApiMap:{}
+2019-04-06 11:38:43.599  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5doneTaskMap:{}
+2019-04-06 11:38:43.630  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5createTaskMap:{}
+2019-04-06 11:38:43.693  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5uploadFileMap:{}
+2019-04-06 11:38:43.740  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5createDocMap:{}
+2019-04-06 11:38:43.787  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5createApiMap:{}
+2019-04-06 11:38:43.833  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6doneTaskMap:{}
+2019-04-06 11:38:43.880  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6createTaskMap:{}
+2019-04-06 11:38:43.912  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6uploadFileMap:{}
+2019-04-06 11:38:43.958  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6createDocMap:{}
+2019-04-06 11:38:44.005  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6createApiMap:{}
+2019-04-06 11:38:44.037  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：7doneTaskMap:{}
+2019-04-06 11:38:44.099  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：7createTaskMap:{}
+2019-04-06 11:38:44.193  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：7uploadFileMap:{}
+2019-04-06 11:38:44.224  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：1createTaskMap:{31=1}
+2019-04-06 11:38:44.255  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：7createDocMap:{}
+2019-04-06 11:38:44.287  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：7createApiMap:{}
+2019-04-06 11:38:44.333  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：10doneTaskMap:{}
+2019-04-06 11:38:44.349  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：1uploadFileMap:{31=2}
+2019-04-06 11:38:44.380  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：10createTaskMap:{}
+2019-04-06 11:38:44.474  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：10uploadFileMap:{}
+2019-04-06 11:38:44.490  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：1doneTaskMap:{}
+2019-04-06 11:38:44.537  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：1createTaskMap:{31=1}
+2019-04-06 11:38:44.537  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：10createDocMap:{}
+2019-04-06 11:38:44.599  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：10createApiMap:{}
+2019-04-06 11:38:44.615  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：1createDocMap:{31=11}
+2019-04-06 11:38:44.646  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：11doneTaskMap:{}
+2019-04-06 11:38:44.708  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：11createTaskMap:{}
+2019-04-06 11:38:44.755  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：11uploadFileMap:{}
+2019-04-06 11:38:44.802  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：11createDocMap:{}
+2019-04-06 11:38:44.818  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：1createApiMap:{31=11}
+2019-04-06 11:38:44.834  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：11createApiMap:{}
+2019-04-06 11:38:44.896  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：12doneTaskMap:{}
+2019-04-06 11:38:44.943  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：1uploadFileMap:{31=2}
+2019-04-06 11:38:44.943  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：12createTaskMap:{}
+2019-04-06 11:38:44.990  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：12uploadFileMap:{}
+2019-04-06 11:38:45.021  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建任务1个
+2019-04-06 11:38:45.021  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31完成任务0个
+2019-04-06 11:38:45.021  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建文档11个
+2019-04-06 11:38:45.021  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31上传文件2个
+2019-04-06 11:38:45.021  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建接口11个
+2019-04-06 11:38:45.037  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：12createDocMap:{}
+2019-04-06 11:38:45.084  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：12createApiMap:{}
+2019-04-06 11:38:45.099  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：2doneTaskMap:{}
+2019-04-06 11:38:45.146  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：13doneTaskMap:{}
+2019-04-06 11:38:45.162  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：2createTaskMap:{}
+2019-04-06 11:38:45.208  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：13createTaskMap:{}
+2019-04-06 11:38:45.208  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：2uploadFileMap:{}
+2019-04-06 11:38:45.255  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：13uploadFileMap:{}
+2019-04-06 11:38:45.271  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：2createDocMap:{}
+2019-04-06 11:38:45.334  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：13createDocMap:{}
+2019-04-06 11:38:45.334  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：2createApiMap:{}
+2019-04-06 11:38:45.365  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：1doneTaskMap:{}
+2019-04-06 11:38:45.380  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：13createApiMap:{}
+2019-04-06 11:38:45.380  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：1createTaskMap:{31=1}
+2019-04-06 11:38:45.396  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：3doneTaskMap:{}
+2019-04-06 11:38:45.443  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：14doneTaskMap:{}
+2019-04-06 11:38:45.458  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：3createTaskMap:{}
+2019-04-06 11:38:45.474  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：1createDocMap:{31=11}
+2019-04-06 11:38:45.490  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：14createTaskMap:{}
+2019-04-06 11:38:45.490  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：3uploadFileMap:{}
+2019-04-06 11:38:45.521  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：14uploadFileMap:{}
+2019-04-06 11:38:45.537  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：1uploadFileMap:{31=2}
+2019-04-06 11:38:45.537  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：3createDocMap:{}
+2019-04-06 11:38:45.599  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：14createDocMap:{}
+2019-04-06 11:38:45.646  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：3createApiMap:{}
+2019-04-06 11:38:45.662  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：14createApiMap:{}
+2019-04-06 11:38:45.724  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：15doneTaskMap:{}
+2019-04-06 11:38:45.740  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：4doneTaskMap:{}
+2019-04-06 11:38:45.771  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：15createTaskMap:{}
+2019-04-06 11:38:45.771  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：1createDocMap:{31=11}
+2019-04-06 11:38:45.787  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：4createTaskMap:{}
+2019-04-06 11:38:45.818  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：1createApiMap:{31=11}
+2019-04-06 11:38:45.818  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：15uploadFileMap:{}
+2019-04-06 11:38:45.849  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：4uploadFileMap:{}
+2019-04-06 11:38:45.865  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：15createDocMap:{}
+2019-04-06 11:38:45.896  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：15createApiMap:{}
+2019-04-06 11:38:45.912  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：4createDocMap:{}
+2019-04-06 11:38:45.943  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：16doneTaskMap:{}
+2019-04-06 11:38:45.943  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：1createApiMap:{31=11}
+2019-04-06 11:38:45.959  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：4createApiMap:{}
+2019-04-06 11:38:45.974  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建任务1个
+2019-04-06 11:38:45.974  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31完成任务0个
+2019-04-06 11:38:45.974  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建文档11个
+2019-04-06 11:38:45.974  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31上传文件2个
+2019-04-06 11:38:45.974  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建接口11个
+2019-04-06 11:38:45.990  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：16createTaskMap:{}
+2019-04-06 11:38:45.990  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：5doneTaskMap:{}
+2019-04-06 11:38:46.037  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：2doneTaskMap:{}
+2019-04-06 11:38:46.052  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：16uploadFileMap:{}
+2019-04-06 11:38:46.052  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：5createTaskMap:{}
+2019-04-06 11:38:46.084  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：1createTaskMap:{31=1}
+2019-04-06 11:38:46.084  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：2createTaskMap:{}
+2019-04-06 11:38:46.084  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：16createDocMap:{}
+2019-04-06 11:38:46.099  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：5uploadFileMap:{}
+2019-04-06 11:38:46.115  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：2uploadFileMap:{}
+2019-04-06 11:38:46.115  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：16createApiMap:{}
+2019-04-06 11:38:46.115  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建任务1个
+2019-04-06 11:38:46.115  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31完成任务0个
+2019-04-06 11:38:46.115  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建文档11个
+2019-04-06 11:38:46.115  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31上传文件2个
+2019-04-06 11:38:46.115  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建接口11个
+2019-04-06 11:38:46.130  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：5createDocMap:{}
+2019-04-06 11:38:46.162  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：2createDocMap:{}
+2019-04-06 11:38:46.162  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：2doneTaskMap:{}
+2019-04-06 11:38:46.162  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：17doneTaskMap:{}
+2019-04-06 11:38:46.177  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：5createApiMap:{}
+2019-04-06 11:38:46.193  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：1uploadFileMap:{31=2}
+2019-04-06 11:38:46.193  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：2createApiMap:{}
+2019-04-06 11:38:46.193  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：2createTaskMap:{}
+2019-04-06 11:38:46.193  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：17createTaskMap:{}
+2019-04-06 11:38:46.209  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：6doneTaskMap:{}
+2019-04-06 11:38:46.240  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：2uploadFileMap:{}
+2019-04-06 11:38:46.240  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：17uploadFileMap:{}
+2019-04-06 11:38:46.256  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：6createTaskMap:{}
+2019-04-06 11:38:46.287  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：2createDocMap:{}
+2019-04-06 11:38:46.287  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：17createDocMap:{}
+2019-04-06 11:38:46.302  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：6uploadFileMap:{}
+2019-04-06 11:38:46.318  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：1createDocMap:{31=11}
+2019-04-06 11:38:46.318  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：2createApiMap:{}
+2019-04-06 11:38:46.334  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：17createApiMap:{}
+2019-04-06 11:38:46.365  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：6createDocMap:{}
+2019-04-06 11:38:46.365  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：3doneTaskMap:{}
+2019-04-06 11:38:46.365  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：18doneTaskMap:{}
+2019-04-06 11:38:46.412  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：3createTaskMap:{}
+2019-04-06 11:38:46.412  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：18createTaskMap:{}
+2019-04-06 11:38:46.412  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：6createApiMap:{}
+2019-04-06 11:38:46.443  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：1createApiMap:{31=11}
+2019-04-06 11:38:46.443  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：3uploadFileMap:{}
+2019-04-06 11:38:46.443  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：18uploadFileMap:{}
+2019-04-06 11:38:46.443  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：7doneTaskMap:{}
+2019-04-06 11:38:46.474  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：3doneTaskMap:{}
+2019-04-06 11:38:46.474  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：3createDocMap:{}
+2019-04-06 11:38:46.490  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：18createDocMap:{}
+2019-04-06 11:38:46.490  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：7createTaskMap:{}
+2019-04-06 11:38:46.506  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：3createTaskMap:{}
+2019-04-06 11:38:46.521  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：3createApiMap:{}
+2019-04-06 11:38:46.521  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：18createApiMap:{}
+2019-04-06 11:38:46.537  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：7uploadFileMap:{}
+2019-04-06 11:38:46.537  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：3uploadFileMap:{}
+2019-04-06 11:38:46.552  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：4doneTaskMap:{}
+2019-04-06 11:38:46.568  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建任务1个
+2019-04-06 11:38:46.568  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31完成任务0个
+2019-04-06 11:38:46.568  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建文档11个
+2019-04-06 11:38:46.568  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31上传文件2个
+2019-04-06 11:38:46.568  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建接口11个
+2019-04-06 11:38:46.568  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：3createDocMap:{}
+2019-04-06 11:38:46.568  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：7createDocMap:{}
+2019-04-06 11:38:46.599  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：4createTaskMap:{}
+2019-04-06 11:38:46.615  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：2doneTaskMap:{}
+2019-04-06 11:38:46.615  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：3createApiMap:{}
+2019-04-06 11:38:46.615  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：7createApiMap:{}
+2019-04-06 11:38:46.631  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：4uploadFileMap:{}
+2019-04-06 11:38:46.646  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：2createTaskMap:{}
+2019-04-06 11:38:46.646  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：10doneTaskMap:{}
+2019-04-06 11:38:46.662  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：4createDocMap:{}
+2019-04-06 11:38:46.677  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：2uploadFileMap:{}
+2019-04-06 11:38:46.693  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：10createTaskMap:{}
+2019-04-06 11:38:46.709  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：4createApiMap:{}
+2019-04-06 11:38:46.724  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：2createDocMap:{}
+2019-04-06 11:38:46.740  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：10uploadFileMap:{}
+2019-04-06 11:38:46.740  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：5doneTaskMap:{}
+2019-04-06 11:38:46.756  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：2createApiMap:{}
+2019-04-06 11:38:46.771  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：10createDocMap:{}
+2019-04-06 11:38:46.787  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：5createTaskMap:{}
+2019-04-06 11:38:46.787  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：3doneTaskMap:{}
+2019-04-06 11:38:46.818  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：10createApiMap:{}
+2019-04-06 11:38:46.818  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：3createTaskMap:{}
+2019-04-06 11:38:46.818  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：5uploadFileMap:{}
+2019-04-06 11:38:46.834  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1doneTaskMap:{}
+2019-04-06 11:38:46.849  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：3uploadFileMap:{}
+2019-04-06 11:38:46.865  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：11doneTaskMap:{}
+2019-04-06 11:38:46.865  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：5createDocMap:{}
+2019-04-06 11:38:46.881  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：4doneTaskMap:{}
+2019-04-06 11:38:46.896  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：3createDocMap:{}
+2019-04-06 11:38:46.912  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：5createApiMap:{}
+2019-04-06 11:38:46.912  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：11createTaskMap:{}
+2019-04-06 11:38:46.927  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：4createTaskMap:{}
+2019-04-06 11:38:46.927  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：3createApiMap:{}
+2019-04-06 11:38:46.959  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：6doneTaskMap:{}
+2019-04-06 11:38:46.959  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：4doneTaskMap:{}
+2019-04-06 11:38:46.959  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：11uploadFileMap:{}
+2019-04-06 11:38:46.990  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：6createTaskMap:{}
+2019-04-06 11:38:46.990  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：4createTaskMap:{}
+2019-04-06 11:38:47.006  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：11createDocMap:{}
+2019-04-06 11:38:47.021  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：4uploadFileMap:{}
+2019-04-06 11:38:47.021  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：6uploadFileMap:{}
+2019-04-06 11:38:47.052  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：11createApiMap:{}
+2019-04-06 11:38:47.068  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：4createDocMap:{}
+2019-04-06 11:38:47.068  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：6createDocMap:{}
+2019-04-06 11:38:47.084  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：12doneTaskMap:{}
+2019-04-06 11:38:47.099  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：4createApiMap:{}
+2019-04-06 11:38:47.115  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：6createApiMap:{}
+2019-04-06 11:38:47.131  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：5doneTaskMap:{}
+2019-04-06 11:38:47.146  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：12createTaskMap:{}
+2019-04-06 11:38:47.146  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：7doneTaskMap:{}
+2019-04-06 11:38:47.162  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：5createTaskMap:{}
+2019-04-06 11:38:47.177  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：12uploadFileMap:{}
+2019-04-06 11:38:47.193  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：7createTaskMap:{}
+2019-04-06 11:38:47.193  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：4uploadFileMap:{}
+2019-04-06 11:38:47.209  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：5uploadFileMap:{}
+2019-04-06 11:38:47.224  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：12createDocMap:{}
+2019-04-06 11:38:47.224  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：7uploadFileMap:{}
+2019-04-06 11:38:47.224  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：4createDocMap:{}
+2019-04-06 11:38:47.240  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：5createDocMap:{}
+2019-04-06 11:38:47.256  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：7createDocMap:{}
+2019-04-06 11:38:47.271  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：12createApiMap:{}
+2019-04-06 11:38:47.271  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：5createApiMap:{}
+2019-04-06 11:38:47.302  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：7createApiMap:{}
+2019-04-06 11:38:47.302  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：13doneTaskMap:{}
+2019-04-06 11:38:47.302  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：6doneTaskMap:{}
+2019-04-06 11:38:47.334  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：10doneTaskMap:{}
+2019-04-06 11:38:47.349  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：6createTaskMap:{}
+2019-04-06 11:38:47.349  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：13createTaskMap:{}
+2019-04-06 11:38:47.365  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：10createTaskMap:{}
+2019-04-06 11:38:47.381  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：6uploadFileMap:{}
+2019-04-06 11:38:47.381  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：13uploadFileMap:{}
+2019-04-06 11:38:47.412  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：10uploadFileMap:{}
+2019-04-06 11:38:47.427  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：6createDocMap:{}
+2019-04-06 11:38:47.427  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：13createDocMap:{}
+2019-04-06 11:38:47.459  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：6createApiMap:{}
+2019-04-06 11:38:47.474  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：10createDocMap:{}
+2019-04-06 11:38:47.474  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：13createApiMap:{}
+2019-04-06 11:38:47.490  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：7doneTaskMap:{}
+2019-04-06 11:38:47.506  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：4createApiMap:{}
+2019-04-06 11:38:47.521  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：10createApiMap:{}
+2019-04-06 11:38:47.521  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1createTaskMap:{31=1}
+2019-04-06 11:38:47.521  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：14doneTaskMap:{}
+2019-04-06 11:38:47.537  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：7createTaskMap:{}
+2019-04-06 11:38:47.537  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：5doneTaskMap:{}
+2019-04-06 11:38:47.553  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：11doneTaskMap:{}
+2019-04-06 11:38:47.568  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：14createTaskMap:{}
+2019-04-06 11:38:47.568  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：7uploadFileMap:{}
+2019-04-06 11:38:47.568  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：5createTaskMap:{}
+2019-04-06 11:38:47.623  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：11createTaskMap:{}
+2019-04-06 11:38:47.625  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：7createDocMap:{}
+2019-04-06 11:38:47.631  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：14uploadFileMap:{}
+2019-04-06 11:38:47.657  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：7createApiMap:{}
+2019-04-06 11:38:47.660  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：11uploadFileMap:{}
+2019-04-06 11:38:47.666  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1uploadFileMap:{31=2}
+2019-04-06 11:38:47.674  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：14createDocMap:{}
+2019-04-06 11:38:47.690  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：10doneTaskMap:{}
+2019-04-06 11:38:47.696  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：11createDocMap:{}
+2019-04-06 11:38:47.728  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：14createApiMap:{}
+2019-04-06 11:38:47.729  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：10createTaskMap:{}
+2019-04-06 11:38:47.733  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：11createApiMap:{}
+2019-04-06 11:38:47.763  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：10uploadFileMap:{}
+2019-04-06 11:38:47.763  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：15doneTaskMap:{}
+2019-04-06 11:38:47.763  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：12doneTaskMap:{}
+2019-04-06 11:38:47.819  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：10createDocMap:{}
+2019-04-06 11:38:47.821  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：12createTaskMap:{}
+2019-04-06 11:38:47.822  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1createDocMap:{31=11}
+2019-04-06 11:38:47.829  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：15createTaskMap:{}
+2019-04-06 11:38:47.860  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：10createApiMap:{}
+2019-04-06 11:38:47.868  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：12uploadFileMap:{}
+2019-04-06 11:38:47.870  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：5uploadFileMap:{}
+2019-04-06 11:38:47.891  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：15uploadFileMap:{}
+2019-04-06 11:38:47.896  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：11doneTaskMap:{}
+2019-04-06 11:38:47.905  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：12createDocMap:{}
+2019-04-06 11:38:47.907  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：5createDocMap:{}
+2019-04-06 11:38:47.932  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：11createTaskMap:{}
+2019-04-06 11:38:47.938  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：15createDocMap:{}
+2019-04-06 11:38:47.946  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：12createApiMap:{}
+2019-04-06 11:38:47.947  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：5createApiMap:{}
+2019-04-06 11:38:47.965  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：11uploadFileMap:{}
+2019-04-06 11:38:47.974  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：1createApiMap:{31=11}
+2019-04-06 11:38:47.979  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：15createApiMap:{}
+2019-04-06 11:38:47.982  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：6doneTaskMap:{}
+2019-04-06 11:38:47.983  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：13doneTaskMap:{}
+2019-04-06 11:38:47.999  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：11createDocMap:{}
+2019-04-06 11:38:48.010  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：6createTaskMap:{}
+2019-04-06 11:38:48.010  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：16doneTaskMap:{}
+2019-04-06 11:38:48.025  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：13createTaskMap:{}
+2019-04-06 11:38:48.031  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：11createApiMap:{}
+2019-04-06 11:38:48.054  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：6uploadFileMap:{}
+2019-04-06 11:38:48.061  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：16createTaskMap:{}
+2019-04-06 11:38:48.064  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：12doneTaskMap:{}
+2019-04-06 11:38:48.066  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：13uploadFileMap:{}
+2019-04-06 11:38:48.088  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：6createDocMap:{}
+2019-04-06 11:38:48.096  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：12createTaskMap:{}
+2019-04-06 11:38:48.100  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：16uploadFileMap:{}
+2019-04-06 11:38:48.103  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：13createDocMap:{}
+2019-04-06 11:38:48.121  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：6createApiMap:{}
+2019-04-06 11:38:48.135  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：12uploadFileMap:{}
+2019-04-06 11:38:48.136  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建任务1个
+2019-04-06 11:38:48.136  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31完成任务0个
+2019-04-06 11:38:48.136  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建文档11个
+2019-04-06 11:38:48.136  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31上传文件2个
+2019-04-06 11:38:48.137  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : Mon Apr 01 00:00:00 CST 2019-Mon Apr 08 00:00:00 CST 2019:用户id=31创建接口11个
+2019-04-06 11:38:48.137  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：13createApiMap:{}
+2019-04-06 11:38:48.149  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：16createDocMap:{}
+2019-04-06 11:38:48.156  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：7doneTaskMap:{}
+2019-04-06 11:38:48.172  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：12createDocMap:{}
+2019-04-06 11:38:48.180  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：14doneTaskMap:{}
+2019-04-06 11:38:48.181  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2doneTaskMap:{}
+2019-04-06 11:38:48.190  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：16createApiMap:{}
+2019-04-06 11:38:48.191  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：7createTaskMap:{}
+2019-04-06 11:38:48.211  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：12createApiMap:{}
+2019-04-06 11:38:48.217  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：14createTaskMap:{}
+2019-04-06 11:38:48.219  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2createTaskMap:{}
+2019-04-06 11:38:48.231  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：17doneTaskMap:{}
+2019-04-06 11:38:48.254  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：13doneTaskMap:{}
+2019-04-06 11:38:48.255  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：7uploadFileMap:{}
+2019-04-06 11:38:48.258  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：14uploadFileMap:{}
+2019-04-06 11:38:48.260  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2uploadFileMap:{}
+2019-04-06 11:38:48.274  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：17createTaskMap:{}
+2019-04-06 11:38:48.289  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：13createTaskMap:{}
+2019-04-06 11:38:48.290  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：7createDocMap:{}
+2019-04-06 11:38:48.297  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：14createDocMap:{}
+2019-04-06 11:38:48.299  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2createDocMap:{}
+2019-04-06 11:38:48.315  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：17uploadFileMap:{}
+2019-04-06 11:38:48.323  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：13uploadFileMap:{}
+2019-04-06 11:38:48.325  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：7createApiMap:{}
+2019-04-06 11:38:48.333  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：14createApiMap:{}
+2019-04-06 11:38:48.336  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：2createApiMap:{}
+2019-04-06 11:38:48.356  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：17createDocMap:{}
+2019-04-06 11:38:48.357  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：13createDocMap:{}
+2019-04-06 11:38:48.362  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：10doneTaskMap:{}
+2019-04-06 11:38:48.373  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：15doneTaskMap:{}
+2019-04-06 11:38:48.377  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3doneTaskMap:{}
+2019-04-06 11:38:48.391  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：13createApiMap:{}
+2019-04-06 11:38:48.396  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：10createTaskMap:{}
+2019-04-06 11:38:48.397  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：17createApiMap:{}
+2019-04-06 11:38:48.415  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：15createTaskMap:{}
+2019-04-06 11:38:48.416  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3createTaskMap:{}
+2019-04-06 11:38:48.423  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：14doneTaskMap:{}
+2019-04-06 11:38:48.432  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：10uploadFileMap:{}
+2019-04-06 11:38:48.438  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：18doneTaskMap:{}
+2019-04-06 11:38:48.452  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：15uploadFileMap:{}
+2019-04-06 11:38:48.455  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3uploadFileMap:{}
+2019-04-06 11:38:48.459  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：14createTaskMap:{}
+2019-04-06 11:38:48.466  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：10createDocMap:{}
+2019-04-06 11:38:48.484  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：18createTaskMap:{}
+2019-04-06 11:38:48.484  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：15createDocMap:{}
+2019-04-06 11:38:48.484  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：14uploadFileMap:{}
+2019-04-06 11:38:48.484  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3createDocMap:{}
+2019-04-06 11:38:48.500  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：10createApiMap:{}
+2019-04-06 11:38:48.515  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：15createApiMap:{}
+2019-04-06 11:38:48.515  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：18uploadFileMap:{}
+2019-04-06 11:38:48.515  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：14createDocMap:{}
+2019-04-06 11:38:48.531  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：3createApiMap:{}
+2019-04-06 11:38:48.547  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：16doneTaskMap:{}
+2019-04-06 11:38:48.562  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：18createDocMap:{}
+2019-04-06 11:38:48.562  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：14createApiMap:{}
+2019-04-06 11:38:48.562  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4doneTaskMap:{}
+2019-04-06 11:38:48.609  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：16createTaskMap:{}
+2019-04-06 11:38:48.609  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：15doneTaskMap:{}
+2019-04-06 11:38:48.609  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：18createApiMap:{}
+2019-04-06 11:38:48.609  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4createTaskMap:{}
+2019-04-06 11:38:48.640  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：15createTaskMap:{}
+2019-04-06 11:38:48.640  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：16uploadFileMap:{}
+2019-04-06 11:38:48.640  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4uploadFileMap:{}
+2019-04-06 11:38:48.672  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：15uploadFileMap:{}
+2019-04-06 11:38:48.672  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：16createDocMap:{}
+2019-04-06 11:38:48.687  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4createDocMap:{}
+2019-04-06 11:38:48.703  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：15createDocMap:{}
+2019-04-06 11:38:48.718  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：16createApiMap:{}
+2019-04-06 11:38:48.734  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：4createApiMap:{}
+2019-04-06 11:38:48.734  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：15createApiMap:{}
+2019-04-06 11:38:48.750  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：17doneTaskMap:{}
+2019-04-06 11:38:48.781  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：16doneTaskMap:{}
+2019-04-06 11:38:48.781  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5doneTaskMap:{}
+2019-04-06 11:38:48.781  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：17createTaskMap:{}
+2019-04-06 11:38:48.812  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：16createTaskMap:{}
+2019-04-06 11:38:48.812  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5createTaskMap:{}
+2019-04-06 11:38:48.828  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：17uploadFileMap:{}
+2019-04-06 11:38:48.875  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：16uploadFileMap:{}
+2019-04-06 11:38:48.875  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5uploadFileMap:{}
+2019-04-06 11:38:48.875  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：17createDocMap:{}
+2019-04-06 11:38:48.906  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：16createDocMap:{}
+2019-04-06 11:38:48.906  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5createDocMap:{}
+2019-04-06 11:38:48.906  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：17createApiMap:{}
+2019-04-06 11:38:48.937  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：16createApiMap:{}
+2019-04-06 11:38:48.953  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：18doneTaskMap:{}
+2019-04-06 11:38:48.953  INFO 11716 --- [pool-2-thread-3] c.g.b.p.s.StatisticsScheduleService      : 工程：1doneTaskMap:{}
+2019-04-06 11:38:48.953  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：5createApiMap:{}
+2019-04-06 11:38:48.968  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：17doneTaskMap:{}
+2019-04-06 11:38:48.984  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：18createTaskMap:{}
+2019-04-06 11:38:49.000  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：17createTaskMap:{}
+2019-04-06 11:38:49.000  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6doneTaskMap:{}
+2019-04-06 11:38:49.031  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：18uploadFileMap:{}
+2019-04-06 11:38:49.031  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：17uploadFileMap:{}
+2019-04-06 11:38:49.047  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6createTaskMap:{}
+2019-04-06 11:38:49.062  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：18createDocMap:{}
+2019-04-06 11:38:49.062  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：17createDocMap:{}
+2019-04-06 11:38:49.093  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6uploadFileMap:{}
+2019-04-06 11:38:49.093  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：17createApiMap:{}
+2019-04-06 11:38:49.093  INFO 11716 --- [pool-2-thread-1] c.g.b.p.s.StatisticsScheduleService      : 工程：18createApiMap:{}
+2019-04-06 11:38:49.125  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6createDocMap:{}
+2019-04-06 11:38:49.125  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：18doneTaskMap:{}
+2019-04-06 11:38:49.172  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：18createTaskMap:{}
+2019-04-06 11:38:49.172  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：6createApiMap:{}
+2019-04-06 11:38:49.203  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：18uploadFileMap:{}
+2019-04-06 11:38:49.218  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：7doneTaskMap:{}
+2019-04-06 11:38:49.234  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：18createDocMap:{}
+2019-04-06 11:38:49.250  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：11doneTaskMap:{}
+2019-04-06 11:38:49.265  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：7createTaskMap:{}
+2019-04-06 11:38:49.265  INFO 11716 --- [pool-2-thread-5] c.g.b.p.s.StatisticsScheduleService      : 工程：18createApiMap:{}
+2019-04-06 11:38:49.297  INFO 11716 --- [pool-2-thread-4] c.g.b.p.s.StatisticsScheduleService      : 工程：11createTaskMap:{}
+2019-04-06 11:38:49.312  INFO 11716 --- [pool-2-thread-2] c.g.b.p.s.StatisticsScheduleService      : 工程：7uploadFileMap:{}
