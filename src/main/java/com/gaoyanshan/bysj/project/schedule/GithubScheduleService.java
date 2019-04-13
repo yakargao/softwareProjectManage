@@ -49,7 +49,7 @@ public class GithubScheduleService {
 
     @Async
     //@Scheduled(cron = "0/5 * * * * ? ")
-    @Scheduled(cron = "0 0/10 * * * ? *")
+//    @Scheduled(cron = "0 0/10 * * * *")
     public void githubCommitTask(){
         logger.info(new Date()+":github状态调度器执行");
         List<Project> projectList = projectRepository.findAll();

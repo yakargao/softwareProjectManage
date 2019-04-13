@@ -1,15 +1,18 @@
 package com.gaoyanshan.bysj.project;
 
+import com.gaoyanshan.bysj.project.config.shiro.ShiroConfig;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.entity.UserProject;
 import com.gaoyanshan.bysj.project.repository.UserProjectRepository;
 import com.gaoyanshan.bysj.project.util.DateUtil;
+import org.crazycake.shiro.RedisManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashMap;
@@ -56,4 +59,12 @@ public class ApplicationTest {
     }
 
 
+
+    @Autowired
+    private ShiroConfig shiroConfig;
+
+    @Test
+    public void  testRedis(){
+        shiroConfig.redisManager().set("test".getBytes(),"1".getBytes(),1000);
+    }
 }

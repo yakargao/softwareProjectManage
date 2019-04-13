@@ -105,6 +105,7 @@ public class DocumentServiceImpl implements DocumentService{
                     predicates.add(criteriaBuilder.equal(root.get("documentType"),condition.getType()));
                 }
                 predicates.add(criteriaBuilder.equal(root.get("deleted"),0));
+                predicates.add(criteriaBuilder.equal(root.get("project").get("id"),condition.getpId()));
                 Predicate predicate = criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
 
                 if (condition.getKey() != null){

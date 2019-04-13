@@ -46,6 +46,12 @@ public class API implements Serializable{
     @Column
     private String summary;
 
+    @Column
+    private String url;
+
+    @Column
+    private int isDone;
+
     @JsonProperty("pId")
     @JsonInclude
     @Transient
@@ -128,5 +134,21 @@ public class API implements Serializable{
 
     public void setSummary(String summary) {
         this.summary = summary;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public int getIsDone() {
+        return isDone;
+    }
+
+    public void setIsDone(int isDone) {
+        this.isDone = isDone;
     }
 }

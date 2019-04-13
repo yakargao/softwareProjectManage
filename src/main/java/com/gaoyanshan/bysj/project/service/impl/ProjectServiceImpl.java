@@ -1,5 +1,6 @@
 package com.gaoyanshan.bysj.project.service.impl;
 
+import com.gaoyanshan.bysj.project.config.shiro.ShiroConfig;
 import com.gaoyanshan.bysj.project.constant.Constant;
 import com.gaoyanshan.bysj.project.dto.MyPage;
 import com.gaoyanshan.bysj.project.dto.ProjectDTO;
@@ -18,10 +19,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.*;
 
 /**
  * <pre>类名: ProjectServiceImpl</pre>
@@ -39,11 +38,13 @@ public class ProjectServiceImpl implements ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
 
-
     @Override
     public Project getProjec(int id) {
         return projectRepository.findOneById(id);
     }
+
+    @Autowired
+    public ShiroConfig  shiroConfig;
 
     @Override
     public List<Project> getProjectsByUserId(int id) {
@@ -109,6 +110,22 @@ public class ProjectServiceImpl implements ProjectService {
         //根据sale_count排行
         Pageable pageable = PageRequest.of(page-1,10,Sort.Direction.DESC,"createTime");
         return MyPage.transformPage(projectRepository.findAll(pageable));
+    }
+
+    @Override
+    public Map<String, Integer> getRecentProjrctId(User user) {
+        Map<String, Integer> map = new HashMap<>();
+        byte[] bytes = shiroConfig.redisManager().get(user.getEmail().getBytes());
+        int pId = Integer.parseInt(new String(bytes));
+        map.put("pId",pId);
+        return map;
+    }
+
+    @Override
+    public void setRecentProjectId(User user, int projectId) {
+        String email = user.getEmail();
+        String pId = projectId+"";
+        shiroConfig.redisManager().set(email.getBytes(),pId.getBytes(),10000);
     }
 
 }

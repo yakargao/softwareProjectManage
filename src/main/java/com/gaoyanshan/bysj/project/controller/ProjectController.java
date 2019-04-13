@@ -104,4 +104,28 @@ public class ProjectController {
     }
 
 
+    @GetMapping("/recent")
+    public Response getRecentPid(){
+        Subject subject = SecurityUtils.getSubject();
+        User user = null;
+        try{
+            user = (User) subject.getPrincipal();
+        }catch (ClassCastException e){
+            throw new SystemException("类型转化出错："+e.getMessage());
+        }
+        return Response.success(projectService.getRecentProjrctId(user));
+    }
+
+    @PutMapping("/recent/{id}")
+    public Response setRecentPid(@PathVariable("id")int pId){
+        Subject subject = SecurityUtils.getSubject();
+        User user = null;
+        try{
+            user = (User) subject.getPrincipal();
+        }catch (ClassCastException e){
+            throw new SystemException("类型转化出错："+e.getMessage());
+        }
+        projectService.setRecentProjectId(user,pId);
+        return Response.success(true);
+    }
 }

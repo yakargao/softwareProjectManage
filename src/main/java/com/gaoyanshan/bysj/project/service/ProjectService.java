@@ -51,4 +51,7 @@ public interface ProjectService {
      */
     MyPage<Project> getAllProject(Integer page, Integer size);
 
+    Map<String,Integer> getRecentProjrctId(User user);
+
+    void setRecentProjectId(User user,int projectId);
 }

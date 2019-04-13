@@ -54,6 +54,7 @@ public class APIServiceImpl implements APISservice{
         api.setProject(project);
         api.setContent(dto.getContent());
         api.setSummary(dto.getSummary());
+        api.setUrl(dto.getUrl());
         api.setUser(user);
         api = apiRepository.save(api);
         return api.getId();
