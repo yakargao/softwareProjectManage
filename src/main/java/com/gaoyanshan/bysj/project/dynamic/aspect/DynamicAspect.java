@@ -48,6 +48,8 @@ public class DynamicAspect {
     @Around("@annotation(com.gaoyanshan.bysj.project.dynamic.aspect.Dynamic)")
     public Object catchDynamic(ProceedingJoinPoint pjp){
         LOGGER.info("拦截到操作方法：{}", pjp.getSignature());
+        Object[] args = pjp.getArgs();
+        LOGGER.info("拦截参数",args);
         Object result = null;
         DynamicEventEnum event = null;
         Dynamic annotation = null;

@@ -8,6 +8,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 /**
@@ -23,36 +25,35 @@ public class MailUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(MailUtil.class);
 
+    private ExecutorService sendMailThreadPool = Executors.newFixedThreadPool(3);
+
     @Autowired
     private JavaMailSender javaMailSender;
 
     @Value("${spring.mail.username}")
     private String sender;
 
-    @Value("${spring.mail.test.username}")
-    private String testMail;
 
     public void sendSimpleEmail(String subject,String content,String... recipients){
-        try {
-            SimpleMailMessage mailMessage = new SimpleMailMessage();
-            mailMessage.setFrom(sender);
-            mailMessage.setSubject(subject);
-            mailMessage.setText(content);
-            mailMessage.setTo(recipients);
-            javaMailSender.send(mailMessage);
-        }catch (Exception e){
-            logger.error("发送邮件出错：",e.getMessage());
-        }finally {
-            for(int i=0;i < recipients.length ; i++)
-            logger.info("发送邮件给"+recipients[i]+"成功");
-        }
+
+        this.sendMailThreadPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    SimpleMailMessage mailMessage = new SimpleMailMessage();
+                    mailMessage.setFrom(sender);
+                    mailMessage.setSubject(subject);
+                    mailMessage.setText(content);
+                    mailMessage.setTo(recipients);
+                    javaMailSender.send(mailMessage);
+                }catch (Exception e){
+                    logger.error("发送邮件出错：",e.getMessage());
+                }finally {
+                    for(int i=0;i < recipients.length ; i++)
+                        logger.info("发送邮件给"+recipients[i]+"成功");
+                }
+            }
+        });
     }
 
-    public String getTestMail() {
-        return testMail;
-    }
-
-    public void setTestMail(String testMail) {
-        this.testMail = testMail;
-    }
 }

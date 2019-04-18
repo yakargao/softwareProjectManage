@@ -60,6 +60,39 @@ public interface UserService {
     HashMap<String,Object> getUserInfo(User user);
 
 
+    /**
+     * 更新头像
+     * @param map
+     * @return
+     */
     Integer uploadAvatar(Map<String,Object> map);
+
+
+    /**
+     * 分组查询
+     * @param group
+     * @return
+     */
+    List<UserInfo> getUsersByGroup(int group);
+
+
+    /**
+     * 管理员新增用户
+     * @param map
+     * @return
+     */
+    Integer adminAddUser(Map<String,String> map);
+
+
+    /**
+     * 获取用户信息
+     * @param id
+     * @return
+     */
+    UserInfo getUserInfoById(int id);
+
+
+    List<UserInfo> getUsersByConditions(String key);
+
 
 }

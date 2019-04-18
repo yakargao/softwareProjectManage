@@ -40,4 +40,9 @@ public class StatisticController {
         return Response.success(statisticService.getPersonalDatas(pid,user.getId()));
     }
 
+
+    @GetMapping("/byUserId")
+    public Response getStatistic(@RequestParam("userId")int userId){
+        return Response.success(statisticService.getStatistic(userId));
+    }
 }

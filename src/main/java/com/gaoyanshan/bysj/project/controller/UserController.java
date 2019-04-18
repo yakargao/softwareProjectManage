@@ -138,4 +138,21 @@ public class UserController {
         System.out.println(map);
         return Response.success(userService.uploadAvatar(map));
     }
+
+    @GetMapping("/get/group")
+    public Response getUserByGroup(@RequestParam("group")int group){
+        return Response.success(userService.getUsersByGroup(group));
+    }
+
+    @PostMapping("/admin/add")
+    public Response adminAddUser(@RequestBody Map<String,String> map){
+        System.out.println(map);
+        return Response.success(userService.adminAddUser(map));
+    }
+
+    @GetMapping("/get/one")
+    public Response getUserInfoById(@RequestParam("userId") int userId){
+        return Response.success(userService.getUserInfoById(userId));
+    }
+
 }

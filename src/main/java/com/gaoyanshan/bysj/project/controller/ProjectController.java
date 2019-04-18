@@ -1,5 +1,6 @@
 package com.gaoyanshan.bysj.project.controller;
 
+import com.gaoyanshan.bysj.project.dto.ProjectDTO;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.exception.SystemException;
 import com.gaoyanshan.bysj.project.response.Response;
@@ -33,7 +34,7 @@ public class ProjectController {
      */
     @GetMapping("/item")
     public Response getProject(@RequestParam("id") int id){
-        return Response.success(projectService.getProjec(id));
+        return Response.success(projectService.getProject(id));
     }
 
     /**
@@ -54,11 +55,10 @@ public class ProjectController {
 
     /**
      * 新增项目
-     * @param map
      * @return
      */
     @PostMapping("/add")
-    public Response addProject(@RequestBody Map<String,Object> map){
+    public Response addProject(@RequestBody ProjectDTO dto){
         Subject subject = SecurityUtils.getSubject();
         User user = null;
         try{
@@ -67,7 +67,7 @@ public class ProjectController {
             throw new SystemException("类型转化出错："+e.getMessage());
         }
 
-        return Response.success(projectService.addProject(map,user));
+        return Response.success(projectService.addProject(dto,user));
     }
 
     /**
@@ -77,7 +77,6 @@ public class ProjectController {
      */
     @DeleteMapping("/{id}")
     public Response deleteProject(@PathVariable("id") int id){
-        System.out.println(id);
         projectService.deletedProject(id);
         return Response.success("true");
     }
@@ -99,7 +98,7 @@ public class ProjectController {
     @RequiresAuthentication
     @GetMapping("/all")
     public Response getAllProjects(@RequestParam(name = "page",defaultValue = "1")int page,
-                                   @RequestParam(name = "size",defaultValue = "10")int size){
+                                   @RequestParam(name = "size",defaultValue = "6")int size){
         return Response.success(projectService.getAllProject(page,size));
     }
 
@@ -128,4 +127,22 @@ public class ProjectController {
         projectService.setRecentProjectId(user,pId);
         return Response.success(true);
     }
+
+    @GetMapping("/many/userId")
+    public Response getProjectsByUserId(@RequestParam("userId") int userId){
+        return Response.success(projectService.getProjectsByUserId(userId));
+    }
+
+    @GetMapping("/delete/user")
+    public Response deleteUserOfProject(@RequestParam("userId")int userId,
+                                        @RequestParam("pId")int projectId){
+        return Response.success(projectService.deleteUserOfProject(userId,projectId));
+    }
+
+    @GetMapping("/add/user")
+    public Response addUserOfProject(@RequestParam("userId")int userId,
+                                     @RequestParam("pId")int projectId){
+        return Response.success(projectService.addUserOfProject(userId,projectId));
+    }
+
 }

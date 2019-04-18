@@ -1,5 +1,6 @@
 package com.gaoyanshan.bysj.project.service.impl;
 
+import com.gaoyanshan.bysj.project.constant.Constant;
 import com.gaoyanshan.bysj.project.constant.RolesEnToZh;
 import com.gaoyanshan.bysj.project.constant.StatusCode;
 import com.gaoyanshan.bysj.project.dto.UserDTO;
@@ -13,19 +14,24 @@ import com.gaoyanshan.bysj.project.exception.SystemException;
 import com.gaoyanshan.bysj.project.repository.UserProjectRepository;
 import com.gaoyanshan.bysj.project.repository.UserRepository;
 import com.gaoyanshan.bysj.project.service.UserService;
+import com.gaoyanshan.bysj.project.util.DateUtil;
+import com.gaoyanshan.bysj.project.util.MailUtil;
 import com.gaoyanshan.bysj.project.util.Md5Util;
+import com.gaoyanshan.bysj.project.util.PasswordHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.sound.sampled.Line;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <pre>类名: UserServiceImpl</pre>
@@ -45,6 +51,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserProjectRepository userProjectRepository;
 
+    @Autowired
+    private MailUtil mailUtil;
 
     @Override
     public User addUser(Map<String, String> map) {
@@ -123,6 +131,7 @@ public class UserServiceImpl implements UserService {
             UserInfo userInfo = new UserInfo(u.getId(),
                     u.getEmail(),
                     u.getName());
+            userInfo.setAvatar(u.getAvatar());
             userInfos.add(userInfo);
         }
         return userInfos;
@@ -150,6 +159,84 @@ public class UserServiceImpl implements UserService {
         user.setAvatar(avatar);
         userRepository.save(user);
         return user.getId();
+    }
+
+    @Override
+    public List<UserInfo> getUsersByGroup(int group) {
+        List<User> users = new ArrayList<>();
+        if (group == 1){
+            users = userRepository.findAll();
+        }else if (group == 2){
+            users = userRepository.findAllByCreateTimeBetween(DateUtil.getTimesMonthBegin(),DateUtil.getTimesMonthEnd());
+        }else if (group == 3){
+            users = userRepository.findAllByValidEquals(0);
+        }
+        List<UserInfo> userInfos = new ArrayList<>();
+        for (User user : users){
+            UserInfo userInfo = new UserInfo();
+            userInfo.setId(user.getId());
+            userInfo.setEmail(user.getEmail());
+            userInfo.setName(user.getName());
+            userInfo.setAvatar(user.getAvatar());
+            userInfo.setValid(user.getValid());
+            userInfos.add(userInfo);
+        }
+        return userInfos;
+    }
+
+    @Override
+    public Integer adminAddUser(Map<String, String> map) {
+        String name = map.get("name");
+        String email = map.get("email");
+        String password = "";
+        User user = userRepository.findByEmail(email);
+        if (user != null){
+            throw new SystemException("该用户已经存在");
+        }else{
+            user = new User();
+            user.setEmail(email);
+            user.setName(name);
+            user.setAvatar(Constant.DEFAULT_AVATAR);
+            user.setCreateTime(new Date());
+            password = PasswordHelper.generatePassword(8);
+            String hashPassword = Md5Util.passwordToHash(email,password);
+            user.setPassword(hashPassword);
+            user = userRepository.save(user);
+            mailUtil.sendSimpleEmail("软件项目管理工具密码通知","欢迎使用软件项目管理工具，你的初始化密码是：\n"+password,email);
+        }
+        return user.getId();
+    }
+
+    @Override
+    public UserInfo getUserInfoById(int id) {
+        User user = userRepository.findOneById(id);
+        UserInfo userInfo = new UserInfo();
+        userInfo.setId(user.getId());
+        userInfo.setEmail(user.getEmail());
+        userInfo.setAvatar(user.getAvatar());
+        userInfo.setName(user.getName());
+        userInfo.setValid(user.getValid());
+        userInfo.setCreateTime(user.getCreateTime());
+        return userInfo;
+    }
+
+    @Override
+    public List<UserInfo> getUsersByConditions(String key) {
+         List<UserInfo> userInfos = new ArrayList<>();
+        Specification querySpecifi = new Specification() {
+            @Override
+            public Predicate toPredicate(Root root, CriteriaQuery criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                List<Predicate> predicates = new ArrayList<>();
+                if (key != "" && key != null){
+                    predicates.add(criteriaBuilder.like(root.get("name"),"%"+key+"%"));
+                    predicates.add(criteriaBuilder.like(root.get("email"),"%"+key+"%"));
+
+                }
+                return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
+            }
+        };
+        List<User> userList = userRepository.findAll(querySpecifi);
+        return null;
     }
 
 }

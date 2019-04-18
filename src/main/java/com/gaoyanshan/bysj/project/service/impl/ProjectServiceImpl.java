@@ -4,6 +4,8 @@ import com.gaoyanshan.bysj.project.config.shiro.ShiroConfig;
 import com.gaoyanshan.bysj.project.constant.Constant;
 import com.gaoyanshan.bysj.project.dto.MyPage;
 import com.gaoyanshan.bysj.project.dto.ProjectDTO;
+import com.gaoyanshan.bysj.project.dynamic.aspect.Dynamic;
+import com.gaoyanshan.bysj.project.dynamic.enumeration.DynamicEventEnum;
 import com.gaoyanshan.bysj.project.entity.Project;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.entity.UserProject;
@@ -16,10 +18,14 @@ import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.util.*;
 
 /**
@@ -39,7 +45,7 @@ public class ProjectServiceImpl implements ProjectService {
     private ProjectRepository projectRepository;
 
     @Override
-    public Project getProjec(int id) {
+    public Project getProject(int id) {
         return projectRepository.findOneById(id);
     }
 
@@ -58,29 +64,22 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
 
+    @Dynamic(event = DynamicEventEnum.UPDATE_TASK)
     @Transactional
     @Override
-    public Integer addProject(Map<String,Object> map,User user) {
-        String title = null;
-        String detail = null;
-        List<Integer> userIds = new ArrayList<>();
-        try{
-            title = (String) map.get("title");
-            detail = (String) map.get("detail");
-            userIds = (ArrayList<Integer>)map.get("users");
-        }catch (Exception e){
-            throw new SystemException("前端类型有误:"+e.getMessage());
-        }
+    public Integer addProject(ProjectDTO dto,User user) {
         Project project = new Project();
-        project.setTitle(title);
-        project.setDetail(detail);
+        project.setTitle(dto.getTitle());
+        project.setDetail(dto.getDetail());
         project.setCreateUserEmail(user.getEmail());
         project.setCreateUserName(user.getName());
         project.setCreateTime(new Date());
+        project.setProgress(dto.getProgress());
+        project.setGithubUrl(dto.getGithubUrl());
+        project.setGithubUsername(dto.getGithubUsername());
+        project.setGithubPassword(dto.getGithubPassword());
+        project.setId(dto.getId());
         Project newProject = projectRepository.save(project);
-        for(int uid : userIds){
-            userProjectRepository.saveOneRecord(uid,newProject.getId());
-        }
         return newProject.getId();
     }
 
@@ -108,8 +107,16 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public MyPage<Project> getAllProject(Integer page, Integer size) {
         //根据sale_count排行
-        Pageable pageable = PageRequest.of(page-1,10,Sort.Direction.DESC,"createTime");
-        return MyPage.transformPage(projectRepository.findAll(pageable));
+        Pageable pageable = PageRequest.of(page-1,size,Sort.Direction.DESC,"createTime");
+        Specification querySpecifi = new Specification<Project>() {
+            @Override
+            public Predicate toPredicate(Root<Project> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                List<Predicate> predicates = new ArrayList<>();
+                predicates.add(criteriaBuilder.equal(root.get("deleted"),Constant.DB_UNDELETED));
+                return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
+            }
+        };
+        return MyPage.transformPage(projectRepository.findAll(querySpecifi,pageable));
     }
 
     @Override
@@ -126,6 +133,23 @@ public class ProjectServiceImpl implements ProjectService {
         String email = user.getEmail();
         String pId = projectId+"";
         shiroConfig.redisManager().set(email.getBytes(),pId.getBytes(),10000);
+    }
+
+    @Transactional
+    @Override
+    public Boolean deleteUserOfProject(int userId, int projectId) {
+        userProjectRepository.deleteByUserIdAndProjectId(userId,projectId);
+        return true;
+    }
+
+    @Transactional
+    @Override
+    public Boolean addUserOfProject(int userId, int projectId) {
+
+        UserProject userProject = userProjectRepository.findByUserIdAndProjectProjectId(userId,projectId);
+        if (userProject == null)
+            userProjectRepository.saveOneRecord(userId,projectId);
+        return true;
     }
 
 }

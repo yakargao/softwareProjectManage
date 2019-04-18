@@ -49,12 +49,17 @@ public class Project implements Serializable{
     @Column
     private int deleted;
 
-
+    @Column
     private String githubUrl;
 
+    @Column
     private String githubUsername;
 
+    @Column
     private String githubPassword;
+
+    @Column
+    private int progress;
 
 
     public int getId() {
@@ -143,5 +148,13 @@ public class Project implements Serializable{
 
     public void setGithubPassword(String githubPassword) {
         this.githubPassword = githubPassword;
+    }
+
+    public int getProgress() {
+        return progress;
+    }
+
+    public void setProgress(int progress) {
+        this.progress = progress;
     }
 }

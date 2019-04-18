@@ -2,6 +2,7 @@ package com.gaoyanshan.bysj.project.repository;
 
 import com.gaoyanshan.bysj.project.entity.Project;
 import com.gaoyanshan.bysj.project.entity.Task;
+import com.gaoyanshan.bysj.project.entity.TaskType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
@@ -49,4 +50,8 @@ public interface TaskRepository extends JpaRepository<Task,Integer>,JpaSpecifica
     List<Task> findAllByCreateTimeBetweenAndProjectEquals(@Param("startTime")Date startTime,
                                                           @Param("endTime")Date endTime,
                                                           @Param("project")Project project);
+
+
+    List<Task> findAllByTaskTypeAndDeletedOrderByIsDoneAsc(@Param("type") TaskType type, @Param("deleted") int deleted);
+
 }

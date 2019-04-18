@@ -15,4 +15,7 @@ public interface StatisticService {
      * @return
      */
     StatisticDTO getPersonalDatas(int projectId,int useId);
+
+
+    StatisticDTO getStatistic(int userId);
 }

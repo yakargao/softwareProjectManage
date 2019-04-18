@@ -66,7 +66,7 @@ public class CheckScheduleService {
         String subject = "任务通知";
         for (Map.Entry<String,StringBuilder> entry : deadlineTaskInfo.entrySet()) {
             String content = "以下任务即将到期，请查看：\n"+entry.getValue();
-            mailUtil.sendSimpleEmail(subject,content,entry.getKey(),mailUtil.getTestMail());
+            mailUtil.sendSimpleEmail(subject,content,entry.getKey());
         }
     }
 }

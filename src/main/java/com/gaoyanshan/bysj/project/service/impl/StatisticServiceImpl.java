@@ -23,10 +23,30 @@ public class StatisticServiceImpl implements StatisticService {
 
     @Override
     public StatisticDTO getPersonalDatas(int projectId,int userId) {
-        System.out.println(projectId+"  "+userId);
         List<Statistic> statistics = statisticRepository.findAllByProjectIdAndAndUserIdOrderByEndTimeDesc(projectId,userId);
+//        StatisticDTO dto = new StatisticDTO();
+//        if (statistics.size() > 15)
+//            statistics = statistics.subList(0,15);
+//        for (int i = statistics.size()-1;i>=0;i--){
+//            Statistic statistic = statistics.get(i);
+//            dto.getDates().add(statistic.getEndTime());
+//            dto.getCreateTask().getDatas().add(statistic.getCreateTaskNum());
+//            dto.getDoneTask().getDatas().add(statistic.getDoneTaskNum());
+//            dto.getCeateDoc().getDatas().add(statistic.getCreateDocNum());
+//            dto.getUploadFile().getDatas().add(statistic.getUploadFileNum());
+//            dto.getCreateApi().getDatas().add(statistic.getCreateApiNum());
+//        }
+//        dto.getDoneTask().setName("完成任务");
+//        dto.getCreateTask().setName("创建任务");
+//        dto.getCeateDoc().setName("创建文档");
+//        dto.getUploadFile().setName("上传文件");
+//        dto.getCreateApi().setName("创建接口");
+        return null;
+    }
 
-        System.out.println(statistics);
+    @Override
+    public StatisticDTO getStatistic(int userId) {
+        List<Statistic> statistics = statisticRepository.findAllByUserId(userId);
         StatisticDTO dto = new StatisticDTO();
         if (statistics.size() > 15)
             statistics = statistics.subList(0,15);

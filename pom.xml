@@ -104,6 +104,7 @@
             <artifactId>github-api</artifactId>
             <version>1.95</version>
         </dependency>
+
     </dependencies>
 
     <!--支持打包成java-->

@@ -117,4 +117,10 @@ public class TaskController {
         System.out.println(taskCondition);
         return Response.success(taskService.getTasksByCondition(taskCondition));
     }
+
+    @GetMapping("/byType")
+    public Response getTasksByType(@RequestParam("type") int type){
+        return Response.success(taskService.getTasksByType(type));
+    }
+
 }

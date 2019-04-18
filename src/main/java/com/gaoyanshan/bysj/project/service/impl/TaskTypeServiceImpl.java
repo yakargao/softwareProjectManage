@@ -1,5 +1,6 @@
 package com.gaoyanshan.bysj.project.service.impl;
 
+import com.gaoyanshan.bysj.project.constant.Constant;
 import com.gaoyanshan.bysj.project.entity.TaskType;
 import com.gaoyanshan.bysj.project.repository.TaskTypeRepository;
 import com.gaoyanshan.bysj.project.service.TaskService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <pre>类名: TaskTypeServiceImpl</pre>
@@ -30,5 +32,27 @@ public class TaskTypeServiceImpl implements TaskTypeService {
     @Override
     public List<TaskType> getAllTaskType() {
         return  taskTypeRepository.findAll();
+    }
+
+    @Override
+    public List<TaskType> getTasksByProjectId(int projectId) {
+        return taskTypeRepository.findAllByProjectIdAndDeleted(projectId, Constant.DB_UNDELETED);
+    }
+
+    @Override
+    public TaskType addTaskType(Map<String, Object> map) {
+        String name = (String) map.get("name");
+        int projectId = Integer.parseInt((String) map.get("pId"));
+        TaskType taskType = new TaskType();
+        taskType.setName(name);
+        taskType.setProjectId(projectId);
+        System.out.println(taskType.getId());
+        return taskType;
+    }
+
+    @Override
+    public Boolean deleteTaskType(int typeId) {
+        taskTypeRepository.deleteById(typeId);
+        return true;
     }
 }

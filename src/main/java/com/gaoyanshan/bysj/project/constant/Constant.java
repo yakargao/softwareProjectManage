@@ -59,4 +59,9 @@ public class Constant {
             add(new Types(4,"演示文档"));
         }
     };
+
+    /**
+     * 默认头像
+     */
+    public static  String DEFAULT_AVATAR = "http://ppa26crvy.bkt.clouddn.com/FikstAllXLweowBEXpy5FQxPd8td?attname=u=188149577,2949073731&fm=26&gp=0.jpg";
 }

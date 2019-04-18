@@ -119,7 +119,8 @@ public class TaskServiceImpl implements TaskService{
 
     @Override
     public List<Task> getTasksByType(int type) {
-        return null;
+        TaskType taskType = taskTypeRepository.findById(type);
+        return taskRepository.findAllByTaskTypeAndDeletedOrderByIsDoneAsc(taskType,Constant.DB_UNDELETED);
     }
 
     @Override
@@ -183,4 +184,9 @@ public class TaskServiceImpl implements TaskService{
         }
         return todoList;
     }
+
+
+
+
+
 }

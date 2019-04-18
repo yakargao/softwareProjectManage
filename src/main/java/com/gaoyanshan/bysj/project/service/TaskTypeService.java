@@ -1,5 +1,6 @@
 package com.gaoyanshan.bysj.project.service;
 
+import antlr.collections.impl.LList;
 import com.gaoyanshan.bysj.project.entity.Task;
 import com.gaoyanshan.bysj.project.entity.TaskType;
 
@@ -26,4 +27,27 @@ public interface TaskTypeService {
      * @return
      */
     List<TaskType> getAllTaskType();
+
+    /**
+     * 通过projectId获取类型
+     * @param projectId
+     * @return
+     */
+    List<TaskType> getTasksByProjectId(int projectId);
+
+    /**
+     * 新增任务类型
+     * @param map
+     * @return
+     */
+    TaskType addTaskType(Map<String,Object> map);
+
+    /**
+     * 删除任务类型
+     * @param typeId
+     * @return
+     */
+    Boolean deleteTaskType(int typeId);
+
+
 }

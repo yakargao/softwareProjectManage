@@ -62,7 +62,7 @@ public class DocumentServiceImpl implements DocumentService{
         Document document = new Document();
         Project project = projectRepository.findOneById(documentDTO.getProjectId());
         if (project == null)
-            throw new SystemException("该项目不存在");
+            throw new SystemException("该项目不存在，项目ID:"+documentDTO.getProjectId());
         document.setId(documentDTO.getId());
         document.setProject(project);
         document.setTitle(documentDTO.getTitle());
