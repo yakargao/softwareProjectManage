@@ -1,6 +1,8 @@
 package com.gaoyanshan.bysj.project.service.impl;
 
 import com.gaoyanshan.bysj.project.constant.Constant;
+import com.gaoyanshan.bysj.project.dynamic.aspect.Dynamic;
+import com.gaoyanshan.bysj.project.dynamic.enumeration.DynamicEventEnum;
 import com.gaoyanshan.bysj.project.entity.TaskType;
 import com.gaoyanshan.bysj.project.repository.TaskTypeRepository;
 import com.gaoyanshan.bysj.project.service.TaskService;
@@ -40,14 +42,10 @@ public class TaskTypeServiceImpl implements TaskTypeService {
     }
 
     @Override
-    public TaskType addTaskType(Map<String, Object> map) {
-        String name = (String) map.get("name");
-        int projectId = Integer.parseInt((String) map.get("pId"));
-        TaskType taskType = new TaskType();
-        taskType.setName(name);
-        taskType.setProjectId(projectId);
-        System.out.println(taskType.getId());
-        return taskType;
+
+    public TaskType addTaskType(TaskType taskType) {
+
+        return taskTypeRepository.save(taskType);
     }
 
     @Override

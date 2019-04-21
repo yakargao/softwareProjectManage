@@ -3,6 +3,7 @@ package com.gaoyanshan.bysj.project.service;
 import antlr.collections.impl.LList;
 import com.gaoyanshan.bysj.project.entity.Task;
 import com.gaoyanshan.bysj.project.entity.TaskType;
+import com.gaoyanshan.bysj.project.entity.UserTask;
 
 import java.util.List;
 import java.util.Map;
@@ -37,10 +38,10 @@ public interface TaskTypeService {
 
     /**
      * 新增任务类型
-     * @param map
+     * @param taskType
      * @return
      */
-    TaskType addTaskType(Map<String,Object> map);
+    TaskType addTaskType(TaskType taskType);
 
     /**
      * 删除任务类型
@@ -48,6 +49,8 @@ public interface TaskTypeService {
      * @return
      */
     Boolean deleteTaskType(int typeId);
+
+
 
 
 }

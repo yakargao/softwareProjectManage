@@ -11,9 +11,12 @@ public enum  DynamicEventEnum {
     UPDATE_USER("02","更新用户信息"),
     LOGOUT("03","执行用户登出"),
     LOGIN("04","登录了系统"),
-    CREATE_TASK("011","创建了任务"),
-    UPDATE_TASK("012","更新了任务"),
-    QUERY_TASK("013","查询了任务");
+    UPDATE_PROJECT("011","更新了项目"),
+    CREATE_TASK("021","更新了任务"),
+    DONE_TASK("022","完成了任务"),
+    CREATE_DOCUMENT("031","更新了文档"),
+    UPDATE_FILE("041","上传了文件"),
+    CREATE_API("051","创建了API");
 
 
     private String code;

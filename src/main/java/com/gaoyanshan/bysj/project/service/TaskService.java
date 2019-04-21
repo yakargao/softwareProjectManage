@@ -3,12 +3,11 @@ package com.gaoyanshan.bysj.project.service;
 import com.gaoyanshan.bysj.project.dto.TaskCondition;
 import com.gaoyanshan.bysj.project.dto.TaskDTO;
 import com.gaoyanshan.bysj.project.dto.TodoList;
+import com.gaoyanshan.bysj.project.dto.UserInfo;
 import com.gaoyanshan.bysj.project.entity.Task;
 import com.gaoyanshan.bysj.project.entity.User;
-import org.springframework.stereotype.Service;
+import com.gaoyanshan.bysj.project.entity.UserTask;
 
-import javax.xml.crypto.Data;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +22,7 @@ public interface TaskService {
      * 新增任务
      * @param taskDTO
      */
-    void addTask(TaskDTO taskDTO,User user);
+    Task addTask(TaskDTO taskDTO,User user);
 
     /**
      * 删除任务
@@ -77,14 +76,14 @@ public interface TaskService {
      * @param taskId
      * @return
      */
-    List<User> getResponsUsers(int taskId);
+    List<UserInfo> getResponsUsers(int taskId);
 
     /**
      * 获取任务的创建人
      * @param taskId
      * @return
      */
-    User getCreateUser(int taskId);
+    UserInfo getCreateUser(int taskId);
 
     /**
      * 更新任务状态
@@ -99,6 +98,21 @@ public interface TaskService {
      * @return
      */
     TodoList getTasksByCondition(TaskCondition taskCondition);
+
+    /**
+     * 简单的新增任务
+     * @param map
+     * @param user
+     * @return
+     */
+    Task addSimpleTask(Map<String,Object>map,User user);
+
+    /**
+     * 添加参与者
+     * @param map
+     * @return
+     */
+    Boolean addActor(Map<String,Integer> map);
 
 
 }

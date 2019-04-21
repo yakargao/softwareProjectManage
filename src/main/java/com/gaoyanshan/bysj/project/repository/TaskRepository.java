@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Date;
 import java.util.List;
 
@@ -32,8 +33,8 @@ public interface TaskRepository extends JpaRepository<Task,Integer>,JpaSpecifica
     List<Task> findAllByProjectId(int id);
 
     @Modifying
-    @Query("update Task t set t.isDone= :status where t.id=:id")
-    void updateStatus(@Param("id") int taskId, @Param("status") int status);
+    @Query("update Task t set t.isDone= :status,t.doneTime = :doneTime  where t.id=:id")
+    void updateStatus(@Param("id") int taskId, @Param("status") int status,@Param("doneTime")Date doneTime);
 
     List<Task> findAllByExpectedTimeBetween(@Param("startTime")Date startTime,@Param("endTime")Date endTime);
 
@@ -53,5 +54,15 @@ public interface TaskRepository extends JpaRepository<Task,Integer>,JpaSpecifica
 
 
     List<Task> findAllByTaskTypeAndDeletedOrderByIsDoneAsc(@Param("type") TaskType type, @Param("deleted") int deleted);
+
+    int countAllByIsDoneAndProjectAndCreateTimeBetween(@Param("isDone")int isDone,
+                                                                    @Param("project")Project project,
+                                                                    @Param("startTime")Date startTime,
+                                                                    @Param("endTime")Date endTime);
+
+    int countAllByExpectedTimeBeforeAndIsDoneEqualsAndCreateTimeBetween(@Param("time")Date time,
+                                                                        @Param("isDone")int isDone,
+                                                                        @Param("startTime")Date startTime,
+                                                                        @Param("endTime")Date endTime);
 
 }

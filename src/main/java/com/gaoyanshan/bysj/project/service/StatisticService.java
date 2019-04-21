@@ -1,5 +1,6 @@
 package com.gaoyanshan.bysj.project.service;
 
+import com.gaoyanshan.bysj.project.dto.ClassifyStatisticDTO;
 import com.gaoyanshan.bysj.project.dto.StatisticDTO;
 
 /**
@@ -18,4 +19,14 @@ public interface StatisticService {
 
 
     StatisticDTO getStatistic(int userId);
+
+    ClassifyStatisticDTO getTaskStatistic(int pId,int type);
+
+
+    ClassifyStatisticDTO getDocumentStatistic(int pId,int type);
+
+
+    ClassifyStatisticDTO getFileStatistic(int pId,int type);
+
+    ClassifyStatisticDTO getApiStatistic(int pId,int type);
 }

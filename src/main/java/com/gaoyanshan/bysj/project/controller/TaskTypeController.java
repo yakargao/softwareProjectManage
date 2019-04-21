@@ -1,5 +1,6 @@
 package com.gaoyanshan.bysj.project.controller;
 
+import com.gaoyanshan.bysj.project.entity.TaskType;
 import com.gaoyanshan.bysj.project.response.Response;
 import com.gaoyanshan.bysj.project.service.TaskTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,8 @@ public class TaskTypeController {
     }
 
     @PostMapping("/add")
-    public Response addTaskType(@RequestBody Map<String,Object> map){
-        return Response.success(taskTypeService.addTaskType(map));
+    public Response addTaskType(@RequestBody TaskType taskType){
+        return Response.success(taskTypeService.addTaskType(taskType));
     }
 
 

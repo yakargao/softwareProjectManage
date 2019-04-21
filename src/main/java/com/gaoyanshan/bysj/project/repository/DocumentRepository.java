@@ -34,4 +34,9 @@ public interface DocumentRepository extends JpaRepository<Document,Integer>,JpaS
     List<Document> findAllByCreateTimeBetweenAndProjectEquals(@Param("startTime")Date startTime,
                                                               @Param("endTime")Date endTime,
                                                               @Param("project")Project project);
+
+    int countAllByProjectAndDocumentTypeAndCreateTimeBetween(@Param("project")Project project,
+                                                             @Param("documentType")int documentType,
+                                                             @Param("startTime")Date startTime,
+                                                             @Param("endTime")Date endTime);
 }

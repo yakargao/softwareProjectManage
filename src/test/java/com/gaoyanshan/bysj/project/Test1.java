@@ -1,9 +1,18 @@
 package com.gaoyanshan.bysj.project;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.gaoyanshan.bysj.project.repository.UserTaskRepositiry;
+import com.gaoyanshan.bysj.project.util.DateUtil;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.kohsuke.github.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,37 +23,15 @@ import java.util.List;
  */
 public class Test1 {
 
+
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
     @Test
-   public void testGithub(){
-
-        System.out.println(getReposName("https://github.com/CiachoG/softwareProjectManage"));
-        GitHubBuilder gitHubBuilder = new GitHubBuilder();
-        gitHubBuilder.withPassword("CiachoG","github022016");
-        try {
-            GitHub gitHub = gitHubBuilder.build();
-
-
-            GHRepository ghRepository = gitHub.getRepository("CiachoG/softwareProjectManage");
-
-            List<GHEventInfo> ghEventInfos = ghRepository.listEvents().asList();
-            for (GHEventInfo ghEventInfo : ghEventInfos){
-                //System.out.println(ghEventInfo);
-            }
-            List<GHCommit> ghCommits = ghRepository.listCommits().asList();
-            for (GHCommit ghCommit : ghCommits){
-                System.out.println(ghCommit.getCommitDate());
-                System.out.println(ghCommit.getCommitter());
-                System.out.println(ghCommit.getCommitShortInfo().getMessage());
-            }
-            System.out.println(ghCommits.get(0).getCommitter());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void testTime(){
+        System.out.println( DateUtil.getWeekNumOfNow());
+        System.out.println(sdf.format(DateUtil.getOneWeekBegin(15)));
+        System.out.println(sdf.format(DateUtil.getOneWeekEnd(15)));
+        System.out.println(DateUtil.getOneWeekBegin(15).getTime());
     }
 
-    public String getReposName(String url){
-       String[] tokens = url.split("/");
-       return tokens[3]+"/"+tokens[4];
-    }
 }

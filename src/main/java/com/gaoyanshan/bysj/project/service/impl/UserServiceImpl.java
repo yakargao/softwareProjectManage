@@ -118,6 +118,7 @@ public class UserServiceImpl implements UserService {
             UserInfo userInfo = new UserInfo(userProject.getUser().getId(),
                     userProject.getUser().getEmail(),
                     userProject.getUser().getName());
+            userInfo.setAvatar(userProject.getUser().getAvatar());
             users.add(userInfo);
         }
         return users;

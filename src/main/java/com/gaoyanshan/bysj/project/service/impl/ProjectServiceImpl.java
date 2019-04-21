@@ -64,9 +64,9 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
 
-    @Dynamic(event = DynamicEventEnum.UPDATE_TASK)
     @Transactional
     @Override
+    @Dynamic(event = DynamicEventEnum.UPDATE_PROJECT)
     public Integer addProject(ProjectDTO dto,User user) {
         Project project = new Project();
         project.setTitle(dto.getTitle());

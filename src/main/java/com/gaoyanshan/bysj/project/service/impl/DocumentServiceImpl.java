@@ -2,6 +2,8 @@ package com.gaoyanshan.bysj.project.service.impl;
 
 import com.gaoyanshan.bysj.project.constant.Constant;
 import com.gaoyanshan.bysj.project.dto.*;
+import com.gaoyanshan.bysj.project.dynamic.aspect.Dynamic;
+import com.gaoyanshan.bysj.project.dynamic.enumeration.DynamicEventEnum;
 import com.gaoyanshan.bysj.project.entity.Document;
 import com.gaoyanshan.bysj.project.entity.Project;
 import com.gaoyanshan.bysj.project.entity.User;
@@ -56,6 +58,7 @@ public class DocumentServiceImpl implements DocumentService{
         return typeList;
     }
 
+    @Dynamic(event = DynamicEventEnum.CREATE_DOCUMENT)
     @Transactional
     @Override
     public Integer addDocument(DocumentDTO documentDTO, User user) {

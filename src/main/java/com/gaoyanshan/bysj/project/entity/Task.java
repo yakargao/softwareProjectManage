@@ -76,20 +76,6 @@ public class Task implements Serializable {
     @Transient
     private int type;
 
-    @JsonInclude
-    @Transient
-    private List<TaskUserInfo> userInfos = new ArrayList<>();
-
-    public List<TaskUserInfo> getUserInfos() {
-        for (UserTask ut : userTasks){
-            TaskUserInfo userInfo = new TaskUserInfo(ut.getUser().getId(),
-                    ut.getUser().getEmail(),
-                    ut.getUser().getName(),
-                    ut.getConnectType());
-            userInfos.add(userInfo);
-        }
-        return userInfos;
-    }
 
     public int getType() {
         return taskType.getId();

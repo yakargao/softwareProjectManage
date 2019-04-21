@@ -123,4 +123,46 @@ public class TaskController {
         return Response.success(taskService.getTasksByType(type));
     }
 
+    /**
+     * 新增任务
+     * @param taskDTO
+     * @return
+     */
+    @PostMapping("/simple")
+    public Response addSimpleTask(@RequestBody TaskDTO taskDTO){
+        Subject subject = SecurityUtils.getSubject();
+        User user = null;
+        try{
+            user = (User) subject.getPrincipal();
+        }catch (ClassCastException e){
+            throw new SystemException("类型转化出错："+e.getMessage());
+        }
+        return  Response.success(taskService.addTask(taskDTO,user));
+    }
+
+
+    /**
+     * 获取创建者
+     * @param taskId
+     * @return
+     */
+    @GetMapping("/creator")
+    public Response getCreatorOfTask(@RequestParam("taskId")int taskId){
+        return Response.success(taskService.getCreateUser(taskId));
+    }
+
+    /**
+     * 获取参与者
+     * @param taskId
+     * @return
+     */
+    @GetMapping("/actors")
+    public Response getActors(@RequestParam("taskId")int taskId){
+        return Response.success(taskService.getResponsUsers(taskId));
+    }
+
+    @PostMapping("/addActor")
+    public Response addActor(@RequestBody Map<String,Integer> map){
+        return Response.success(taskService.addActor(map));
+    }
 }

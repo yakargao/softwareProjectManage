@@ -30,5 +30,14 @@ public interface UserTaskRepositiry extends JpaRepository<UserTask,Integer>{
     List<UserTask> findAllByTaskEquals(@Param("task")Task task);
 
     UserTask findByTaskEqualsAndConnectTypeEquals(@Param("task")Task task,@Param("connectType")int connectType);
+
+    @Query("select ut from UserTask ut where ut.task.project.id = :projectId")
+    List<UserTask> findAllByProjectId(@Param("projectId")int projectId);
+
+    @Query("select ut from UserTask ut where ut.task.id = :taskId and ut.connectType = :connectType")
+    UserTask findOneByTaskIdAndConnectType(@Param("taskId")int taskId,@Param("connectType")int connectType);
+
+    @Query("select ut from UserTask ut where ut.task.id = :taskId and ut.connectType = :connectType")
+    List<UserTask> findAllByTaskIdAndConnectType(@Param("taskId")int taskId,@Param("connectType")int connectType);
 }
 

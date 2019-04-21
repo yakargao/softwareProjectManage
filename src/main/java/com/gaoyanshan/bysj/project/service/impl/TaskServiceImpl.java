@@ -4,11 +4,12 @@ import com.gaoyanshan.bysj.project.constant.Constant;
 import com.gaoyanshan.bysj.project.dto.TaskCondition;
 import com.gaoyanshan.bysj.project.dto.TaskDTO;
 import com.gaoyanshan.bysj.project.dto.TodoList;
+import com.gaoyanshan.bysj.project.dto.UserInfo;
+import com.gaoyanshan.bysj.project.dynamic.aspect.Dynamic;
+import com.gaoyanshan.bysj.project.dynamic.enumeration.DynamicEventEnum;
 import com.gaoyanshan.bysj.project.entity.*;
-import com.gaoyanshan.bysj.project.repository.ProjectRepository;
-import com.gaoyanshan.bysj.project.repository.TaskRepository;
-import com.gaoyanshan.bysj.project.repository.TaskTypeRepository;
-import com.gaoyanshan.bysj.project.repository.UserTaskRepositiry;
+import com.gaoyanshan.bysj.project.exception.SystemException;
+import com.gaoyanshan.bysj.project.repository.*;
 import com.gaoyanshan.bysj.project.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -32,7 +33,7 @@ import java.util.*;
  */
 
 @Service
-public class TaskServiceImpl implements TaskService{
+public class TaskServiceImpl implements TaskService {
 
 
     @Autowired
@@ -47,21 +48,29 @@ public class TaskServiceImpl implements TaskService{
     @Autowired
     private TaskTypeRepository taskTypeRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Transactional
     @Override
-    public void addTask(TaskDTO taskDTO,User user) {
-        Task task = new Task();
-        task.setTitle(taskDTO.getTitle());
-        task.setContent(taskDTO.getContent());
+    @Dynamic(event = DynamicEventEnum.CREATE_TASK)
+    public Task addTask(TaskDTO taskDTO,User user) {
+
         Project project = projectRepository.findOneById(taskDTO.getProjectId());
+        if (project == null)
+            throw  new SystemException("该项目不存在");
+        Task task = new Task();
         task.setProject(project);
+        if (taskDTO.getId() != 0)
+            task.setId(taskDTO.getId());
+        task.setTitle(taskDTO.getTitle());
+        if (taskDTO.getContent() !=null)
+            task.setContent(taskDTO.getContent());
         task.setCreateTime(new Date());
-        task.setExpectedTime(taskDTO.getExpectedTime());
-        task.setDoneTime(new Date());
-        task.setIsDone(Constant.TASK_IS_NOT_DONE);
+        if (taskDTO.getExpectedTime() != null)
+            task.setExpectedTime(taskDTO.getExpectedTime());
+        task.setIsDone(taskDTO.getIsDone());
         task.setTaskLevel(taskDTO.getTaskLevel());
-        if (taskDTO.getUsers().size() > 0)
-            task.setStartTime(new Date());
         TaskType taskType = taskTypeRepository.findById(taskDTO.getTaskType());
         task.setTaskType(taskType);
         Task saveTask = taskRepository.save(task);
@@ -70,9 +79,7 @@ public class TaskServiceImpl implements TaskService{
         userTask.setTask(saveTask);
         userTask.setCreateTime(new Date());
         userTaskRepositiry.save(userTask);
-        for (Integer uId : taskDTO.getUsers()){
-            userTaskRepositiry.saveOneRecord(uId,saveTask.getId());
-        }
+        return saveTask;
     }
 
     @Override
@@ -129,19 +136,37 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    public List<User> getResponsUsers(int taskId) {
-        return null;
+    public List<UserInfo> getResponsUsers(int taskId) {
+
+        List<UserTask> userTasks = userTaskRepositiry.findAllByTaskIdAndConnectType(taskId,1);
+        List<UserInfo>  userInfos = new ArrayList<>();
+        for (UserTask userTask : userTasks){
+            UserInfo userInfo = new UserInfo();
+            userInfo.setId(userTask.getUser().getId());
+            userInfo.setName(userTask.getUser().getName());
+            userInfo.setAvatar(userTask.getUser().getAvatar());
+            userInfo.setEmail(userTask.getUser().getEmail());
+            userInfos.add(userInfo);
+        }
+        return userInfos;
     }
 
     @Override
-    public User getCreateUser(int taskId) {
-        return null;
+    public UserInfo getCreateUser(int taskId) {
+        UserTask userTask = userTaskRepositiry.findOneByTaskIdAndConnectType(taskId,0);
+        User user = userTask.getUser();
+        UserInfo userInfo = new UserInfo();
+        userInfo.setId(user.getId());
+        userInfo.setEmail(user.getEmail());
+        userInfo.setName(user.getName());
+        userInfo.setAvatar(user.getAvatar());
+        return userInfo;
     }
 
     @Transactional
     @Override
     public void updateStatus(int taskId, int status) {
-        taskRepository.updateStatus(taskId,status);
+        taskRepository.updateStatus(taskId,status,new Date());
     }
 
     @Override
@@ -185,8 +210,59 @@ public class TaskServiceImpl implements TaskService{
         return todoList;
     }
 
+    @Override
+    public Task addSimpleTask(Map<String, Object> map, User user) {
 
+        String title = null;
+        int projectId = 0;
+        int type = 0;
+        try {
+            title = (String) map.get("title");
+            projectId = Integer.parseInt((String) map.get("pId"));
+            type = (int) map.get("type");
+        }catch (Exception e){
+            throw new  SystemException("类型转化错误");
+        }
 
+        Project project = projectRepository.findOneById(projectId);
+        if (project == null)
+            throw  new SystemException("该项目不存在");
+
+        TaskType taskType = taskTypeRepository.findById(type);
+
+        Task task = new Task();
+        task.setTitle(title);
+        task.setProject(project);
+        task.setContent("");
+        task.setTaskLevel(0);
+        task.setTaskType(taskType);
+        task.setCreateTime(new Date());
+        return taskRepository.save(task);
+    }
+
+    @Override
+    public Boolean addActor(Map<String, Integer> map) {
+        System.out.println(map);
+        int userId = map.get("userId");
+        int taskId = map.get("taskId");
+
+        User user = userRepository.findOneById(userId);
+        if (user == null){
+            throw new SystemException("该用户不存在,用户ID："+userId);
+        }
+        Task task = taskRepository.findOneById(taskId);
+        if (task == null){
+            throw  new SystemException("该任务不存在,任务ID："+taskId);
+        }
+
+        UserTask userTask  = new UserTask();
+        userTask.setUser(user);
+        userTask.setTask(task);
+        userTask.setConnectType(1);
+        userTask.setCreateTime(new Date());
+        userTaskRepositiry.save(userTask);
+        return true;
+    }
 
 
 }

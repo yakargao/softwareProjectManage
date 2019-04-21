@@ -19,10 +19,14 @@ public class TaskDTO implements Serializable{
 
     private static final long serialVersionUID = -8065495955326228491L;
 
+    private int id;
+
     private String title;
 
+    @JsonProperty(value = "pId")
     private int projectId;
 
+    @JsonProperty(value = "content",defaultValue = " ")
     private String content;
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
@@ -30,10 +34,19 @@ public class TaskDTO implements Serializable{
 
     private int taskLevel;
 
+    @JsonProperty(value = "type")
     private int taskType;
 
-    @JsonProperty("users")
-    private List<Integer> users = new ArrayList<>();
+    private int isDone;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -83,24 +96,26 @@ public class TaskDTO implements Serializable{
         this.taskType = taskType;
     }
 
-    public List<Integer> getUsers() {
-        return users;
+
+    public int getIsDone() {
+        return isDone;
     }
 
-    public void setUsers(List<Integer> users) {
-        this.users = users;
+    public void setIsDone(int isDone) {
+        this.isDone = isDone;
     }
 
     @Override
     public String toString() {
         return "TaskDTO{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", projectId=" + projectId +
                 ", content='" + content + '\'' +
                 ", expectedTime=" + expectedTime +
                 ", taskLevel=" + taskLevel +
                 ", taskType=" + taskType +
+                ", isDone=" + isDone +
                 '}';
     }
-
 }

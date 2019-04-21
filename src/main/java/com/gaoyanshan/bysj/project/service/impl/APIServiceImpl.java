@@ -3,6 +3,8 @@ package com.gaoyanshan.bysj.project.service.impl;
 import com.gaoyanshan.bysj.project.dto.APIDTO;
 import com.gaoyanshan.bysj.project.dto.ApiCondition;
 import com.gaoyanshan.bysj.project.dto.MyPage;
+import com.gaoyanshan.bysj.project.dynamic.aspect.Dynamic;
+import com.gaoyanshan.bysj.project.dynamic.enumeration.DynamicEventEnum;
 import com.gaoyanshan.bysj.project.entity.API;
 import com.gaoyanshan.bysj.project.entity.Project;
 import com.gaoyanshan.bysj.project.entity.User;
@@ -42,6 +44,7 @@ public class APIServiceImpl implements APISservice{
     @Autowired
     private ProjectRepository projectRepository;
 
+    @Dynamic(event = DynamicEventEnum.CREATE_API)
     @Override
     public Integer addAPI(APIDTO dto, User user) {
         API api = new API();

@@ -45,4 +45,25 @@ public class StatisticController {
     public Response getStatistic(@RequestParam("userId")int userId){
         return Response.success(statisticService.getStatistic(userId));
     }
+
+
+    @GetMapping("/task")
+    public Response getTaskStatistic(@RequestParam("pId")int pId,@RequestParam(name = "type",defaultValue = "0")int type){
+        return  Response.success(statisticService.getTaskStatistic(pId,type));
+    }
+
+    @GetMapping("/document")
+    public Response getDocumentStatistic(@RequestParam("pId")int pId,@RequestParam(name = "type",defaultValue = "0")int type){
+        return Response.success(statisticService.getDocumentStatistic(pId,type));
+    }
+
+    @GetMapping("/file")
+    public Response getFileStatistic(@RequestParam("pId")int pId,@RequestParam(name = "type",defaultValue = "0")int type){
+        return Response.success(statisticService.getFileStatistic(pId,type));
+    }
+
+    @GetMapping("/api")
+    public Response getApiStatistic(@RequestParam("pId")int pId,@RequestParam(name = "type",defaultValue = "0")int type){
+        return Response.success(statisticService.getApiStatistic(pId,type));
+    }
 }

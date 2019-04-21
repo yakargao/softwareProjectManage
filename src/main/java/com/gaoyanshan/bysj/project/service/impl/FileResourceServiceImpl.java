@@ -5,6 +5,8 @@ import com.gaoyanshan.bysj.project.dto.FileCondition;
 import com.gaoyanshan.bysj.project.dto.FileDTO;
 import com.gaoyanshan.bysj.project.dto.MyPage;
 import com.gaoyanshan.bysj.project.dto.Types;
+import com.gaoyanshan.bysj.project.dynamic.aspect.Dynamic;
+import com.gaoyanshan.bysj.project.dynamic.enumeration.DynamicEventEnum;
 import com.gaoyanshan.bysj.project.entity.FileResource;
 import com.gaoyanshan.bysj.project.entity.Project;
 import com.gaoyanshan.bysj.project.entity.User;
@@ -52,6 +54,7 @@ public class FileResourceServiceImpl implements FileResourceService{
         return Constant.FILE_TYPES;
     }
 
+    @Dynamic(event = DynamicEventEnum.UPDATE_FILE)
     @Override
     public List<Integer> addFiles(FileDTO dto, User user) {
 
