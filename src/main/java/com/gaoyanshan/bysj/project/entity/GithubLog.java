@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -15,8 +16,9 @@ import java.util.Date;
 
 @Entity
 @Table(name = "github_log")
-public class GithubLog {
+public class GithubLog implements Serializable {
 
+    private static final long serialVersionUID = 552385771628071066L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
@@ -36,9 +38,12 @@ public class GithubLog {
     @Column
     private String commitMessage;
 
+
+    private String url;
+
     @Column
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date commmitDate;
+    private Date commitDate;
 
     public String getSha() {
         return sha;
@@ -80,14 +85,6 @@ public class GithubLog {
         this.commitMessage = commitMessage;
     }
 
-    public Date getCommmitDate() {
-        return commmitDate;
-    }
-
-    public void setCommmitDate(Date commmitDate) {
-        this.commmitDate = commmitDate;
-    }
-
     public int getId() {
         return id;
     }
@@ -96,16 +93,19 @@ public class GithubLog {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "GithubLog{" +
-                "id=" + id +
-                ", sha='" + sha + '\'' +
-                ", projectId=" + projectId +
-                ", userId=" + userId +
-                ", commitUserName='" + commitUserName + '\'' +
-                ", commitMessage='" + commitMessage + '\'' +
-                ", commmitDate=" + commmitDate +
-                '}';
+    public Date getCommitDate() {
+        return commitDate;
+    }
+
+    public void setCommitDate(Date commitDate) {
+        this.commitDate = commitDate;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

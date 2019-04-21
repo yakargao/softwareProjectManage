@@ -4,6 +4,7 @@ import com.gaoyanshan.bysj.project.dto.ProjectDTO;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.exception.SystemException;
 import com.gaoyanshan.bysj.project.response.Response;
+import com.gaoyanshan.bysj.project.service.DynamicContentService;
 import com.gaoyanshan.bysj.project.service.ProjectService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
@@ -26,6 +27,9 @@ public class ProjectController {
 
     @Autowired
     private ProjectService projectService;
+
+    @Autowired
+    private DynamicContentService dynamicContentService;
 
     /**
      * 通过id获得相关项目的接口
@@ -139,10 +143,25 @@ public class ProjectController {
         return Response.success(projectService.deleteUserOfProject(userId,projectId));
     }
 
+    /**
+     * 新增项目的人员
+     * @param userId
+     * @param projectId
+     * @return
+     */
     @GetMapping("/add/user")
     public Response addUserOfProject(@RequestParam("userId")int userId,
                                      @RequestParam("pId")int projectId){
         return Response.success(projectService.addUserOfProject(userId,projectId));
+    }
+
+
+    @GetMapping("/dynamics")
+    public Response getDynamics(@RequestParam("pId")int projectId,
+                                @RequestParam("page") int page,
+                                @RequestParam("size") int size){
+
+        return  Response.success(dynamicContentService.getDynamicContentByProjectId(page,size,projectId));
     }
 
 }

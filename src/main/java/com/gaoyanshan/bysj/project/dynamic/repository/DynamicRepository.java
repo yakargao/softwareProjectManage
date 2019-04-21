@@ -18,4 +18,5 @@ import java.util.List;
 public interface DynamicRepository extends JpaRepository<DynamicContent,Integer>, JpaSpecificationExecutor<DynamicContent> {
 
     List<DynamicContent> getByUserIdOrderByCreateTimeDesc(@Param("userId") Integer userId);
+
 }

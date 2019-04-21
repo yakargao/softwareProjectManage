@@ -90,6 +90,7 @@ public class GithubScheduleService {
         @Override
         public void run() {
             try{
+                logger.info("项目ID：{}",project.getId());
                 GitHubBuilder gitHubBuilder = new GitHubBuilder();
                 gitHubBuilder.withPassword(project.getGithubUsername(),project.getGithubPassword());
                 GitHub gitHub = gitHubBuilder.build();
@@ -105,16 +106,18 @@ public class GithubScheduleService {
                     GithubLog githubLog = new GithubLog();
                     githubLog.setSha(sha);
                     githubLog.setProjectId(project.getId());
-                    githubLog.setCommmitDate(commitTime);
+                    githubLog.setCommitDate(commitTime);
                     githubLog.setCommitUserName(committer);
                     githubLog.setCommitMessage(commitMessage);
+                    githubLog.setUrl(ghCommit.getHtmlUrl().toString());
+                    logger.info("url:{}",ghCommit.getHtmlUrl());
                     githubLogRepository.save(githubLog);
 
                     System.out.println(githubLog);
                 }
 
             }catch (Exception e){
-                logger.error("保存提交记录时失败");
+                logger.error("保存提交记录时失败:{}",e.getMessage());
             }finally {
                 countDownLatch.countDown();
             }
