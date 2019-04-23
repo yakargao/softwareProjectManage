@@ -49,8 +49,7 @@ public class MailUtil {
                 }catch (Exception e){
                     logger.error("发送邮件出错：",e.getMessage());
                 }finally {
-                    for(int i=0;i < recipients.length ; i++)
-                        logger.info("发送邮件给"+recipients[i]+"成功");
+                   logger.info("邮件发送成功：{}",recipients);
                 }
             }
         });

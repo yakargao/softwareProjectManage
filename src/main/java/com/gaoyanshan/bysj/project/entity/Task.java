@@ -76,6 +76,9 @@ public class Task implements Serializable {
     @Transient
     private int type;
 
+    @JsonInclude
+    @Transient
+    private int pId;
 
     public int getType() {
         return taskType.getId();
@@ -183,6 +186,18 @@ public class Task implements Serializable {
 
     public void setStartTime(Date startTime) {
         this.startTime = startTime;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getpId() {
+        return this.project.getId();
+    }
+
+    public void setpId(int pId) {
+        this.pId = pId;
     }
 
     @Override

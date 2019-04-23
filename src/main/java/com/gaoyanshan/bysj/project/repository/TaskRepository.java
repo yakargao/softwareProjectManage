@@ -65,4 +65,8 @@ public interface TaskRepository extends JpaRepository<Task,Integer>,JpaSpecifica
                                                                         @Param("startTime")Date startTime,
                                                                         @Param("endTime")Date endTime);
 
+    @Modifying
+    @Query("update Task t set t.deleted = 1 where  t.taskType.id = :taskTypeId")
+    void deleteAllByTaskTypeId(@Param("taskTypeId")int taskTypeId);
+
 }

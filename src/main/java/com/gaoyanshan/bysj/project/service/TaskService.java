@@ -1,9 +1,6 @@
 package com.gaoyanshan.bysj.project.service;
 
-import com.gaoyanshan.bysj.project.dto.TaskCondition;
-import com.gaoyanshan.bysj.project.dto.TaskDTO;
-import com.gaoyanshan.bysj.project.dto.TodoList;
-import com.gaoyanshan.bysj.project.dto.UserInfo;
+import com.gaoyanshan.bysj.project.dto.*;
 import com.gaoyanshan.bysj.project.entity.Task;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.entity.UserTask;
@@ -55,7 +52,7 @@ public interface TaskService {
      * @param userID
      * @return
      */
-    List<Task> getTaskByUserId(int userID);
+    MyPage<Task> getTaskByUserId(int userID,int page,int size);
 
     /**
      * 获取对应类型的所有任务

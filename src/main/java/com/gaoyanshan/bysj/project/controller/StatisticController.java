@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://0.0.0.0:8888")
 @RestController
+@RequiresAuthentication
 @RequestMapping("/statistic")
 public class StatisticController {
 

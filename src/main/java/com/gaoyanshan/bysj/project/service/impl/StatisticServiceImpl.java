@@ -241,4 +241,9 @@ public class StatisticServiceImpl implements StatisticService {
         }
         return statisticDTO;
     }
+
+    @Override
+    public ClassifyStatisticDTO getTaskRankStatistic(int pId, int type) {
+        return null;
+    }
 }

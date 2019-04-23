@@ -5,6 +5,7 @@ import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.entity.UserProject;
 import com.gaoyanshan.bysj.project.repository.UserProjectRepository;
 import com.gaoyanshan.bysj.project.util.DateUtil;
+import com.gaoyanshan.bysj.project.util.MailUtil;
 import org.crazycake.shiro.RedisManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -67,4 +68,14 @@ public class ApplicationTest {
     public void  testRedis(){
         shiroConfig.redisManager().set("test".getBytes(),"1".getBytes(),1000);
     }
+
+
+    @Autowired
+    MailUtil mailUtil;
+
+    @Test
+    public void testEmail(){
+        mailUtil.sendSimpleEmail("标题","<h1>车市<h1>","18815135208@163.com");
+    }
+
 }

@@ -155,5 +155,6 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.7" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:1.4" level="project" />
     <orderEntry type="library" name="Maven: javassist:javassist:3.12.1.GA" level="project" />
+    <orderEntry type="library" name="Maven: com.hankcs:hanlp:portable-1.6.1" level="project" />
   </component>
 </module>

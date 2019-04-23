@@ -4,6 +4,7 @@ import com.gaoyanshan.bysj.project.constant.Constant;
 import com.gaoyanshan.bysj.project.dynamic.aspect.Dynamic;
 import com.gaoyanshan.bysj.project.dynamic.enumeration.DynamicEventEnum;
 import com.gaoyanshan.bysj.project.entity.TaskType;
+import com.gaoyanshan.bysj.project.repository.TaskRepository;
 import com.gaoyanshan.bysj.project.repository.TaskTypeRepository;
 import com.gaoyanshan.bysj.project.service.TaskService;
 import com.gaoyanshan.bysj.project.service.TaskTypeService;
@@ -25,6 +26,8 @@ public class TaskTypeServiceImpl implements TaskTypeService {
 
     @Autowired
     private TaskTypeRepository taskTypeRepository;
+
+    private TaskRepository taskRepository;
 
     @Override
     public Integer addTaskType(String name) {
@@ -51,6 +54,7 @@ public class TaskTypeServiceImpl implements TaskTypeService {
     @Override
     public Boolean deleteTaskType(int typeId) {
         taskTypeRepository.deleteById(typeId);
+        taskRepository.deleteAllByTaskTypeId(typeId);
         return true;
     }
 }

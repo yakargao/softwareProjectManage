@@ -1,17 +1,17 @@
 package com.gaoyanshan.bysj.project.service.impl;
 
 import com.gaoyanshan.bysj.project.constant.Constant;
-import com.gaoyanshan.bysj.project.dto.TaskCondition;
-import com.gaoyanshan.bysj.project.dto.TaskDTO;
-import com.gaoyanshan.bysj.project.dto.TodoList;
-import com.gaoyanshan.bysj.project.dto.UserInfo;
+import com.gaoyanshan.bysj.project.dto.*;
 import com.gaoyanshan.bysj.project.dynamic.aspect.Dynamic;
 import com.gaoyanshan.bysj.project.dynamic.enumeration.DynamicEventEnum;
 import com.gaoyanshan.bysj.project.entity.*;
 import com.gaoyanshan.bysj.project.exception.SystemException;
 import com.gaoyanshan.bysj.project.repository.*;
 import com.gaoyanshan.bysj.project.service.TaskService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -35,6 +35,7 @@ import java.util.*;
 @Service
 public class TaskServiceImpl implements TaskService {
 
+    private static  final Logger logger = LoggerFactory.getLogger(TaskServiceImpl.class);
 
     @Autowired
     private ProjectRepository projectRepository;
@@ -56,19 +57,25 @@ public class TaskServiceImpl implements TaskService {
     @Dynamic(event = DynamicEventEnum.CREATE_TASK)
     public Task addTask(TaskDTO taskDTO,User user) {
 
-        Project project = projectRepository.findOneById(taskDTO.getProjectId());
-        if (project == null)
-            throw  new SystemException("该项目不存在");
+        System.out.println(taskDTO);
+
         Task task = new Task();
-        task.setProject(project);
+        if (taskDTO.getProjectId() != 0){
+            Project project = projectRepository.findOneById(taskDTO.getProjectId());
+            if (project == null)
+                throw  new SystemException("该项目不存在");
+            else
+                task.setProject(project);
+        }
         if (taskDTO.getId() != 0)
             task.setId(taskDTO.getId());
         task.setTitle(taskDTO.getTitle());
         if (taskDTO.getContent() !=null)
             task.setContent(taskDTO.getContent());
         task.setCreateTime(new Date());
-        if (taskDTO.getExpectedTime() != null)
+        if (taskDTO.getExpectedTime() !=null)
             task.setExpectedTime(taskDTO.getExpectedTime());
+        System.out.println(taskDTO.getExpectedTime());
         task.setIsDone(taskDTO.getIsDone());
         task.setTaskLevel(taskDTO.getTaskLevel());
         TaskType taskType = taskTypeRepository.findById(taskDTO.getTaskType());
@@ -113,15 +120,27 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public List<Task> getTaskByUserId(int userID) {
-        List<UserTask> userTasks = userTaskRepositiry.getAllByUserId(userID);
+    public MyPage<Task> getTaskByUserId(int userID,int page,int size) {
+
+        Pageable pageable = PageRequest.of(page-1,size,Sort.Direction.DESC,"createTime");
+        Specification specification = new Specification<UserTask>() {
+            @Override
+            public Predicate toPredicate(Root<UserTask> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                List<Predicate> predicates = new ArrayList<>();
+                predicates.add(criteriaBuilder.equal(root.get("connectType"),1));
+                return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
+            }
+        };
+        Page pages = userTaskRepositiry.findAll(specification, pageable);
+        List<UserTask> userTasks = pages.getContent();
+
         List<Task> tasks = new LinkedList<>();
         for (UserTask ut : userTasks){
-            if (ut.getTask().getDeleted() != Constant.DB_DELETED && ut.getConnectType()==1){
-                tasks.add(ut.getTask());
-            }
+            if (ut.getTask().getDeleted() != Constant.DB_DELETED){
+               tasks.add(ut.getTask());
+           }
         }
-        return tasks;
+        return new MyPage<>(tasks,pages.getTotalElements(),pages.getTotalPages());
     }
 
     @Override
@@ -165,6 +184,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Transactional
     @Override
+    @Dynamic(event = DynamicEventEnum.DONE_TASK)
     public void updateStatus(int taskId, int status) {
         taskRepository.updateStatus(taskId,status,new Date());
     }
@@ -242,7 +262,6 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public Boolean addActor(Map<String, Integer> map) {
-        System.out.println(map);
         int userId = map.get("userId");
         int taskId = map.get("taskId");
 
@@ -253,6 +272,9 @@ public class TaskServiceImpl implements TaskService {
         Task task = taskRepository.findOneById(taskId);
         if (task == null){
             throw  new SystemException("该任务不存在,任务ID："+taskId);
+        }else if (task.getStartTime()==null){
+            task.setStartTime(new Date());
+            taskRepository.save(task);
         }
 
         UserTask userTask  = new UserTask();

@@ -61,7 +61,6 @@ public class UserServiceImpl implements UserService {
         String name = map.get("name");
         String roleNameEn = map.get("roleNameEn");
 
-
         //获取Md5加盐密码
         String hashPassword = Md5Util.passwordToHash(email,password);
 

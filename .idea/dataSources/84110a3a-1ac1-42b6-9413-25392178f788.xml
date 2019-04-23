@@ -1697,7 +1697,7 @@
     <column id="364" parent="246" name="start_time">
       <Position>12</Position>
       <Comment>开始时间</Comment>
-      <DataType>date|0s</DataType>
+      <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="365" parent="246" name="FKk8qrwowg31kx7hp93sru1pdqa">

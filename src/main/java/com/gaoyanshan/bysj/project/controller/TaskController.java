@@ -24,6 +24,7 @@ import java.util.Map;
 @CrossOrigin(origins = "http://0.0.0.0:8888")
 @RestController
 @RequestMapping("/task")
+@RequiresAuthentication
 public class TaskController {
 
     @Autowired
@@ -45,8 +46,8 @@ public class TaskController {
         }catch (ClassCastException e){
             throw new SystemException("类型转化出错："+e.getMessage());
         }
-        taskService.addTask(taskDTO,user);
-        return Response.success("true");
+
+        return Response.success(taskService.addTask(taskDTO,user));
     }
 
     /**
@@ -99,8 +100,10 @@ public class TaskController {
      */
     @RequiresAuthentication
     @GetMapping("/tasksByUser")
-    public Response getTaskByUser(@RequestParam("userId")int userId){
-        return Response.success(taskService.getTaskByUserId(userId));
+    public Response getTaskByUser(@RequestParam("userId")int userId,
+                                  @RequestParam(value = "page",defaultValue = "1")int page,
+                                  @RequestParam(value = "size",defaultValue = "10") int size){
+        return Response.success(taskService.getTaskByUserId(userId,page,size));
     }
 
     @PutMapping("/status/{id}")
