@@ -24,7 +24,7 @@ public class DocumentDTO implements Serializable{
     @JsonProperty("title")
     private String title;
 
-    @JsonProperty("description")
+    @JsonProperty("summary")
     private String summary;
 
     @JsonProperty("content")

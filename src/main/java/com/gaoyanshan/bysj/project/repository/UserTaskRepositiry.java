@@ -3,6 +3,7 @@ package com.gaoyanshan.bysj.project.repository;
 import com.gaoyanshan.bysj.project.entity.Task;
 import com.gaoyanshan.bysj.project.entity.UserTask;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,7 +19,7 @@ import java.util.List;
  */
 
 @Repository
-public interface UserTaskRepositiry extends JpaRepository<UserTask,Integer>{
+public interface UserTaskRepositiry extends JpaRepository<UserTask,Integer>,JpaSpecificationExecutor<UserTask> {
 
     @Query("select ut from UserTask ut where ut.user.id = :id")
     List<UserTask> getAllByUserId(@Param("id") int id);
@@ -30,5 +31,14 @@ public interface UserTaskRepositiry extends JpaRepository<UserTask,Integer>{
     List<UserTask> findAllByTaskEquals(@Param("task")Task task);
 
     UserTask findByTaskEqualsAndConnectTypeEquals(@Param("task")Task task,@Param("connectType")int connectType);
+
+    @Query("select ut from UserTask ut where ut.task.project.id = :projectId")
+    List<UserTask> findAllByProjectId(@Param("projectId")int projectId);
+
+    @Query("select ut from UserTask ut where ut.task.id = :taskId and ut.connectType = :connectType")
+    UserTask findOneByTaskIdAndConnectType(@Param("taskId")int taskId,@Param("connectType")int connectType);
+
+    @Query("select ut from UserTask ut where ut.task.id = :taskId and ut.connectType = :connectType")
+    List<UserTask> findAllByTaskIdAndConnectType(@Param("taskId")int taskId,@Param("connectType")int connectType);
 }
 

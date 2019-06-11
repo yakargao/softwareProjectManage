@@ -24,6 +24,7 @@ import java.util.Map;
 @CrossOrigin(origins = "http://0.0.0.0:8888")
 @RestController
 @RequestMapping("/task")
+@RequiresAuthentication
 public class TaskController {
 
     @Autowired
@@ -45,8 +46,8 @@ public class TaskController {
         }catch (ClassCastException e){
             throw new SystemException("类型转化出错："+e.getMessage());
         }
-        taskService.addTask(taskDTO,user);
-        return Response.success("true");
+
+        return Response.success(taskService.addTask(taskDTO,user));
     }
 
     /**
@@ -55,7 +56,6 @@ public class TaskController {
      * @return
      */
 
-    @RequiresAuthentication
     @DeleteMapping("delete/{id}")
     public Response deleteTask(@PathVariable("id")int taskid){
         taskService.deleteTask(taskid);
@@ -68,7 +68,6 @@ public class TaskController {
      * @param taskId
      * @return
      */
-    @RequiresAuthentication
     @PutMapping("/update/{id}")
     public Response updateTask(@RequestBody TaskDTO taskDTO ,@PathVariable("id")int taskId){
         taskService.updatedTask(taskDTO,taskId);
@@ -99,8 +98,10 @@ public class TaskController {
      */
     @RequiresAuthentication
     @GetMapping("/tasksByUser")
-    public Response getTaskByUser(@RequestParam("userId")int userId){
-        return Response.success(taskService.getTaskByUserId(userId));
+    public Response getTaskByUser(@RequestParam("userId")int userId,
+                                  @RequestParam(value = "page",defaultValue = "1")int page,
+                                  @RequestParam(value = "size",defaultValue = "10") int size){
+        return Response.success(taskService.getTaskByUserId(userId,page,size));
     }
 
     @PutMapping("/status/{id}")
@@ -116,5 +117,53 @@ public class TaskController {
     public Response getTasksByCondition(@RequestBody TaskCondition taskCondition){
         System.out.println(taskCondition);
         return Response.success(taskService.getTasksByCondition(taskCondition));
+    }
+
+    @GetMapping("/byType")
+    public Response getTasksByType(@RequestParam("type") int type){
+        return Response.success(taskService.getTasksByType(type));
+    }
+
+    /**
+     * 新增任务
+     * @param taskDTO
+     * @return
+     */
+    @PostMapping("/simple")
+    public Response addSimpleTask(@RequestBody TaskDTO taskDTO){
+        Subject subject = SecurityUtils.getSubject();
+        User user = null;
+        try{
+            user = (User) subject.getPrincipal();
+        }catch (ClassCastException e){
+            throw new SystemException("类型转化出错："+e.getMessage());
+        }
+        return  Response.success(taskService.addTask(taskDTO,user));
+    }
+
+
+    /**
+     * 获取创建者
+     * @param taskId
+     * @return
+     */
+    @GetMapping("/creator")
+    public Response getCreatorOfTask(@RequestParam("taskId")int taskId){
+        return Response.success(taskService.getCreateUser(taskId));
+    }
+
+    /**
+     * 获取参与者
+     * @param taskId
+     * @return
+     */
+    @GetMapping("/actors")
+    public Response getActors(@RequestParam("taskId")int taskId){
+        return Response.success(taskService.getResponsUsers(taskId));
+    }
+
+    @PostMapping("/addActor")
+    public Response addActor(@RequestBody Map<String,Integer> map){
+        return Response.success(taskService.addActor(map));
     }
 }

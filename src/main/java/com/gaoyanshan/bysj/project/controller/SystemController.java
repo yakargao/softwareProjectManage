@@ -52,9 +52,7 @@ public class SystemController {
      * 登出接口，需要验证是否登录
      * @return
      */
-    @RequiresAuthentication
     @GetMapping("/logout")
-    @Dynamic(event = DynamicEventEnum.LOGOUT)
     public Response logout(){
         Subject subject = SecurityUtils.getSubject();
         subject.logout();

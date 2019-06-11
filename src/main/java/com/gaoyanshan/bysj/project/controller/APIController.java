@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
  * <pre>作者: gaoyanshan</pre>
  */
 
-@CrossOrigin(origins = "http://0.0.0.0:8888")
+@CrossOrigin(origins = "{http://0.0.0.0:8888}")
 @RestController
 @RequestMapping("/api")
 public class APIController {

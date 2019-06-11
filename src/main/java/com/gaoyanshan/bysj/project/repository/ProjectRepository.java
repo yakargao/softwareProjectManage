@@ -24,7 +24,7 @@ public interface ProjectRepository extends JpaRepository<Project,Integer>,JpaSpe
     Project findOneById(Integer integer);
 
     @Modifying
-    @Query(value = "update Project p set p.deleted = 1 where p.id=4")
+    @Query(value = "update Project p set p.deleted = 1 where p.id=:id")
     void deleteById(@Param("id") Integer id);
 
     @Query("select p from Project p where p.deleted = 0")

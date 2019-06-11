@@ -32,6 +32,9 @@ public class APIDTO {
     @JsonProperty("content")
     private String content;
 
+    @JsonProperty("url")
+    private String url;
+
     public int getId() {
         return id;
     }
@@ -78,6 +81,14 @@ public class APIDTO {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Override

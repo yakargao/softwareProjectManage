@@ -29,4 +29,11 @@ public interface UserProjectRepository extends JpaRepository<UserProject,Integer
     @Modifying
     @Query(value = "insert into user_project(user_id,project_id) values(?1,?2)",nativeQuery = true)
     void saveOneRecord(int userId, int projectId);
+
+    @Modifying
+    @Query(value = "delete from user_project where user_id = ?1 and project_id = ?2",nativeQuery = true)
+    void deleteByUserIdAndProjectId(@Param("userId")int userId,@Param("projectId")int projectId);
+
+    @Query(value = "select * from user_project where user_id =?1 and project_id = ?2 limit 1",nativeQuery = true)
+    UserProject findByUserIdAndProjectProjectId(int userId,int projectId);
 }

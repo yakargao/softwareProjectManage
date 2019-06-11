@@ -1,6 +1,7 @@
 package com.gaoyanshan.bysj.project.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -29,6 +30,13 @@ public class TaskType implements Serializable {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "taskType",fetch = FetchType.LAZY)
     private List<Task> tasks = new ArrayList<>();
 
+    @JsonProperty("pId")
+    @Column
+    private int projectId;
+
+    @Column
+    private int deleted;
+
     public int getId() {
         return id;
     }
@@ -51,5 +59,21 @@ public class TaskType implements Serializable {
 
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
+    }
+
+    public int getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
+
+    public int getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(int deleted) {
+        this.deleted = deleted;
     }
 }

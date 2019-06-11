@@ -27,4 +27,8 @@ public interface APIRepository extends JpaRepository<API,Integer>,JpaSpecificati
     List<API> findAllByCreateTimeBetweenAndProjectEquals(@Param("startTime")Date startTime,
                                                          @Param("endTime")Date endTime,
                                                          @Param("project")Project project);
+
+    int countAllByProjectAndCreateTimeBetween(@Param("project")Project project,
+                                              @Param("startTime")Date startTime,
+                                              @Param("endTime")Date endTime);
 }

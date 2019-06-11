@@ -1,22 +1,19 @@
 package com.gaoyanshan.bysj.project;
 
-import com.gaoyanshan.bysj.project.entity.Permission;
-import com.gaoyanshan.bysj.project.entity.Role;
+import com.gaoyanshan.bysj.project.config.shiro.ShiroConfig;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.entity.UserProject;
 import com.gaoyanshan.bysj.project.repository.UserProjectRepository;
-import com.gaoyanshan.bysj.project.repository.UserRepository;
 import com.gaoyanshan.bysj.project.util.DateUtil;
 import com.gaoyanshan.bysj.project.util.MailUtil;
-import org.apache.shiro.crypto.hash.SimpleHash;
-import org.apache.shiro.util.ByteSource;
+import org.crazycake.shiro.RedisManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashMap;
@@ -60,6 +57,26 @@ public class ApplicationTest {
     @Test
     public void testMap(){
         Map<Integer,Integer> map = new HashMap<>();
+    }
+
+
+
+    @Autowired
+    private ShiroConfig shiroConfig;
+
+    @Test
+    public void  testRedis(){
+        shiroConfig.redisManager().set("test".getBytes(),"1".getBytes(),1000);
+    }
+
+
+    @Autowired
+    MailUtil mailUtil;
+
+    @Test
+    public void testEmail(){
+       // mailUtil.sendSimpleEmail("标题","<h1>车市<h1>","18815135208@163.com");
+        mailUtil.sendHtmlEmail("html","<h1>dasd</h1><a href='www.baidu.com'>百度<a>","18815135208@163.com");
     }
 
 }

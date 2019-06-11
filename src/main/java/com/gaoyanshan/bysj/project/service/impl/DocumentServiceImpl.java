@@ -2,6 +2,8 @@ package com.gaoyanshan.bysj.project.service.impl;
 
 import com.gaoyanshan.bysj.project.constant.Constant;
 import com.gaoyanshan.bysj.project.dto.*;
+import com.gaoyanshan.bysj.project.dynamic.aspect.Dynamic;
+import com.gaoyanshan.bysj.project.dynamic.enumeration.DynamicEventEnum;
 import com.gaoyanshan.bysj.project.entity.Document;
 import com.gaoyanshan.bysj.project.entity.Project;
 import com.gaoyanshan.bysj.project.entity.User;
@@ -9,6 +11,7 @@ import com.gaoyanshan.bysj.project.exception.SystemException;
 import com.gaoyanshan.bysj.project.repository.DocumentRepository;
 import com.gaoyanshan.bysj.project.repository.ProjectRepository;
 import com.gaoyanshan.bysj.project.service.DocumentService;
+import com.hankcs.hanlp.HanLP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -56,18 +59,30 @@ public class DocumentServiceImpl implements DocumentService{
         return typeList;
     }
 
+    @Dynamic(event = DynamicEventEnum.CREATE_DOCUMENT)
     @Transactional
     @Override
     public Integer addDocument(DocumentDTO documentDTO, User user) {
         Document document = new Document();
         Project project = projectRepository.findOneById(documentDTO.getProjectId());
         if (project == null)
-            throw new SystemException("该项目不存在");
+            throw new SystemException("该项目不存在，项目ID:"+documentDTO.getProjectId());
         document.setId(documentDTO.getId());
         document.setProject(project);
         document.setTitle(documentDTO.getTitle());
-        document.setSummary(documentDTO.getSummary());
+        //document.setSummary(documentDTO.getSummary());
         document.setContent(documentDTO.getContent());
+
+        //剔除HTML标签
+        String documentText = documentDTO.getContent()
+                              .replaceAll("</?[^>]+>", "")
+                              .replaceAll("&nbsp","")
+                              .replaceAll("<a>\\s*|\t|\r|\n</a>", "");
+
+        //使用hanlp生成摘要
+        List<String> sentenceList = HanLP.extractKeyword(documentText, 3);
+        document.setSummary(String.join(",",sentenceList));
+
         document.setCreateUser(user);
         document.setCreateTime(new Date());
         document.setDocumentType(documentDTO.getType());
@@ -105,6 +120,7 @@ public class DocumentServiceImpl implements DocumentService{
                     predicates.add(criteriaBuilder.equal(root.get("documentType"),condition.getType()));
                 }
                 predicates.add(criteriaBuilder.equal(root.get("deleted"),0));
+                predicates.add(criteriaBuilder.equal(root.get("project").get("id"),condition.getpId()));
                 Predicate predicate = criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
 
                 if (condition.getKey() != null){

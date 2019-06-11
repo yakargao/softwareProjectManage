@@ -1,5 +1,6 @@
 package com.gaoyanshan.bysj.project.service;
 
+import com.gaoyanshan.bysj.project.dto.ClassifyStatisticDTO;
 import com.gaoyanshan.bysj.project.dto.StatisticDTO;
 
 /**
@@ -15,4 +16,57 @@ public interface StatisticService {
      * @return
      */
     StatisticDTO getPersonalDatas(int projectId,int useId);
+
+
+    /**
+     * 统计数据
+     * @param userId
+     * @return
+     */
+    StatisticDTO getStatistic(int userId);
+
+    /**
+     * 获取任务统计数据
+     * @param pId
+     * @param type
+     * @return
+     */
+    ClassifyStatisticDTO getTaskStatistic(int pId,int type);
+
+
+    /**
+     * 获取文档统计数据
+     * @param pId
+     * @param type
+     * @return
+     */
+
+    ClassifyStatisticDTO getDocumentStatistic(int pId,int type);
+
+
+    /**
+     * 获取文件统计数据
+     * @param pId
+     * @param type
+     * @return
+     */
+    ClassifyStatisticDTO getFileStatistic(int pId,int type);
+
+    /**
+     * 获取Api统计数据
+     * @param pId
+     * @param type
+     * @return
+     */
+    ClassifyStatisticDTO getApiStatistic(int pId,int type);
+
+
+    /**
+     * 获取任务排行数据
+     * @param pId
+     * @param type
+     * @return
+     */
+    ClassifyStatisticDTO getTaskRankStatistic(int pId,int type);
+
 }

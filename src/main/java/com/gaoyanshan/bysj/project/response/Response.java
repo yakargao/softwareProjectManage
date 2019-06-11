@@ -27,6 +27,27 @@ public class Response<T> {
         this.data = data;
     }
 
+    /**
+     * @desc 成功返回
+     * @param data
+     * @param <T>
+     * @return
+     */
+    public  static <T>Response success(T data){
+        return new Response(StatusCode.SUCCESS,data);
+    }
+
+    /**
+     * @desc 错误返回
+     * @param code
+     * @param message
+     * @param <T>
+     * @return
+     */
+    public static <T>Response error(int code,String message){
+        return new Response(code,message);
+    }
+
     public Response(int code,T data) {
         this.code = code;
         this.data = data;
@@ -59,27 +80,6 @@ public class Response<T> {
 
     public void setData(T data) {
         this.data = data;
-    }
-
-    /**
-     * @desc 成功返回
-     * @param data
-     * @param <T>
-     * @return
-     */
-    public  static <T>Response success(T data){
-        return new Response(StatusCode.SUCCESS,data);
-    }
-
-    /**
-     * @desc 错误返回
-     * @param code
-     * @param message
-     * @param <T>
-     * @return
-     */
-    public static <T>Response error(int code,String message){
-        return new Response(code,message);
     }
 
 }

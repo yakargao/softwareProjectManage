@@ -78,18 +78,7 @@ public class Task implements Serializable {
 
     @JsonInclude
     @Transient
-    private List<TaskUserInfo> userInfos = new ArrayList<>();
-
-    public List<TaskUserInfo> getUserInfos() {
-        for (UserTask ut : userTasks){
-            TaskUserInfo userInfo = new TaskUserInfo(ut.getUser().getId(),
-                    ut.getUser().getEmail(),
-                    ut.getUser().getName(),
-                    ut.getConnectType());
-            userInfos.add(userInfo);
-        }
-        return userInfos;
-    }
+    private int pId;
 
     public int getType() {
         return taskType.getId();
@@ -197,6 +186,18 @@ public class Task implements Serializable {
 
     public void setStartTime(Date startTime) {
         this.startTime = startTime;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getpId() {
+        return this.project.getId();
+    }
+
+    public void setpId(int pId) {
+        this.pId = pId;
     }
 
     @Override

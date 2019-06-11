@@ -28,12 +28,8 @@ public class ScheduleTaskConfig implements SchedulingConfigurer {
     public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {
         scheduledTaskRegistrar.setScheduler(taskExecutor());
     }
-
     @Bean
     public Executor taskExecutor(){
         return Executors.newScheduledThreadPool(5);
     }
-
-
-
 }

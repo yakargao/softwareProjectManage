@@ -16,7 +16,7 @@ import java.util.List;
 public class StatisticDTO {
 
     @JsonProperty("dates")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "MM-dd")
     private List<Date> dates = new ArrayList<>();
 
     private StatisticDataUnit createTask = new StatisticDataUnit();

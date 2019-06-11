@@ -56,7 +56,7 @@ public class StatisticsScheduleService {
      */
 
     @Async
-    @Scheduled(cron = "* * * * * 6")
+//    @Scheduled(cron = "* * * * * 6")
     public void staticsticTask(){
         List<Project> projects = projectRepository.findAll();
         final CountDownLatch countDownLatch = new CountDownLatch(projects.size());

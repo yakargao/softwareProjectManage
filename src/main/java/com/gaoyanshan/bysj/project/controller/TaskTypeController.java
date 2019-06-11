@@ -1,12 +1,12 @@
 package com.gaoyanshan.bysj.project.controller;
 
+import com.gaoyanshan.bysj.project.entity.TaskType;
 import com.gaoyanshan.bysj.project.response.Response;
 import com.gaoyanshan.bysj.project.service.TaskTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * <pre>类名: TaskTypeController</pre>
@@ -25,6 +25,23 @@ public class TaskTypeController {
     @GetMapping("/all")
     public Response getAllType(){
         return Response.success(taskTypeService.getAllTaskType());
+    }
+
+    @GetMapping("types")
+    public Response getTaskTypesByPid(@RequestParam("pId")int projectId){
+        return Response.success(taskTypeService.getTasksByProjectId(projectId));
+    }
+
+    @PostMapping("/add")
+    public Response addTaskType(@RequestBody TaskType taskType){
+        return Response.success(taskTypeService.addTaskType(taskType));
+    }
+
+
+    @DeleteMapping("/delete/{id}")
+    public Response deleteById(@PathVariable("id")int id){
+        System.out.println(id);
+        return Response.success(taskTypeService.deleteTaskType(id));
     }
 }
 

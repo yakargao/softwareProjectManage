@@ -1,6 +1,9 @@
 package com.gaoyanshan.bysj.project.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <pre>类名: UserInfo</pre>
@@ -13,6 +16,11 @@ public class UserInfo implements Serializable {
     private int id;
     private String email;
     private String name;
+    private String avatar;
+    private int valid;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date createTime;
 
     public UserInfo() {
     }
@@ -45,5 +53,29 @@ public class UserInfo implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public int getValid() {
+        return valid;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public void setValid(int valid) {
+        this.valid = valid;
     }
 }

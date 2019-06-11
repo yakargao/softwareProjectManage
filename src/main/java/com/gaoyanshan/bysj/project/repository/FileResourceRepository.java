@@ -24,4 +24,9 @@ public interface FileResourceRepository extends JpaRepository<FileResource,Integ
     List<FileResource> findAllByUploadTimeBetweenAndProjectEquals(@Param("startTime")Date startTime,
                                                                   @Param("endTime")Date endTime,
                                                                   @Param("project")Project project);
+
+    int countAllByProjectAndFileTypeAndUploadTimeBetween(@Param("project")Project project,
+                                                   @Param("fileType")int fileType,
+                                                   @Param("beginTime")Date beginTime,
+                                                   @Param("endTime")Date endTime);
 }

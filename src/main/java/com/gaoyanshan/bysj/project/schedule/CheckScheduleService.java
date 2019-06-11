@@ -1,5 +1,6 @@
 package com.gaoyanshan.bysj.project.schedule;
 
+import com.gaoyanshan.bysj.project.constant.Constant;
 import com.gaoyanshan.bysj.project.entity.Task;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.entity.UserTask;
@@ -7,12 +8,14 @@ import com.gaoyanshan.bysj.project.repository.TaskRepository;
 import com.gaoyanshan.bysj.project.repository.UserTaskRepositiry;
 import com.gaoyanshan.bysj.project.util.DateUtil;
 import com.gaoyanshan.bysj.project.util.MailUtil;
-import org.apache.logging.log4j.util.StringBuilders;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
@@ -23,17 +26,13 @@ import java.util.*;
  * <pre>作者: gaoyanshan</pre>
  */
 
-@Configuration
-@EnableScheduling
+@Component
 public class CheckScheduleService {
-
+    private static final Logger logger = LoggerFactory.getLogger(CheckScheduleService.class);
     @Autowired
     private TaskRepository taskRepository;
-
     @Autowired
     private UserTaskRepositiry userTaskRepositiry;
-
-
     @Autowired
     private MailUtil mailUtil;
 
@@ -43,6 +42,7 @@ public class CheckScheduleService {
     @Async
     @Scheduled(cron = "0 0 8 * * ? ")
     public void checkTaskDeadline(){
+        logger.info(new Date()+":检查任务过期调度");
         Date startTime = DateUtil.getYesterdayBegin();
         Date endTime = DateUtil.getTomorrowBegin();
         List<Task> tasks = taskRepository.findAllByExpectedTimeBetween(startTime,endTime);
@@ -60,9 +60,8 @@ public class CheckScheduleService {
         }
         String subject = "任务通知";
         for (Map.Entry<String,StringBuilder> entry : deadlineTaskInfo.entrySet()) {
-            String content = "以下任务即将到期，请查看：\n"+entry.getValue();
-            String[] receives = new String[]{entry.getKey()};
-            mailUtil.sendSimpleEmail(receives,subject,content);
+            String content = "<h2>以下任务即将到期，请查看：</h2></br>"+entry.getValue();
+            mailUtil.sendHtmlEmail(subject,content,entry.getKey());
         }
     }
 }

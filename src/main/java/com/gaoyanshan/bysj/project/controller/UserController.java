@@ -124,4 +124,35 @@ public class UserController {
     public Response getAllUsers(){
         return Response.success(userService.getAllUsers());
     }
+
+    @RequiresAuthentication
+    @GetMapping("/logout")
+    public Response logout(){
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        return Response.success("ok");
+    }
+
+    @PostMapping("/update/avatar")
+    public Response updateAvatar(@RequestBody Map<String,Object> map){
+        System.out.println(map);
+        return Response.success(userService.uploadAvatar(map));
+    }
+
+    @GetMapping("/get/group")
+    public Response getUserByGroup(@RequestParam("group")int group){
+        return Response.success(userService.getUsersByGroup(group));
+    }
+
+    @PostMapping("/admin/add")
+    public Response adminAddUser(@RequestBody Map<String,String> map){
+        System.out.println(map);
+        return Response.success(userService.adminAddUser(map));
+    }
+
+    @GetMapping("/get/one")
+    public Response getUserInfoById(@RequestParam("userId") int userId){
+        return Response.success(userService.getUserInfoById(userId));
+    }
+
 }

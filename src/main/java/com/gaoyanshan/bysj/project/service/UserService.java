@@ -52,6 +52,60 @@ public interface UserService {
     List<UserInfo> getAllUsers();
 
 
+    /**
+     * 获取用户信息
+     * @param user
+     * @return
+     */
     HashMap<String,Object> getUserInfo(User user);
+
+
+    /**
+     * 更新头像
+     * @param map
+     * @return
+     */
+    Integer uploadAvatar(Map<String,Object> map);
+
+
+    /**
+     * 分组查询
+     * @param group
+     * @return
+     */
+    List<UserInfo> getUsersByGroup(int group);
+
+
+    /**
+     * 管理员新增用户
+     * @param map
+     * @return
+     */
+    Integer adminAddUser(Map<String,String> map);
+
+
+    /**
+     * 获取用户信息
+     * @param id
+     * @return
+     */
+    UserInfo getUserInfoById(int id);
+
+
+    /**
+     * 根据条件查找用户
+     * @param key
+     * @return
+     */
+    List<UserInfo> getUsersByConditions(String key);
+
+
+    /**
+     * 更新用户密码
+     * @param map
+     * @return
+     */
+    Integer updatePassword(Map<String,Object> map);
+
 
 }

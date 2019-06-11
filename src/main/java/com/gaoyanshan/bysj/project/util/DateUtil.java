@@ -1,5 +1,7 @@
 package com.gaoyanshan.bysj.project.util;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.apache.commons.lang3.builder.ToStringExclude;
 import org.aspectj.weaver.ast.Test;
 
 import java.util.Calendar;
@@ -59,6 +61,66 @@ public class DateUtil {
         cal.set(Calendar.HOUR_OF_DAY, 24);
         return cal.getTime();
     }
+
+
+    /**
+     * 获取指定月份开始时间
+     * @param mouth
+     * @return
+     */
+    public static  Date getTimeAppointMouthBegin(int mouth){
+        Calendar cal = Calendar.getInstance();
+        cal.set(cal.get(Calendar.YEAR),mouth,1,0,0,0);
+        return cal.getTime();
+    }
+
+    /**
+     * 获取指定月份结束时间
+     * @param mouth
+     * @return
+     */
+    public static Date getTimeAppointMouthEnd(int mouth){
+        Calendar cal = Calendar.getInstance();
+        cal.set(cal.get(Calendar.YEAR),mouth,cal.get(Calendar.DAY_OF_MONTH),0,0,0);
+        cal.set(Calendar.DAY_OF_MONTH,cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+        cal.set(Calendar.HOUR_OF_DAY,24);
+        return cal.getTime();
+    }
+
+
+    /**
+     * 获取当前处于第几周
+     * @return
+     */
+    public static int getWeekNumOfNow(){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+        return cal.get(Calendar.WEEK_OF_YEAR);
+    }
+
+
+    /**
+     * 获取某周的时间
+     * @param week
+     * @return
+     */
+    public static Date getOneWeekBegin(int week){
+        Calendar cal = Calendar.getInstance();
+        cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONDAY), cal.get(Calendar.DAY_OF_MONTH), 0, 0, 0);
+        cal.set(Calendar.WEEK_OF_YEAR,week);
+
+        cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+        return cal.getTime();
+    }
+
+    public static Date getOneWeekEnd(int week){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(getOneWeekBegin(week));
+        cal.add(Calendar.DAY_OF_WEEK, 7);
+        return cal.getTime();
+    }
+
+
 
     /**
      * 今天0点

@@ -15,7 +15,7 @@ public interface ProjectService {
      * @param id
      * @return
      */
-    Project getProjec(int id);
+    Project getProject(int id);
 
     /**
      * 通过用户iD获得项目
@@ -27,10 +27,9 @@ public interface ProjectService {
 
     /**
      * 新增项目
-     * @param map
      * @param user
      */
-    Integer addProject(Map<String,Object> map, User user);
+    Integer addProject(ProjectDTO dto, User user);
 
     /**
      * 更新项目
@@ -51,4 +50,23 @@ public interface ProjectService {
      */
     MyPage<Project> getAllProject(Integer page, Integer size);
 
+    Map<String,Integer> getRecentProjrctId(User user);
+
+    void setRecentProjectId(User user,int projectId);
+
+    /**
+     * 删除项目成员
+     * @param userId
+     * @param projectId
+     * @return
+     */
+    Boolean deleteUserOfProject(int userId,int projectId);
+
+    /**
+     * 新增用户成员
+     * @param userId
+     * @param projectId
+     * @return
+     */
+    Boolean addUserOfProject(int userId,int projectId);
 }

@@ -21,4 +21,6 @@ import java.util.List;
 public interface StatisticRepository extends JpaRepository<Statistic,Integer>,JpaSpecificationExecutor<Statistic> {
     List<Statistic> findAllByProjectIdAndAndUserIdOrderByEndTimeDesc(@Param("projectId")int projectId,
                                                                             @Param("userId")int userId);
+
+    List<Statistic> findAllByUserId(@Param("userId")int userId);
 }

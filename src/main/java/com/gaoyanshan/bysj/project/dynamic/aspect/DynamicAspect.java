@@ -1,9 +1,12 @@
 package com.gaoyanshan.bysj.project.dynamic.aspect;
 
+import com.gaoyanshan.bysj.project.dto.*;
 import com.gaoyanshan.bysj.project.dynamic.entity.DynamicContent;
 import com.gaoyanshan.bysj.project.dynamic.enumeration.DynamicEventEnum;
 import com.gaoyanshan.bysj.project.dynamic.repository.DynamicRepository;
+import com.gaoyanshan.bysj.project.entity.Task;
 import com.gaoyanshan.bysj.project.entity.User;
+import com.gaoyanshan.bysj.project.repository.TaskRepository;
 import org.apache.shiro.SecurityUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -35,6 +38,9 @@ public class DynamicAspect {
     @Autowired
     private DynamicRepository dynamicRepository;
 
+    @Autowired
+    private TaskRepository taskRepository;
+
     public DynamicAspect() {
 
     }
@@ -48,6 +54,7 @@ public class DynamicAspect {
     @Around("@annotation(com.gaoyanshan.bysj.project.dynamic.aspect.Dynamic)")
     public Object catchDynamic(ProceedingJoinPoint pjp){
         LOGGER.info("拦截到操作方法：{}", pjp.getSignature());
+        Object[] args = pjp.getArgs();
         Object result = null;
         DynamicEventEnum event = null;
         Dynamic annotation = null;
@@ -69,7 +76,7 @@ public class DynamicAspect {
         } catch (Throwable throwable) {
             LOGGER.error("调用方法: {} 失败! 异常时输入为  {} , 异常为: ", new Object[]{pjp.getSignature().toString(), pjp.getArgs(), throwable.getMessage()});
         }finally {
-            this.saveDynamicContent(dynamicContent);
+            this.saveDynamicContent(dynamicContent,args);
         }
         return result;
     }
@@ -80,12 +87,61 @@ public class DynamicAspect {
      * @date   2019/3/30 22:37
      * @param  dynamicContent
      */
-    private void saveDynamicContent(DynamicContent dynamicContent){
+    private void saveDynamicContent(DynamicContent dynamicContent,Object[] args){
         this.dynamicThreadPool.execute(new Runnable() {
             @Override
             public void run() {
+
+                //更新任务
+                if (dynamicContent.getDynamicEventName().equals(DynamicEventEnum.UPDATE_PROJECT.getEventName())){
+                    ProjectDTO dto = (ProjectDTO) args[0];
+                    dynamicContent.setDynamicEventName(dynamicContent.getDynamicEventName()+"："+dto.getTitle());
+                    dynamicContent.setProjectId(dto.getId());
+                }
+
+                //创建任务
+                if (dynamicContent.getDynamicEventName().equals(DynamicEventEnum.CREATE_TASK.getEventName())){
+                    TaskDTO dto = (TaskDTO) args[0];
+                    dynamicContent.setDynamicEventName(dynamicContent.getDynamicEventName()+"："+dto.getTitle());
+                    dynamicContent.setProjectId(dto.getProjectId());
+                }
+
+                //对任务执行了done
+                if (dynamicContent.getDynamicEventName().equals(DynamicEventEnum.DONE_TASK.getEventName())){
+                    int taskId = (int) args[0];
+                    int status = (int) args[1];
+                    Task task = taskRepository.findOneById(taskId);
+                    if (task !=null){
+                        String dynamicName = status==1?"改变任务："+task.getTitle()+"状态为完成": "改变任务："+task.getTitle()+"状态为未完成";
+                        dynamicContent.setDynamicEventName(dynamicName);
+                        dynamicContent.setProjectId(task.getProject().getId());
+                    }
+                }
+
+                //创建文档
+                if (dynamicContent.getDynamicEventName().equals(DynamicEventEnum.CREATE_DOCUMENT.getEventName())){
+                    DocumentDTO dto = (DocumentDTO) args[0];
+                    dynamicContent.setDynamicEventName(dynamicContent.getDynamicEventName()+"："+dto.getTitle());
+                    dynamicContent.setProjectId(dto.getProjectId());
+                }
+
+                //上传文件
+                if (dynamicContent.getDynamicEventName().equals(DynamicEventEnum.UPDATE_FILE.getEventName())){
+                    FileDTO dto = (FileDTO) args[0];
+                    dynamicContent.setDynamicEventName(dynamicContent.getDynamicEventName()+"："+dto.getTitle());
+                    dynamicContent.setProjectId(dto.getProjectId());
+                }
+
+                //创建接口
+                if (dynamicContent.getDynamicEventName().equals(DynamicEventEnum.CREATE_API.getEventName())){
+                    APIDTO dto = (APIDTO) args[0];
+                    dynamicContent.setDynamicEventName(dynamicContent.getDynamicEventName()+"："+dto.getTitle());
+                    dynamicContent.setProjectId(dto.getProjectId());
+                }
+
                 dynamicRepository.save(dynamicContent);
             }
         });
     }
+
 }

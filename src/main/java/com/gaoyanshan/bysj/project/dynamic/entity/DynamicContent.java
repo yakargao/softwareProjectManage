@@ -1,6 +1,8 @@
 package com.gaoyanshan.bysj.project.dynamic.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -25,8 +27,12 @@ public class DynamicContent {
     private String dynamicEventName;
 
     @Column(name = "create_time")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date createTime;
+
+    @Column(name = "project_id")
+    private int projectId;
 
     public static DynamicContent getNewInstance(){
         return new DynamicContent();
@@ -102,5 +108,14 @@ public class DynamicContent {
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+
+    public int getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
     }
 }

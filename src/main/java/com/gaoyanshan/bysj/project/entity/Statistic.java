@@ -18,19 +18,15 @@ import java.util.Date;
 public class Statistic implements Serializable{
 
     private static final long serialVersionUID = -4551269649213633090L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     @Column
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date beginTime;
-
     @Column
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date endTime;
-
 
     @Column
     private int userId;

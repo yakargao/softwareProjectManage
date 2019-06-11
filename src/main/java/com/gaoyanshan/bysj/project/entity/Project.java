@@ -19,8 +19,7 @@ import java.util.List;
 @Table(name = "project")
 public class Project implements Serializable{
 
-    private static final long serialVersionUID = 469157670714554315L;
-
+    private static final long serialVersionUID = 4090831835989116450L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -42,12 +41,26 @@ public class Project implements Serializable{
     @Column
     private String createUserName;
 
+
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "project",fetch = FetchType.LAZY)
     private List<UserProject> userProjects = new ArrayList<>();
 
     @Column
     private int deleted;
+
+    @Column
+    private String githubUrl;
+
+    @Column
+    private String githubUsername;
+
+    @Column
+    private String githubPassword;
+
+    @Column
+    private int progress;
+
 
     public int getId() {
         return id;
@@ -113,4 +126,35 @@ public class Project implements Serializable{
         this.userProjects = userProjects;
     }
 
+    public String getGithubUrl() {
+        return githubUrl;
+    }
+
+    public void setGithubUrl(String githubUrl) {
+        this.githubUrl = githubUrl;
+    }
+
+    public String getGithubUsername() {
+        return githubUsername;
+    }
+
+    public void setGithubUsername(String githubUsername) {
+        this.githubUsername = githubUsername;
+    }
+
+    public String getGithubPassword() {
+        return githubPassword;
+    }
+
+    public void setGithubPassword(String githubPassword) {
+        this.githubPassword = githubPassword;
+    }
+
+    public int getProgress() {
+        return progress;
+    }
+
+    public void setProgress(int progress) {
+        this.progress = progress;
+    }
 }
