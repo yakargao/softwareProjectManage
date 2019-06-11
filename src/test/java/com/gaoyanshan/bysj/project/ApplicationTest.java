@@ -75,7 +75,8 @@ public class ApplicationTest {
 
     @Test
     public void testEmail(){
-        mailUtil.sendSimpleEmail("标题","<h1>车市<h1>","18815135208@163.com");
+       // mailUtil.sendSimpleEmail("标题","<h1>车市<h1>","18815135208@163.com");
+        mailUtil.sendHtmlEmail("html","<h1>dasd</h1><a href='www.baidu.com'>百度<a>","18815135208@163.com");
     }
 
 }

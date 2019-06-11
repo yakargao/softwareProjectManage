@@ -27,6 +27,7 @@ public class TaskTypeServiceImpl implements TaskTypeService {
     @Autowired
     private TaskTypeRepository taskTypeRepository;
 
+    @Autowired
     private TaskRepository taskRepository;
 
     @Override
@@ -54,7 +55,7 @@ public class TaskTypeServiceImpl implements TaskTypeService {
     @Override
     public Boolean deleteTaskType(int typeId) {
         taskTypeRepository.deleteById(typeId);
-        taskRepository.deleteAllByTaskTypeId(typeId);
+       // taskRepository.deleteAllByTaskTypeId(typeId);
         return true;
     }
 }

@@ -64,4 +64,10 @@ public class Constant {
      * 默认头像
      */
     public static  String DEFAULT_AVATAR = "http://ppa26crvy.bkt.clouddn.com/FikstAllXLweowBEXpy5FQxPd8td?attname=u=188149577,2949073731&fm=26&gp=0.jpg";
+
+
+    /**
+     * 前端地址
+     */
+    public static String CLIENT_BASE_URL = "http://localhost:8888";
 }

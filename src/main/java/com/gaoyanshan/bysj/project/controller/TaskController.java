@@ -56,7 +56,6 @@ public class TaskController {
      * @return
      */
 
-    @RequiresAuthentication
     @DeleteMapping("delete/{id}")
     public Response deleteTask(@PathVariable("id")int taskid){
         taskService.deleteTask(taskid);
@@ -69,7 +68,6 @@ public class TaskController {
      * @param taskId
      * @return
      */
-    @RequiresAuthentication
     @PutMapping("/update/{id}")
     public Response updateTask(@RequestBody TaskDTO taskDTO ,@PathVariable("id")int taskId){
         taskService.updatedTask(taskDTO,taskId);

@@ -53,5 +53,8 @@ public class Test1 {
 
     }
 
-
+    @Test
+    public void sendEmail(){
+        new MailUtil().sendHtmlEmail("html","<h1>dasd</h1><a href='www.baidu.com'>百度<a>","18815135208@163.com");
+    }
 }

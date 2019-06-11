@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
+import javax.mail.internet.MimeMessage;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -47,12 +49,30 @@ public class MailUtil {
                     mailMessage.setTo(recipients);
                     javaMailSender.send(mailMessage);
                 }catch (Exception e){
-                    logger.error("发送邮件出错：",e.getMessage());
+                    logger.error("发送邮件出错：{}",e.getMessage());
                 }finally {
                    logger.info("邮件发送成功：{}",recipients);
                 }
             }
         });
+    }
+
+    public void sendHtmlEmail(String subject,String content,String...recipients){
+        try{
+            MimeMessage message = javaMailSender.createMimeMessage();
+            MimeMessageHelper helper=new MimeMessageHelper(message,true);
+            helper.setFrom(sender);
+            helper.setTo(recipients);
+            helper.setSubject(subject);
+            helper.setText(content,true);
+            javaMailSender.send(message);
+        }catch (Throwable throwable){
+            System.out.println(throwable.getMessage());
+            logger.error("邮件发送{}出错{}",recipients,throwable.getMessage());
+        }finally {
+            logger.info("完成邮件发送：{}",recipients);
+        }
+
     }
 
 }

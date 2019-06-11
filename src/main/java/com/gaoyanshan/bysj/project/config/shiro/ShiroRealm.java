@@ -1,7 +1,6 @@
 package com.gaoyanshan.bysj.project.config.shiro;
 
 import com.gaoyanshan.bysj.project.constant.Constant;
-import com.gaoyanshan.bysj.project.dto.UserDTO;
 import com.gaoyanshan.bysj.project.entity.Permission;
 import com.gaoyanshan.bysj.project.entity.Role;
 import com.gaoyanshan.bysj.project.entity.User;
@@ -13,9 +12,6 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * <pre>类名: ShiroRealm</pre>
@@ -37,7 +33,6 @@ public class ShiroRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         User user = (User) principalCollection.getPrimaryPrincipal();
-        System.out.println(user);
         for (Role role : user.getRoles()) {
             if (role.getDeleted() == Constant.DB_UNDELETED){
                 authorizationInfo.addRole(role.getRoleNameEn());

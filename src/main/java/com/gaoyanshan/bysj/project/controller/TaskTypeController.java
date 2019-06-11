@@ -40,6 +40,7 @@ public class TaskTypeController {
 
     @DeleteMapping("/delete/{id}")
     public Response deleteById(@PathVariable("id")int id){
+        System.out.println(id);
         return Response.success(taskTypeService.deleteTaskType(id));
     }
 }

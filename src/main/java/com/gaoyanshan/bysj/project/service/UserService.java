@@ -92,7 +92,20 @@ public interface UserService {
     UserInfo getUserInfoById(int id);
 
 
+    /**
+     * 根据条件查找用户
+     * @param key
+     * @return
+     */
     List<UserInfo> getUsersByConditions(String key);
+
+
+    /**
+     * 更新用户密码
+     * @param map
+     * @return
+     */
+    Integer updatePassword(Map<String,Object> map);
 
 
 }

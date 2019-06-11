@@ -5,8 +5,6 @@ import java.util.List;
 
 public class ClassifyStatisticDTO {
 
-
-
     private List<String> xDatas = new ArrayList<>();
 
     public List<String> getxDatas() {

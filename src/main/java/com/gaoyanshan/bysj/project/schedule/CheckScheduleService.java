@@ -1,5 +1,6 @@
 package com.gaoyanshan.bysj.project.schedule;
 
+import com.gaoyanshan.bysj.project.constant.Constant;
 import com.gaoyanshan.bysj.project.entity.Task;
 import com.gaoyanshan.bysj.project.entity.User;
 import com.gaoyanshan.bysj.project.entity.UserTask;
@@ -27,16 +28,11 @@ import java.util.*;
 
 @Component
 public class CheckScheduleService {
-
     private static final Logger logger = LoggerFactory.getLogger(CheckScheduleService.class);
-
     @Autowired
     private TaskRepository taskRepository;
-
     @Autowired
     private UserTaskRepositiry userTaskRepositiry;
-
-
     @Autowired
     private MailUtil mailUtil;
 
@@ -44,7 +40,6 @@ public class CheckScheduleService {
      * 每天8点检查即将到期的任务并发送邮件通知
      */
     @Async
-//    @Scheduled(cron = "0/5 * * * * *")
     @Scheduled(cron = "0 0 8 * * ? ")
     public void checkTaskDeadline(){
         logger.info(new Date()+":检查任务过期调度");
@@ -65,8 +60,8 @@ public class CheckScheduleService {
         }
         String subject = "任务通知";
         for (Map.Entry<String,StringBuilder> entry : deadlineTaskInfo.entrySet()) {
-            String content = "以下任务即将到期，请查看：\n"+entry.getValue();
-            mailUtil.sendSimpleEmail(subject,content,entry.getKey());
+            String content = "<h2>以下任务即将到期，请查看：</h2></br>"+entry.getValue();
+            mailUtil.sendHtmlEmail(subject,content,entry.getKey());
         }
     }
 }

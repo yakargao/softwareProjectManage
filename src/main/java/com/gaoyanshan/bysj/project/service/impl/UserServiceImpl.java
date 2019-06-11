@@ -239,4 +239,9 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    @Override
+    public Integer updatePassword(Map<String, Object> map) {
+        return null;
+    }
+
 }
